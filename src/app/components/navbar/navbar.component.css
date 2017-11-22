@@ -1,0 +1,110 @@
+
+/***********************NAVBAR*********************/
+nav{
+  height:56px;
+  display: flex;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  padding: 0 15px;
+  background-color: white;
+  box-shadow: rgb(230,230,230) 0px 0px 18px 1px;
+}
+
+nav > *{ align-self: center; }
+  /**********Button show sidenav**************/
+  .btn-menu{
+    text-align: center;
+    padding: 0 10px;
+    margin-right: 5px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    color: #a4a4a4;
+    cursor: pointer;
+  }
+  .btn-menu:hover { color: #4e4e4e; }
+  /***************Logo***********************/
+  .logo{
+    padding: 0 10px;
+    flex-basis: 200px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction:row;
+    font-family: 'Dancing Script', cursive;
+
+  }
+    .logo > * { align-self: center; }
+    .logo .logo-text{
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.3rem;
+      color: #ff9600;
+    }
+
+  /************Navbar content***********/
+  .cnt{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    flex-basis:100%;
+    padding: 0 15px;
+  }
+    .cnt-start, .cnt-end { display: flex}
+    .cnt-start > *, .cnt-end > * { align-self: center;}
+    .flat_browser{
+      width: 550px;
+      height: 20px;
+      padding: 5px 10px;
+      border: 1px solid rgb(211, 211, 211);
+      font-size: 1.1rem;
+    }
+    .flat_browser:focus{ outline: ridge #ff9600 thin }
+    .button_browser{
+      height: 30px;
+      width: 50px;
+      border: 1px solid rgb(211, 211, 211);
+      background-color: rgb(240,240,240);
+      color: rgb(150,150,150);
+      cursor: pointer;
+    }
+    .button_browser:hover{
+      background-color: rgb(230,230,230);
+      color: rgba(100, 100, 100, 1);
+    }
+
+/*******************SIDENAV*******************/
+.cap-transparent{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,.6);
+}
+.display-sidenav{ display: block}
+
+
+  .sidenav{
+    position: relative;
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    box-shadow: rgba(0,0,0, 0.7) 0px 0px 80px 0px;
+  }
+
+  .not-sidenav {
+    height: 100%;
+    width: calc(100% - 250px);
+    margin-left: auto;
+    position: absolute;
+    top: 0;
+    left: 250px;
+  }
+
+  .sidenav nav{
+    box-shadow: none;
+    padding: 0 15px;
+    border-bottom: 1px solid hsl(0, 0%, 93.3%);
+  }
