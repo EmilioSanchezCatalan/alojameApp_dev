@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 
-import { NavbarModule } from './components/navbar/navbar.module';
+import { NavbarSimpleModule } from './components/navbar-simple/navbar-simple.module';
 import { PagesModule } from './pages/pages.module';
 
 @NgModule({
@@ -12,7 +12,7 @@ import { PagesModule } from './pages/pages.module';
   ],
   imports: [
     BrowserAnimationsModule,
-    NavbarModule,
+    NavbarSimpleModule,
     PagesModule
   ],
   providers: [],

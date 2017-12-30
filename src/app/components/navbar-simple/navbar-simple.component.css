@@ -1,0 +1,42 @@
+/***********************NAVBAR*********************/
+nav{
+  height:56px;
+  display: flex;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  padding: 0 15px;
+  background-color: white;
+  box-shadow: rgb(230,230,230) 0px 0px 18px 1px;
+}
+
+nav > *{ align-self: center; }
+
+/***************Logo***********************/
+.logo{
+  padding: 0 10px;
+  flex-basis: 200px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction:row;
+  font-family: 'Dancing Script', cursive;
+
+}
+.logo > * { align-self: center; }
+.logo > img { max-width: 50px; margin-right: 10px;}
+.logo .logo-text{
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: #ff9600;
+}
+
+/************Navbar content***********/
+.cnt{
+  display: flex;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  flex-basis:100%;
+  padding: 0 15px;
+}
+.cnt-start, .cnt-end { display: flex}
+.cnt-start > *, .cnt-end > * { align-self: center;}
