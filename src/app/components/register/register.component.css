@@ -1,0 +1,113 @@
+.popup-container{
+  max-width: 500px;
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.popup-container > header{
+  display: flex;
+  flex-wrap: wrap;
+  color: #9b9b9b;
+  padding-bottom: 10px;
+  border-bottom: 1px solid hsl(0, 0%, 88%);
+}
+.popup-container > header > *{
+  align-self: center;
+  flex-basis: 100%;
+}
+.popup-container > header > span{
+  position: absolute;
+  top: -15px;
+  right: -20px;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+.popup-container > header > span:hover{ color: black; }
+
+.popup-container > header > h1{ font-size: 1.5rem; font-weight: normal; margin: 0;}
+
+.popup-container > header > h1 i { font-size: 1.2rem; color: #9b9b9b7a; cursor: pointer; }
+.popup-container > header > h1 i:hover { color: black; }
+/********** Count Type **********/
+.user-count{
+  display: flex;
+  flex-direction: row;
+  background-color: #ff9600;
+  border-radius: 5px;
+  color: white;
+  margin: 30px auto;
+  padding: 25px 20px;
+  width: 95%;
+  cursor: pointer;
+  justify-content: space-between;
+}
+.user-count > span{
+  display: flex;
+  justify-content: center;
+  min-width: 80px;
+  text-align: center;
+  padding-right: 10px;
+}
+.user-count i {
+  font-size: 2.5rem;
+  align-self: center;
+}
+
+.user-count p {
+  display: flex;
+  font-size: 1.3rem;
+  padding-left: 30px;
+  border-left: white 1px solid;
+  margin-bottom: 0px;
+}
+.user-count p span{
+  align-self: center;
+}
+
+/******* Register ********/
+.register-inputs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 30px auto;
+}
+.register-inputs > div{
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/***** Date Inputs *****/
+.date-inputs {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.date-inputs > * { align-self: center; }
+.date-inputs > span {
+  font-size: 1.2rem;
+  color: #4e4e4e;
+  margin-bottom: 10px;
+}
+.date-inputs > span i {
+  color: #a9a9a94f;
+  font-size: 1.7rem;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  cursor: pointer;
+}
+.date-inputs > .form-group{ margin: 0;}
+
+
+/******footer********/
+footer {
+  padding-top: 10px;
+  font-size: 1.3rem;
+  text-align: center;
+  border-top: 1px solid hsl(0, 0%, 88%);
+}
+footer span { color: #ff9600; font-weight: 700; cursor: pointer;}
+

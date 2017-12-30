@@ -1,0 +1,77 @@
+<!-- Popup login -->
+<div class="popup-container"  *ngIf="!isPassForgot">
+
+  <!-- Header -->
+  <header>
+    <span (click)="closePopup()"><i class="fa fa-times" aria-hidden="true"></i></span>
+    <h1>Iniciar sesión</h1>
+  </header>
+
+  <!-- User login section -->
+  <section class="login-inputs">
+
+    <!-- Email Input -->
+    <div class="input-group input-group-lg">
+      <input type="text" placeholder="example@email.com" (focus)="setEmailFocus();" (focusout)="setEmailNotFocus();" class="form-control" #inputEmail>
+      <div class="input-group-btn">
+        <button type="button" (click)="inputEmail.focus()" class="btn btn-default">
+          <i class="fa fa-envelope-o" *ngIf="!isEmailFocus" aria-hidden="true"></i>
+          <i class="fa fa-envelope-open-o" *ngIf="isEmailFocus" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="input-group input-group-lg">
+      <input type="password" placeholder="Contraseña" class="form-control" #inputPassword>
+      <div class="input-group-btn">
+        <button type="button" (click)="inputPassword.focus()" class="btn btn-default">
+          <i class="fa fa-lock" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Submit button -->
+    <button type="button" class="btn btn-orange btn-lg btn-block">Entrar</button>
+    <span class="forgot-pass" (click)="setPassForgot(true)">¿Has olvidado tu contraseña?</span>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    ¿No tienes una cuenta? <span (click)="openRegister()">Regístrate</span>
+  </footer>
+</div>
+
+<!-- Popup Restore password -->
+<div class="popup-container" *ngIf="isPassForgot">
+
+  <!-- Header -->
+  <header>
+    <span (click)="closePopup()"><i class="fa fa-times" aria-hidden="true"></i></span>
+    <h1>
+      Restablecer Contraseña
+      <i class="fa fa-reply" aria-hidden="true" (click)="setPassForgot(false)"></i>
+    </h1>
+  </header>
+
+  <!-- User login section -->
+  <section class="login-inputs">
+    <div class="text-forgot">
+      Introduce la dirección de correo electrónico asociada a tu cuenta y te enviaremos un enlace para restablecer tu contraseña.
+    </div>
+    <!-- Email Input -->
+    <div class="input-group input-group-lg">
+      <input type="text" placeholder="example@email.com" (focus)="setEmailFocus();" (focusout)="setEmailNotFocus();" class="form-control" #inputEmail>
+      <div class="input-group-btn">
+        <button type="button" (click)="inputEmail.focus()" class="btn btn-default">
+          <i class="fa fa-envelope-o" *ngIf="!isEmailFocus" aria-hidden="true"></i>
+          <i class="fa fa-envelope-open-o" *ngIf="isEmailFocus" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Submit button -->
+    <button type="button" class="btn btn-orange btn-lg btn-block">Enviar</button>
+  </section>
+
+</div>

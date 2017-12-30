@@ -2,35 +2,19 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 /********************CLEANER***********************/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td, button, input, input:focus{
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
-  list-style: none;
-  box-sizing: content-box;
-  outline:none;
-}
 a:link, a:hover, a:visited, a:active, a {
-  text-decoration:none;
+  text-decoration:none !important;
   color:black;
 }
-
+button:focus {
+  outline: none;
+}
 img{
   width:100%;
 }
-
+html{
+  font-size: 14px !important;
+}
 body{
   background-color: #fafafa;
   font-family: 'Roboto', sans-serif;
@@ -46,3 +30,35 @@ body{
 .btn-normal-orange .mat-button-wrapper { color: rgba(0,0,0, 1); }
 .btn-normal-orange .mat-ripple-element{ background-color: rgba(0,0,0, 0.05); }
 .btn-normal-orange .mat-button-focus-overlay { display: none; }
+
+.btn.btn-orange{
+  color: #fff;
+  font-weight: 700;
+  background-color: #ff9600;
+  border-color: #f18f03;
+}
+.btn.btn-orange:focus {
+  color: #fff;
+  background-color: #ff7a00;
+  border-color: #c96e01;
+  outline-color: #ff9600;
+}
+.btn.btn-orange:hover {
+  color: #fff;
+  background-color: #ff7a00;
+  border-color: #e16c00;
+}
+.btn.btn-orange:active{
+  color: #fff;
+  background-color: #ff7a00;
+  border-color: #e16c00;
+  outline-color: #ff9600;
+}
+.btn.btn-orange:active:focus{ outline-color: #ff9600; }
+
+.input-group-btn button { min-width: 55px; }
+
+/***************Popup**************/
+.mat-dialog-container {
+  overflow: visible !important;
+}

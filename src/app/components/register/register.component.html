@@ -1,0 +1,145 @@
+<!-- Popup register -->
+<div class="popup-container">
+
+  <!-- Header -->
+  <header>
+    <span (click)="closePopup()"><i class="fa fa-times" aria-hidden="true"></i></span>
+    <h1>
+      Regístrate
+      <ng-container *ngIf="user_type">como {{ user_type == 'student' ? 'estudiante' : 'propietario'}}&nbsp;
+        <i class="fa fa-reply" aria-hidden="true" (click)="restoreUserType()"></i>
+      </ng-container>
+    </h1>
+  </header>
+
+  <!-- Select type of count -->
+  <section class="count-type" *ngIf="user_type === undefined">
+    <div class="user-count" (click)="setUserType('student')">
+      <span><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
+      <p><span>Registrate como estudiante para buscar los mejores pisos</span></p>
+    </div>
+    <div class="user-count" (click)="setUserType('owner')">
+      <span><i class="fa fa-home" aria-hidden="true"></i></span>
+      <p><span>Registrate como propietario para ofrecer tus pisos al resto de usuarios</span></p>
+    </div>
+  </section>
+
+  <!-- Register section -->
+  <section class="register-inputs" *ngIf="user_type">
+
+    <!-- Email Input -->
+    <div class="input-group input-group-lg">
+      <input type="text" placeholder="example@email.com" (focus)="setEmailFocus();" (focusout)="setEmailNotFocus();" class="form-control" #inputEmail>
+      <div class="input-group-btn">
+        <button type="button" (click)="inputEmail.focus()" class="btn btn-default">
+          <i class="fa fa-envelope-o" *ngIf="!isEmailFocus" aria-hidden="true"></i>
+          <i class="fa fa-envelope-open-o" *ngIf="isEmailFocus" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Name Input -->
+    <div class="input-group input-group-lg">
+      <input type="text" placeholder="Nombre" class="form-control" #inputName>
+      <div class="input-group-btn">
+        <button type="button" (click)="inputName.focus();" class="btn btn-default">
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Last Name Input -->
+    <div class="input-group input-group-lg">
+      <input type="text" placeholder="Apellidos" class="form-control" #inpuLastName>
+      <div class="input-group-btn">
+        <button type="button" (click)="inpuLastName.focus();" class="btn btn-default">
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Password Input -->
+    <div class="input-group input-group-lg">
+      <input type="password" placeholder="Contraseña" class="form-control" #inputPassword>
+      <div class="input-group-btn">
+        <button type="button" (click)="inputPassword.focus()" class="btn btn-default">
+          <i class="fa fa-lock" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Birthdate Inputs -->
+    <div class="date-inputs">
+      <span>Fecha de nacimiento:&nbsp;&nbsp;<i class="fa fa-question-circle" mdTooltip="Debes tener más de 18 años" aria-hidden="true"></i></span>
+      <div class="form-group">
+        <select name="month" class="selectpicker" data-width="200px">
+          <option selected hidden>Mes</option>
+          <option value="01">Enero</option>
+          <option value="02">Febrero</option>
+          <option value="03">Marzo</option>
+          <option value="04">Abril</option>
+          <option value="05">Mayo</option>
+          <option value="06">Junio</option>
+          <option value="07">Julio</option>
+          <option value="08">Agosto</option>
+          <option value="09">Septiembre</option>
+          <option value="10">Octubre</option>
+          <option value="11">Noviembre</option>
+          <option value="12">Diciembre</option>
+        </select >
+        <select name="day" class="selectpicker" data-width="115px">
+          <option selected hidden>Día</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+          <option value="27">27</option>
+          <option value="28">28</option>
+          <option value="29">29</option>
+          <option value="30">30</option>
+          <option value="31">31</option>
+        </select>
+        <select name="year" class="selectpicker" data-width="150px">
+          <option selected hidden>Año</option>
+          <ng-container *ngFor="let year of years_list" (load)="setSelectPicker()">
+            <option value="{{year}}">{{year}}</option>
+          </ng-container>
+        </select>
+      </div>
+    </div>
+
+    <!-- Hide Inputs -->
+    <input type="hidden" [(ngModel)]="user_type">
+
+    <!-- Submit button -->
+    <button type="button" class="btn btn-orange btn-lg btn-block">Regístrate</button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    ¿Ya tienes cuenta en Alójame? <span (click)="openLogin()">Iniciar sesión</span>
+  </footer>
+</div>
+

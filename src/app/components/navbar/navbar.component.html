@@ -1,32 +1,48 @@
+<!-- Navbar -->
 <nav>
+  <!-- Button of sidenav -->
   <a class="btn-menu" (click)="openSideNav()">
     <i class="fa fa-bars" aria-hidden="true"></i>
   </a>
+
+  <!-- Logotype -->
   <a class="logo">
+    <img src="assets/img/ic_logo_border.png">
     <span class="logo-text">Alójame</span>
   </a>
+
+  <!-- Container of navbar -->
   <div class="cnt">
+
+    <!-- Init of container navbar -->
     <div class="cnt-start">
       <input type="text" class="flat_browser" placeholder="Buscar"><button class="button_browser"><i class="fa fa-search" aria-hidden="true"></i></button>
     </div>
+
+    <!--  End of container navbar -->
     <div class="cnt-end">
-      <button md-button class="btn-accent-orange">Regístrate</button>
-      <button md-button class="btn-normal-orange">Iniciar sessión</button>
+      <button (click)="openRegister()" md-button class="btn-accent-orange">Regístrate</button>
+      <button (click)="openLogin()" md-button class="btn-normal-orange">Iniciar sesión</button>
     </div>
   </div>
 </nav>
+
+<!-- SideNav -->
 <div class="cap-transparent" [class.display-sidenav]="isDisplaySideNav">
 
-    <div #sidenav [@slideInOut]="sidenavState" class="sidenav">
-      <nav>
-        <a class="btn-menu" (click)="closeSideNav()">
-          <i class="fa fa-bars" aria-hidden="true"></i>
-        </a>
-        <a class="logo">
-          <span class="logo-text">Alójame</span>
-        </a>
-      </nav>
-    </div>
+  <!-- Content sidenav -->
+  <div #sidenav [@slideInOut]="sidenavState" class="sidenav">
+    <nav>
+      <a class="btn-menu" (click)="closeSideNav()">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </a>
+      <a class="logo">
+        <img src="assets/img/ic_logo_border.png">
+        <span class="logo-text">Alójame</span>
+      </a>
+    </nav>
+  </div>
 
-    <div class="not-sidenav" (click)="closeSideNav()"></div>
+  <!-- Black cape of sidenav -->
+  <div class="not-sidenav" (click)="closeSideNav()"></div>
 </div>
