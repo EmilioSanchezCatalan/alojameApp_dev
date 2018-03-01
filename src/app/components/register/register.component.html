@@ -75,7 +75,7 @@
     <div class="date-inputs">
       <span>Fecha de nacimiento:&nbsp;&nbsp;<i class="fa fa-question-circle" matTooltip="Debes tener más de 18 años" aria-hidden="true"></i></span>
       <div class="form-group">
-        <select name="month" class="selectpicker" data-width="200px">
+        <select name="month" class="selectpicker" data-width="200px" data-container="body">
           <option selected hidden>Mes</option>
           <option value="01">Enero</option>
           <option value="02">Febrero</option>
@@ -90,7 +90,7 @@
           <option value="11">Noviembre</option>
           <option value="12">Diciembre</option>
         </select >
-        <select name="day" class="selectpicker" data-width="115px">
+        <select name="day" class="selectpicker" data-width="115px" data-container="body">
           <option selected hidden>Día</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -124,7 +124,7 @@
           <option value="30">30</option>
           <option value="31">31</option>
         </select>
-        <select name="year" class="selectpicker" data-width="150px">
+        <select name="year" class="selectpicker" data-width="150px" data-container="body">
           <option selected hidden>Año</option>
           <ng-container *ngFor="let year of years_list" (load)="setSelectPicker()">
             <option value="{{year}}">{{year}}</option>
@@ -145,4 +145,3 @@
     ¿Ya tienes cuenta en Alójame? <span style="white-space: nowrap;" (click)="openLogin()">Iniciar sesión</span>
   </footer>
 </div>
-
