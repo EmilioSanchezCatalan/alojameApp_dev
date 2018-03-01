@@ -1,40 +1,44 @@
 <div class="bar-browser">
+  <form #browserForm="ngForm" (ngSubmit)="shearchHome(browserForm)">
 
-  <!-- Browser Bar -->
-  <input type="text" class="form-control" [style.border-radius.px]="isFilterBrowserVisible == true ? '4px 4px 0 0' : '4px'" (focus)="setFilterBrowserStatus(true)" placeholder="Direccón, calle, avenida ...">
+    <!-- Browser Bar -->
+    <input type="text" name="address" ngModel class="form-control" [style.border-radius.px]="isFilterBrowserVisible == true ? '4px 4px 0 0' : '4px'" (focus)="setFilterBrowserStatus(true)" placeholder="Direccón, calle, avenida ..." required>
 
-  <!-- Filter browser -->
-  <div class="filters-browser" [style.visibility]="isFilterBrowserVisible == true ? 'visible' : 'hidden'">
+    <!-- Filter browser -->
+    <div class="filters-browser" [style.visibility]="isFilterBrowserVisible == true ? 'visible' : 'hidden'">
 
-    <!-- List of cities -->
-    <select class="selectpicker">
-      <option selected hidden>Ciudad</option>
-      <option>Jaén</option>
-    </select>
+      <!-- List of cities -->
+      <select class="selectpicker" name="city" ngModel required>
+        <option selected value="">Ciudad</option>
+        <option>Jaén</option>
+      </select>
 
-    <!-- List of type of apartament -->
-    <select class="selectpicker">
-      <option selected hidden>Tipo de alojamiento</option>
-      <option>Piso</option>
-      <option>Cása</option>
-    </select>
+      <!-- List of type of apartament -->
+      <select class="selectpicker" name="typeHome" ngModel>
+        <option selected value="">Tipo de alojamiento</option>
+        <option>Piso</option>
+        <option>Casa</option>
+      </select>
 
-    <!-- List of number of guest -->
-    <select class="selectpicker">
-      <option selected hidden>Nº huespedes</option>
-      <option value="1">1 personas</option>
-      <option value="2">2 personas</option>
-      <option value="3">3 personas</option>
-      <option value="4">4 personas</option>
-      <option value="5">5 personas</option>
-      <option value="6">6 personas</option>
-      <option value="7">7 personas</option>
-      <option value="8">8 personas</option>
-      <option value="9">9 personas</option>
-      <option value="10">10 personas</option>
-    </select>
+      <!-- List of number of guest -->
+      <select class="selectpicker" name="nGuest" ngModel>
+        <option selected value="">Nº huespedes</option>
+        <option value="1">1 personas</option>
+        <option value="2">2 personas</option>
+        <option value="3">3 personas</option>
+        <option value="4">4 personas</option>
+        <option value="5">5 personas</option>
+        <option value="6">6 personas</option>
+        <option value="7">7 personas</option>
+        <option value="8">8 personas</option>
+        <option value="9">9 personas</option>
+        <option value="10">10 personas</option>
+      </select>
 
-    <!-- Button shearch -->
-    <button class="btn btn-orange ">Buscar</button>
-  </div>
+      <!-- Button shearch -->
+      <button type="submit" class="btn btn-orange">Buscar</button>
+
+    </div>
+  </form>
+
 </div>

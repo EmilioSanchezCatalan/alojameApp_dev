@@ -91,3 +91,13 @@ body{
 /************ Pages ************/
 .page-container {
 }
+
+/******** MatSnackBar *******/
+.error-validation{
+  background-color: rgb(207, 49, 49);
+  font-weight: 400;
+}
+.error-validation .mat-simple-snackbar-action{
+  color: white;
+  font-weight: 700;
+}
