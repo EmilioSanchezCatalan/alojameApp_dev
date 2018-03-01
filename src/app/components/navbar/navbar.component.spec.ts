@@ -1,11 +1,13 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { async, ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatDialog, MatDialogRef } from '@angular/material';
 
+import { RegisterModule } from '../register/register.module';
+import { LoginModule } from '../login/login.module';
 import { NavbarComponent } from './navbar.component';
+import { LoginComponent } from '../login/login.component';
 
-fdescribe('NavbarComponent', () => {
+describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
 
@@ -14,7 +16,9 @@ fdescribe('NavbarComponent', () => {
       declarations: [ NavbarComponent ],
       imports: [
         MatButtonModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        RegisterModule,
+        LoginModule
       ]
     })
     .compileComponents();
@@ -29,14 +33,14 @@ fdescribe('NavbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  describe( 'Test openSideNav function', () => {
+  describe( 'test openSideNav function', () => {
     it('should be change params isDisplaySideNav and sidenavState to active state', () => {
       component.openSideNav();
       expect(component.isDisplaySideNav).toBeTruthy();
       expect(component.sidenavState).toBe('in');
     });
   });
-  describe( 'Test closeSideNav function', () => {
+  describe( 'test closeSideNav function', () => {
     it('should be change params isDisplaySideNav and sidenavState to inactive state', () => {
       component.closeSideNav();
       expect(component.sidenavState).toBe('out');
@@ -44,6 +48,30 @@ fdescribe('NavbarComponent', () => {
         expect(component.isDisplaySideNav).toBeFalsy();
       }, 510);
 
+    });
+  });
+  describe('test openRegister()', () => {
+    it('should be open a Register popup', () => {
+      component.openRegister();
+      fixture.detectChanges();
+      component.popupRegister.close();
+      fixture.detectChanges();
+      component.openRegister();
+      fixture.detectChanges();
+      component.popupRegister.close('login');
+      fixture.detectChanges();
+    });
+  });
+  describe('test openLogin()', () => {
+    it('should be open a Login popup', () => {
+      component.openLogin();
+      fixture.detectChanges();
+      component.popupLogin.close();
+      fixture.detectChanges();
+      component.openLogin();
+      fixture.detectChanges();
+      component.popupLogin.close('register');
+      fixture.detectChanges();
     });
   });
 });

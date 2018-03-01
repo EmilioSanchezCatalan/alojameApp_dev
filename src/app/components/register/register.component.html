@@ -5,8 +5,11 @@
   <header>
     <span (click)="closePopup()"><i class="fa fa-times" aria-hidden="true"></i></span>
     <h1>
-      Regístrate
-      <ng-container *ngIf="user_type">como {{ user_type == 'student' ? 'estudiante' : 'propietario'}}&nbsp;
+      <ng-container *ngIf="user_type == undefined">
+        Regístrate
+      </ng-container>
+      <ng-container *ngIf="user_type">
+        Como {{ user_type == 'student' ? 'estudiante' : 'propietario'}}&nbsp;
         <i class="fa fa-reply" aria-hidden="true" (click)="restoreUserType()"></i>
       </ng-container>
     </h1>
@@ -70,7 +73,7 @@
 
     <!-- Birthdate Inputs -->
     <div class="date-inputs">
-      <span>Fecha de nacimiento:&nbsp;&nbsp;<i class="fa fa-question-circle" mdTooltip="Debes tener más de 18 años" aria-hidden="true"></i></span>
+      <span>Fecha de nacimiento:&nbsp;&nbsp;<i class="fa fa-question-circle" matTooltip="Debes tener más de 18 años" aria-hidden="true"></i></span>
       <div class="form-group">
         <select name="month" class="selectpicker" data-width="200px">
           <option selected hidden>Mes</option>
@@ -139,7 +142,7 @@
 
   <!-- Footer -->
   <footer>
-    ¿Ya tienes cuenta en Alójame? <span (click)="openLogin()">Iniciar sesión</span>
+    ¿Ya tienes cuenta en Alójame? <span style="white-space: nowrap;" (click)="openLogin()">Iniciar sesión</span>
   </footer>
 </div>
 

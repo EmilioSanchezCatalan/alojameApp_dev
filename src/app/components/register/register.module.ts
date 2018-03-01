@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MdDialogModule, MdTooltipModule} from '@angular/material';
+import { MatDialogModule, MatTooltipModule} from '@angular/material';
 import { RegisterComponent } from './register.component';
 
 @NgModule({
@@ -9,9 +9,9 @@ import { RegisterComponent } from './register.component';
     RegisterComponent
   ],
   imports: [
-    MdDialogModule,
+    MatDialogModule,
     CommonModule,
-    MdTooltipModule,
+    MatTooltipModule,
     FormsModule
   ],
   exports: [

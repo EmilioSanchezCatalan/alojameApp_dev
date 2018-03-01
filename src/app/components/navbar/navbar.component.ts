@@ -1,11 +1,11 @@
 /**
  * @author Emilio Sánchez <esc00019@gmail.com>
- * Propuse: Navbar component for navigate for the page
+ * Purpose: Navbar component for navigate for the page
  */
 
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { trigger, state,  style, animate, transition } from '@angular/animations';
-import { MdDialogRef, MdDialog } from '@angular/material';
+import { MatDialogRef, MatDialog } from '@angular/material';
 
 import { RegisterComponent } from '../register/register.component';
 import { LoginComponent } from '../login/login.component';
@@ -15,7 +15,7 @@ import { LoginComponent } from '../login/login.component';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
   providers: [
-    MdDialog
+    MatDialog
   ],
   animations: [
     trigger('slideInOut', [
@@ -30,24 +30,24 @@ import { LoginComponent } from '../login/login.component';
     ])
   ]
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
   public isDisplaySideNav: boolean;
   public sidenavState: string;
+  public popupLogin: MatDialogRef<LoginComponent>;
+  public popupRegister: MatDialogRef<RegisterComponent>;
+
   constructor(
-    private _dialog: MdDialog
+    private __dialog: MatDialog
   ) {
     this.sidenavState = 'out';
     this.isDisplaySideNav = false;
   }
 
-  ngOnInit() {
-  }
-
   /**
    * Open a sidenav and produces all the effects
    */
-  public openSideNav() {
+  public openSideNav(): void {
     this.isDisplaySideNav = true;
     this.sidenavState = 'in';
   }
@@ -55,7 +55,7 @@ export class NavbarComponent implements OnInit {
   /**
    * Close sidenav and remove all the effects
    */
-  public closeSideNav() {
+  public closeSideNav(): void {
     this.sidenavState = 'out';
     setTimeout( () => {
       this.isDisplaySideNav = false;
@@ -65,10 +65,9 @@ export class NavbarComponent implements OnInit {
   /**
    * Open a popup of Register
    */
-  public openRegister() {
-    let popupRegister: MdDialogRef<RegisterComponent>;
-    popupRegister = this._dialog.open(RegisterComponent);
-    popupRegister.afterClosed().subscribe(
+  public openRegister(): void {
+    this.popupRegister = this.__dialog.open(RegisterComponent);
+    this.popupRegister.afterClosed().subscribe(
       response => {
         if (response === 'login') {
           this.openLogin();
@@ -76,15 +75,15 @@ export class NavbarComponent implements OnInit {
       }
     );
   }
+
   /**
    * Open a popup of Login
    */
-  public openLogin() {
-    let popupRegister: MdDialogRef<LoginComponent>;
-    popupRegister = this._dialog.open(LoginComponent);
-    popupRegister.afterClosed().subscribe(
+  public openLogin(): void {
+    this.popupLogin = this.__dialog.open(LoginComponent);
+    this.popupLogin.afterClosed().subscribe(
       response => {
-        if(response === 'register'){
+        if (response === 'register') {
           this.openRegister();
         }
       }

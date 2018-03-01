@@ -1,0 +1,22 @@
+/*********** Banner **********/
+.page-container .banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+}
+
+
+  /*************/
+  .bar-browser-tablet{
+    display: none;
+    flex-wrap: wrap;
+  }
+
+  /*********** Tablet *************/
+@media (max-width: 1279px){
+  .page-container .banner  { position: static; }
+  .bar-browser { display: none; }
+  .bar-browser-tablet{ display: flex; }
+}

@@ -1,10 +1,10 @@
 /**
  * @author Emilio Sánchez <esc00019@gmail.com>
- * Propuse: Navbar component for navigate for the page without browser flat
+ * Purpose: Navbar component for navigate for the page without browser flat
  */
 
-import { Component, OnInit } from '@angular/core';
-import { MdDialogRef, MdDialog } from '@angular/material';
+import { Component } from '@angular/core';
+import { MatDialogRef, MatDialog } from '@angular/material';
 
 import { RegisterComponent } from '../register/register.component';
 import { LoginComponent } from '../login/login.component';
@@ -14,19 +14,19 @@ import { LoginComponent } from '../login/login.component';
   templateUrl: './navbar-simple.component.html',
   styleUrls: ['./navbar-simple.component.css']
 })
-export class NavbarSimpleComponent implements OnInit {
+export class NavbarSimpleComponent {
 
-  constructor( private _dialog: MdDialog ) { }
-  ngOnInit() {
-  }
+  public popupRegister: MatDialogRef<RegisterComponent>;
+  public popupLogin: MatDialogRef<LoginComponent>;
+
+  constructor( private __dialog: MatDialog ) { }
 
   /**
    * Open a popup of Register
    */
-  public openRegister() {
-    let popupRegister: MdDialogRef<RegisterComponent>;
-    popupRegister = this._dialog.open(RegisterComponent);
-    popupRegister.afterClosed().subscribe(
+  public openRegister(): void {
+    this.popupRegister = this.__dialog.open(RegisterComponent);
+    this.popupRegister.afterClosed().subscribe(
       response => {
         if (response === 'login') {
           this.openLogin();
@@ -34,15 +34,15 @@ export class NavbarSimpleComponent implements OnInit {
       }
     );
   }
+
   /**
    * Open a popup of Login
    */
-  public openLogin() {
-    let popupRegister: MdDialogRef<LoginComponent>;
-    popupRegister = this._dialog.open(LoginComponent);
-    popupRegister.afterClosed().subscribe(
+  public openLogin(): void {
+    this.popupLogin = this.__dialog.open(LoginComponent);
+    this.popupLogin.afterClosed().subscribe(
       response => {
-        if(response === 'register'){
+        if (response === 'register') {
           this.openRegister();
         }
       }

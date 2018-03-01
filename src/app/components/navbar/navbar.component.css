@@ -26,6 +26,7 @@ nav > *{ align-self: center; }
   .btn-menu:hover { color: #4e4e4e; }
   /***************Logo***********************/
   .logo{
+    cursor: pointer;
     padding: 0 10px;
     flex-basis: 200px;
     display: flex;

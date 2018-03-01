@@ -6,13 +6,14 @@ nav{
   flex-wrap: nowrap;
   padding: 0 15px;
   background-color: white;
-  box-shadow: rgb(230,230,230) 0px 0px 18px 1px;
+  box-shadow: rgba(0,0,0,0.3) 0px 0px 18px 1px
 }
 
 nav > *{ align-self: center; }
 
 /***************Logo***********************/
 .logo{
+  cursor: pointer;
   padding: 0 10px;
   flex-basis: 200px;
   display: flex;
@@ -40,3 +41,14 @@ nav > *{ align-self: center; }
 }
 .cnt-start, .cnt-end { display: flex}
 .cnt-start > *, .cnt-end > * { align-self: center;}
+
+/************ Responsive *************/
+
+.btn-login-movile { display: none; }
+
+@media (max-width: 767px) {
+  nav { padding: 0; }
+  .btn-login-movile { display: inline; color: #9b9b9b; }
+  .btn-login-movile i{ font-size: 1.3rem; vertical-align: middle; }
+  .btn-login { display: none !important; }
+}

@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { BrowserFilterModule } from '../../components/browser-filter/browser.filter.module';
 import { PageHomeComponent } from './page-home.component';
 
 describe('PageHomeComponent', () => {
@@ -8,7 +9,8 @@ describe('PageHomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageHomeComponent ]
+      declarations: [ PageHomeComponent ],
+      imports: [ BrowserFilterModule ]
     })
     .compileComponents();
   }));
