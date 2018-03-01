@@ -1,7 +1,7 @@
 <div class="bar-browser">
 
   <!-- Browser Bar -->
-  <input type="text" (focus)="setFilterBrowserStatus(true)" placeholder="Direccón, calle, avenida ...">
+  <input type="text" class="form-control" [style.border-radius.px]="isFilterBrowserVisible == true ? '4px 4px 0 0' : '4px'" (focus)="setFilterBrowserStatus(true)" placeholder="Direccón, calle, avenida ...">
 
   <!-- Filter browser -->
   <div class="filters-browser" [style.visibility]="isFilterBrowserVisible == true ? 'visible' : 'hidden'">
@@ -22,16 +22,16 @@
     <!-- List of number of guest -->
     <select class="selectpicker">
       <option selected hidden>Nº huespedes</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
+      <option value="1">1 personas</option>
+      <option value="2">2 personas</option>
+      <option value="3">3 personas</option>
+      <option value="4">4 personas</option>
+      <option value="5">5 personas</option>
+      <option value="6">6 personas</option>
+      <option value="7">7 personas</option>
+      <option value="8">8 personas</option>
+      <option value="9">9 personas</option>
+      <option value="10">10 personas</option>
     </select>
 
     <!-- Button shearch -->

@@ -69,16 +69,23 @@ body{
 
 .input-group-btn button { min-width: 55px; }
 
+/*********** Forms bootstrap adapts ******/
+.form-control:focus {
+    border-color: #f3c84d;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(255, 169, 41);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(255, 169, 41);
+}
 
 /************ Popup *************/
 
 @media (max-width: 890px) {
 
-  .cdk-overlay-pane{ 
+  .cdk-overlay-pane{
     width: 100vw !important;
     height: 100vh !important;
     max-width: none !important;
-  }  
+  }
 }
 
 /************ Pages ************/

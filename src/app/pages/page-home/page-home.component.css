@@ -7,16 +7,19 @@
   width: 100%;
 }
 
+#shearch-movile {
+  display: none;
+}
 
-  /*************/
-  .bar-browser-tablet{
-    display: none;
-    flex-wrap: wrap;
-  }
-
-  /*********** Tablet *************/
+/*********** Tablet *************/
 @media (max-width: 1279px){
-  .page-container .banner  { position: static; }
-  .bar-browser { display: none; }
-  .bar-browser-tablet{ display: flex; }
+  .page-container .banner {
+    position: static;
+  }
+  #shearch-movile {
+    display: inherit;
+  }
+  #shearch-desktop {
+    display: none;
+  }
 }

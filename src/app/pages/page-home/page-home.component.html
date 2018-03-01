@@ -1,38 +1,7 @@
 <div class="page-container">
-  <div class="banner" #banner>
+  <div class="banner">
     <img  src="assets/img/home_banner.png" alt="banner home">
-    <!-- TODO Browser -->
-    <alo-browser-filter></alo-browser-filter>
+    <alo-browser-filter id="shearch-desktop"></alo-browser-filter>
   </div>
-  <div class="container">
-    <div class="bar-browser-tablet">
-      <label for="address" >Donde</label>
-      <input type="text" name="address" (focus)="setFilterBrowserStatus(true)" placeholder="Direccón, calle, avenida ...">
-      <!-- <div class="filters-browser">
-        <select class="selectpicker">
-          <option selected hidden>Ciudad</option>
-          <option>Jaén</option>
-        </select>
-        <select class="selectpicker">
-          <option selected hidden>Tipo de alojamiento</option>
-          <option>Piso</option>
-          <option>Cása</option>
-        </select>
-        <select class="selectpicker">
-          <option selected hidden>Nº huespedes</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
-        <button class="btn btn-orange ">Buscar</button>
-      </div> -->
-    </div>
-  </div>
+    <alo-browser-filter-movile  id="shearch-movile"></alo-browser-filter-movile>
 </div>
