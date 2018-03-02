@@ -1,5 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { NavbarSimpleModule } from './components/navbar-simple/navbar-simple.module';
 import { PagesModule } from './pages/pages.module';
 import { AppComponent } from './app.component';
@@ -12,7 +12,8 @@ describe('AppComponent', () => {
       ],
       imports: [
         NavbarSimpleModule,
-        PagesModule
+        PagesModule,
+        RouterTestingModule
       ]
     }).compileComponents();
   }));

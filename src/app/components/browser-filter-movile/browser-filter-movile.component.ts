@@ -1,44 +1,57 @@
 /**
  * @author Emilio Sánchez <esc00019@gmail.com>
- * Purpose: shearch home in a list of DB
+ * Purpose: Browser for shearch accommodation with some basics filters
  */
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
+
+import { FormErrorInfo } from '../../interfaces/form-error-info';
+import { ValidatorErrorService } from '../../services/validator-error.service';
 
 @Component({
   selector: 'alo-browser-filter-movile',
   templateUrl: './browser-filter-movile.component.html',
-  styleUrls: ['./browser-filter-movile.component.css']
+  styleUrls: ['./browser-filter-movile.component.css'],
+  providers: [ ValidatorErrorService ]
 })
 export class BrowserFilterMovileComponent {
 
+  private formErrorInfo: FormErrorInfo;
+
   constructor(
-    private __snackBar: MatSnackBar
-  ) { }
+    private __valError: ValidatorErrorService
+  ) {
+    this.formErrorInfo = {
+      errorsInfo: [
+        {
+          fieldName: 'address',
+          nameShow: 'Dirección'
+        },
+        {
+          fieldName: 'city',
+          nameShow: 'Ciudad'
+        },
+        {
+          fieldName: 'typeHome',
+          nameShow: 'Tipo de alojamiento'
+        },
+        {
+          fieldName: 'nGuest',
+          nameShow: 'Numero de huespedes'
+        }
+      ]
+    };
+  }
 
   /**
-   * Navegate to the page lhome using the preferences fixed
+   * Evalue the shearch form and navegate to the page lhome using the preferences fixed
    * @param { FormGroup } formShearch form for shearch homes
    */
   public shearchHome( formShearch: FormGroup): void {
     if (formShearch.valid === true) {
-      console.log(formShearch.value);
+      // TODO navigation
     } else {
-      let errorMessage = 'Es necesario introducir los campos:';
-
-      if (formShearch.controls['address'].valid === false) {
-        errorMessage += ' Direccón,';
-      }
-      if (formShearch.controls['city'].valid === false) {
-        errorMessage += ' Ciudad,';
-      }
-      errorMessage = errorMessage.substring(0, errorMessage.length - 1);
-      this.__snackBar.open(errorMessage, 'Aceptar', {
-        duration: 2500,
-        verticalPosition: 'top',
-        panelClass: 'error-validation'
-      });
+      this.__valError.checkErrors(formShearch, this.formErrorInfo);
     }
   }
 }
