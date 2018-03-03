@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule, MatTooltipModule} from '@angular/material';
+
+import { AloPopupModule } from '../../components/alo-popup/alo-popup.module';
 import { RegisterComponent } from './register.component';
 
 @NgModule({
@@ -12,7 +14,8 @@ import { RegisterComponent } from './register.component';
     MatDialogModule,
     CommonModule,
     MatTooltipModule,
-    FormsModule
+    FormsModule,
+    AloPopupModule
   ],
   exports: [
     RegisterComponent

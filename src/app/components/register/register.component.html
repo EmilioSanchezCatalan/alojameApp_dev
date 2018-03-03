@@ -1,22 +1,18 @@
 <!-- Popup register -->
-<div class="popup-container">
+<alo-popup class="popup-container">
 
   <!-- Header -->
-  <header>
-    <span (click)="closePopup()"><i class="fa fa-times" aria-hidden="true"></i></span>
-    <h1>
+  <alo-popup-header (close)="closePopup()" [hasBack]="user_type" (back)="restoreUserType()">
       <ng-container *ngIf="user_type == undefined">
         Regístrate
       </ng-container>
       <ng-container *ngIf="user_type">
         Como {{ user_type == 'student' ? 'estudiante' : 'propietario'}}&nbsp;
-        <i class="fa fa-reply" aria-hidden="true" (click)="restoreUserType()"></i>
       </ng-container>
-    </h1>
-  </header>
+  </alo-popup-header>
 
   <!-- Select type of count -->
-  <section class="count-type" *ngIf="user_type === undefined">
+  <alo-popup-container *ngIf="user_type === undefined">
     <div class="user-count" (click)="setUserType('student')">
       <span><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
       <p><span>Registrate como estudiante para buscar los mejores pisos</span></p>
@@ -25,10 +21,10 @@
       <span><i class="fa fa-home" aria-hidden="true"></i></span>
       <p><span>Registrate como propietario para ofrecer tus pisos al resto de usuarios</span></p>
     </div>
-  </section>
+  </alo-popup-container>
 
   <!-- Register section -->
-  <section class="register-inputs" *ngIf="user_type">
+  <alo-popup-container class="register-inputs" *ngIf="user_type">
 
     <!-- Email Input -->
     <div class="input-group input-group-lg">
@@ -138,10 +134,10 @@
 
     <!-- Submit button -->
     <button type="button" class="btn btn-orange btn-lg btn-block">Regístrate</button>
-  </section>
+  </alo-popup-container>
 
   <!-- Footer -->
-  <footer>
+  <alo-popup-footer>
     ¿Ya tienes cuenta en Alójame? <span style="white-space: nowrap;" (click)="openLogin()">Iniciar sesión</span>
-  </footer>
-</div>
+  </alo-popup-footer>
+</alo-popup>

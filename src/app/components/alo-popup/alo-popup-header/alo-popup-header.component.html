@@ -1,0 +1,6 @@
+<!-- Header -->
+<span (click)="closePopup()"><i class="fa fa-times" aria-hidden="true"></i></span>
+<h1>
+  <ng-content></ng-content>
+  <i *ngIf="hasBack" class="fa fa-reply" aria-hidden="true" (click)="goBack()"></i>
+</h1>

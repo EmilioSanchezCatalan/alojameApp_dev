@@ -1,47 +1,15 @@
-.popup-container{
+alo-popup {
   max-width: 500px;
-  width: 95%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  position: relative;
 }
 
-.popup-container > header{
-  display: flex;
-  flex-wrap: wrap;
-  color: #9b9b9b;
-  padding-bottom: 10px;
-  border-bottom: 1px solid hsl(0, 0%, 88%);
-}
-.popup-container > header > *{
-  align-self: center;
-  flex-basis: 100%;
-}
-.popup-container > header > span{
-  position: absolute;
-  top: -15px;
-  right: -20px;
-  cursor: pointer;
-  font-size: 1.4rem;
-}
-.popup-container > header > span:hover{ color: black; }
-
-.popup-container > header > h1{ font-size: 1.5rem; font-weight: normal; margin: 0;}
-.popup-container > header > h1 i { font-size: 1.2rem; color: #9b9b9b7a; cursor: pointer; }
-.popup-container > header > h1 i:hover { color: black; }
 /*********Login inputs********/
-.login-inputs {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 30px auto;
-}
 .login-inputs > div{
   margin-bottom: 20px;
   width: 100%;
 }
-
+.login-inputs > button{
+  margin-top: auto;
+}
 .forgot-pass {
   color: #ff9600;
   font-weight: 700;
@@ -57,17 +25,15 @@
 }
 
 /*****footer*****/
-footer {
-  padding-top: 10px;
-  font-size: 1.3rem;
-  text-align: center;
-  border-top: 1px solid hsl(0, 0%, 88%);
-}
-footer span { color: #ff9600; font-weight: 700; cursor: pointer;}
+alo-popup-footer span { color: #ff9600; font-weight: 700; cursor: pointer;}
 
 /********* Responsive movile *******/
 
-@media (max-width: 767px) {
-  .popup-container { height: 100%; }
-  footer { margin-top: auto; }
+@media (max-width: 890px) {
+  /* .forgot-pass  {
+    margin-bottom: 30px;
+  } */
+  alo-popup {
+    max-width: none;
+  }
 }

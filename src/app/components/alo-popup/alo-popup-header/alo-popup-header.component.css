@@ -1,0 +1,29 @@
+:host{
+  display: flex;
+  flex-wrap: wrap;
+  color: #9b9b9b;
+  padding-bottom: 10px;
+  border-bottom: 1px solid hsl(0, 0%, 88%);
+  margin-bottom: 30px;
+}
+:host > *{
+  align-self: center;
+  flex-basis: 100%;
+}
+
+/************ cross ************/
+span{
+  position: absolute;
+  top: -15px;
+  right: -20px;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+span:hover{ color: black; }
+
+/******************* title ********************/
+h1{ font-size: 1.5rem; font-weight: normal; margin: 0;}
+
+/******************* back popup ****************/
+h1 i { font-size: 1.2rem; color: #9b9b9b7a; cursor: pointer; }
+h1 i:hover { color: black; }

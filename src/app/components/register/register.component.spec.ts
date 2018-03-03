@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {MatDialogModule, MatDialog, MatDialogRef} from '@angular/material';
+
+import { AloPopupModule } from '../../components/alo-popup/alo-popup.module';
 import { RegisterComponent } from './register.component';
 
 describe('RegisterComponent', () => {
@@ -19,7 +21,8 @@ describe('RegisterComponent', () => {
         BrowserAnimationsModule,
         CommonModule,
         FormsModule,
-        MatDialogModule
+        MatDialogModule,
+        AloPopupModule
       ]
     })
     .overrideModule(BrowserDynamicTestingModule, {

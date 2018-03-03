@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material';
+
 import { LoginComponent } from './login.component';
+import { AloPopupModule } from '../../components/alo-popup/alo-popup.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,8 @@ import { LoginComponent } from './login.component';
   imports: [
     MatDialogModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    AloPopupModule
   ],
   exports: [
     LoginComponent
