@@ -1,11 +1,12 @@
-import { async, TestBed } from '@angular/core/testing';
+import { async, TestBed, inject} from '@angular/core/testing';
 
 import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import {MatDialogModule, MatDialog, MatDialogRef} from '@angular/material';
+import { FormsModule, FormBuilder, Validators} from '@angular/forms';
+import {MatDialogModule, MatDialog, MatDialogRef, MatSnackBarModule} from '@angular/material';
 
+import { ValidatorErrorService } from '../../services/validator-error.service';
 import { AloPopupModule } from '../../components/alo-popup/alo-popup.module';
 import { RegisterComponent } from './register.component';
 
@@ -22,7 +23,12 @@ describe('RegisterComponent', () => {
         CommonModule,
         FormsModule,
         MatDialogModule,
+        MatSnackBarModule,
         AloPopupModule
+      ],
+      providers: [
+        ValidatorErrorService,
+        FormBuilder
       ]
     })
     .overrideModule(BrowserDynamicTestingModule, {
@@ -77,25 +83,52 @@ describe('RegisterComponent', () => {
     });
   });
   describe('test restoreUserType()', () => {
-    it('should be set user_type to undefined', () => {
+    it('should be set userType to undefined', () => {
       component.restoreUserType();
-      expect(component.user_type).toBeUndefined();
+      expect(component.userType).toBeUndefined();
     });
   });
   describe('test restoreUserType()', () => {
     it('should be set the correct user type register', () => {
       component.setUserType('student');
-      expect(component.user_type).toBe('student');
+      expect(component.userType).toBe('student');
       component.setUserType('owner');
-      expect(component.user_type).toBe('owner');
+      expect(component.userType).toBe('owner');
     });
   });
   describe('test dateGenerate()', () => {
     it('should be generate a list of number 1910-now', () => {
       component.dateGenerate();
-      expect(component.years_list.length).toBeGreaterThan(2);
-      expect(component.years_list[0]).toBe(new Date().getFullYear());
-      expect(component.years_list[component.years_list.length - 1]).toBe(1910);
+      expect(component.yearsList.length).toBeGreaterThan(2);
+      expect(component.yearsList[0]).toBe(new Date().getFullYear());
+      expect(component.yearsList[component.yearsList.length - 1]).toBe(1910);
     });
+  });
+  describe('test setRegister()', () => {
+    it('should connect and validate the register of a new user', inject([FormBuilder], (fb: FormBuilder) => {
+      let formRegister = fb.group({
+        'email': ['', Validators.required],
+        'name': ['', Validators.required],
+        'surname': ['', Validators.required],
+        'password': ['', Validators.required],
+        'birthMonth': ['', Validators.required],
+        'birthDay': ['', Validators.required],
+        'birthYear': ['', Validators.required],
+        'userType': ['', Validators.required]
+      });
+      component.setRegister(formRegister);
+
+      formRegister = fb.group({
+        'email': ['prueba@example.com', Validators.required],
+        'name': ['prueba', Validators.required],
+        'surname': ['prueba', Validators.required],
+        'password': ['123456', Validators.required],
+        'birthMonth': ['30', Validators.required],
+        'birthDay': ['1', Validators.required],
+        'birthYear': ['1998', Validators.required],
+        'userType': ['owner', Validators.required]
+      });
+      component.setRegister(formRegister);
+    }));
   });
 });

@@ -8,31 +8,37 @@
 
     <!-- User login section -->
     <alo-popup-container class="login-inputs">
-
-      <!-- Email Input -->
-      <div class="input-group input-group-lg">
-        <input type="text" placeholder="example@email.com" (focus)="setEmailFocus();" (focusout)="setEmailNotFocus();" class="form-control" #inputEmail>
-        <div class="input-group-btn">
-          <button type="button" (click)="inputEmail.focus()" class="btn btn-default">
-            <i class="fa fa-envelope-o" *ngIf="!isEmailFocus" aria-hidden="true"></i>
-            <i class="fa fa-envelope-open-o" *ngIf="isEmailFocus" aria-hidden="true"></i>
-          </button>
+      <form #loginform="ngForm" (ngSubmit)="setLogin(loginform)">
+        <!-- Email Input -->
+        <div class="form-group">
+          <div class="input-group input-group-lg">
+            <input type="text" name="username" ngModel placeholder="example@email.com" (focus)="setEmailFocus();" (focusout)="setEmailNotFocus();" class="form-control" #inputEmail required>
+            <div class="input-group-btn">
+              <button type="button" (click)="inputEmail.focus()" class="btn btn-default">
+                <i class="fa fa-envelope-o" *ngIf="!isEmailFocus" aria-hidden="true"></i>
+                <i class="fa fa-envelope-open-o" *ngIf="isEmailFocus" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <!-- Password -->
-      <div class="input-group input-group-lg">
-        <input type="password" placeholder="Contraseña" class="form-control" #inputPassword>
-        <div class="input-group-btn">
-          <button type="button" (click)="inputPassword.focus()" class="btn btn-default">
-            <i class="fa fa-lock" aria-hidden="true"></i>
-          </button>
+        <!-- Password -->
+        <div class="form-group">
+          <div class="input-group input-group-lg">
+            <input name="password" type="password" placeholder="Contraseña" class="form-control" #inputPassword ngModel required>
+            <div class="input-group-btn">
+              <button type="button" (click)="inputPassword.focus()" class="btn btn-default">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <!-- Submit button -->
-      <button type="button" class="btn btn-orange btn-lg btn-block">Entrar</button>
-      <span class="forgot-pass" (click)="setPassForgot(true)">¿Has olvidado tu contraseña?</span>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-orange btn-lg btn-block">Entrar</button>
+        <span class="forgot-pass" (click)="setPassForgot(true)">¿Has olvidado tu contraseña?</span>
+      </form>
     </alo-popup-container>
 
     <!-- Footer -->
@@ -52,24 +58,30 @@
 
   <!-- User login section -->
   <alo-popup-container class="login-inputs">
+    <form #recoveryForm="ngForm" (ngSubmit)="setRecover(recoveryForm)">
 
-    <!-- Text info -->
-    <div class="text-forgot">
-      Introduce la dirección de correo electrónico asociada a tu cuenta y te enviaremos un enlace para restablecer tu contraseña.
-    </div>
-
-    <!-- Email Input -->
-    <div class="input-group input-group-lg">
-      <input type="text" placeholder="example@email.com" (focus)="setEmailFocus();" (focusout)="setEmailNotFocus();" class="form-control" #inputEmail>
-      <div class="input-group-btn">
-        <button type="button" (click)="inputEmail.focus()" class="btn btn-default">
-          <i class="fa fa-envelope-o" *ngIf="!isEmailFocus" aria-hidden="true"></i>
-          <i class="fa fa-envelope-open-o" *ngIf="isEmailFocus" aria-hidden="true"></i>
-        </button>
+      <!-- Text info -->
+      <div class="form-group">
+        <div class="text-forgot">
+          Introduce la dirección de correo electrónico asociada a tu cuenta y te enviaremos un enlace para restablecer tu contraseña.
+        </div>
       </div>
-    </div>
+
+      <!-- Email Input -->
+      <div class="form-group">
+        <div class="input-group input-group-lg">
+          <input type="text" name="emailRecov" placeholder="example@email.com" (focus)="setEmailFocus();" (focusout)="setEmailNotFocus();" class="form-control" #inputEmail ngModel required>
+          <div class="input-group-btn">
+            <button type="button" (click)="inputEmail.focus()" class="btn btn-default">
+              <i class="fa fa-envelope-o" *ngIf="!isEmailFocus" aria-hidden="true"></i>
+              <i class="fa fa-envelope-open-o" *ngIf="isEmailFocus" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
 
     <!-- Submit button -->
-    <button type="button" class="btn btn-orange btn-lg btn-block">Enviar</button>
+    <button type="submit" class="btn btn-orange btn-lg btn-block">Enviar</button>
+  </form>
   </alo-popup-container>
 </alo-popup>

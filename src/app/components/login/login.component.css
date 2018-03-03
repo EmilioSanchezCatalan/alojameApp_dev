@@ -1,13 +1,14 @@
 alo-popup {
   max-width: 500px;
 }
-
-/*********Login inputs********/
-.login-inputs > div{
-  margin-bottom: 20px;
+form {
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  flex-basis: 100%;
 }
-.login-inputs > button{
+/*********Login inputs********/
+.login-inputs > form > button{
   margin-top: auto;
 }
 .forgot-pass {

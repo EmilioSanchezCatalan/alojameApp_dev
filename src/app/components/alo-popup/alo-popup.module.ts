@@ -1,4 +1,4 @@
-// TODO Responsive iphone 5 and 4;
+// TODO Responsive iphone 5 and 4; and more.
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 

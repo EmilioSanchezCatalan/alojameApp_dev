@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatSnackBarModule } from '@angular/material';
 import { RegisterModule } from '../register/register.module';
 import { LoginModule } from '../login/login.module';
 import { NavbarSimpleComponent } from './navbar-simple.component';
@@ -15,6 +15,7 @@ describe('NavbarSimpleComponent', () => {
       declarations: [ NavbarSimpleComponent ],
       imports: [
         MatButtonModule,
+        MatSnackBarModule,
         BrowserAnimationsModule,
         RegisterModule,
         LoginModule

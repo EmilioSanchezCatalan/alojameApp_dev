@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatDialog, MatDialogRef } from '@angular/material';
+import { MatButtonModule, MatDialog, MatDialogRef, MatSnackBarModule} from '@angular/material';
 
 import { RegisterModule } from '../register/register.module';
 import { LoginModule } from '../login/login.module';
@@ -18,6 +18,7 @@ describe('NavbarComponent', () => {
         MatButtonModule,
         BrowserAnimationsModule,
         RegisterModule,
+        MatSnackBarModule,
         LoginModule
       ]
     })

@@ -5,18 +5,48 @@
 
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import { FormGroup } from '@angular/forms';
+
+import { ValidatorErrorService } from '../../services/validator-error.service';
+import { FormErrorInfo } from '../../interfaces/form-error-info';
 
 @Component({
   selector: 'alo-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [ValidatorErrorService]
 })
 export class LoginComponent {
 
   public isEmailFocus: boolean;
   public isPassForgot: boolean;
-  constructor(public dialogRef: MatDialogRef<LoginComponent>) {
+  private __loginFormNames: FormErrorInfo;
+  private __recoverFormNames: FormErrorInfo;
+  constructor(
+    private __dialogRef: MatDialogRef<LoginComponent>,
+    private __valError: ValidatorErrorService
+  ) {
     this.isPassForgot = false;
+    this.__loginFormNames = {
+      errorsInfo: [
+        {
+          fieldName: 'username',
+          nameShow: 'Email'
+        },
+        {
+          fieldName: 'password',
+          nameShow: 'Contraseña'
+        }
+      ]
+    };
+    this.__recoverFormNames = {
+      errorsInfo: [
+        {
+          fieldName: 'emailRecov',
+          nameShow: 'Email'
+        }
+      ]
+    };
   }
   /**
    * Set email focus var to true when the focus is in
@@ -34,13 +64,13 @@ export class LoginComponent {
    * Close the register's popup
    */
   public closePopup(): void {
-    this.dialogRef.close(false);
+    this.__dialogRef.close(false);
   }
   /**
    * Close popup login and notify to the parent, it has to open a register
    */
   public openRegister(): void {
-    this.dialogRef.close('register');
+    this.__dialogRef.close('register');
   }
   /**
    * Set password forgot
@@ -48,5 +78,29 @@ export class LoginComponent {
    */
   public setPassForgot(pass_forgot: boolean): void {
     this.isPassForgot = pass_forgot;
+  }
+
+  /**
+   * Execute the form login with a validation
+   * @param {FormGroup} formLogin form of the login
+   */
+  public setLogin(formLogin: FormGroup): void {
+    if (formLogin.valid === true ) {
+      // TODO connection with the API
+    } else {
+      this.__valError.checkErrors(formLogin, this.__loginFormNames);
+    }
+  }
+
+  /**
+   * Execute the form of recovery the password by the email.
+   * @param {FormGroup} formRecover form of the recovery password
+   */
+  public setRecover( formRecover: FormGroup): void {
+    if (formRecover.valid === true ) {
+      // TODO connection with the API
+    } else {
+      this.__valError.checkErrors(formRecover, this.__recoverFormNames);
+    }
   }
 }

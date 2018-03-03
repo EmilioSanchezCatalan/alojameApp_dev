@@ -1,7 +1,12 @@
 alo-popup {
   max-width: 500px;
 }
-
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-basis: 100%;
+}
 /********** Count Type **********/
 .user-count{
   display: flex;
@@ -41,11 +46,8 @@ alo-popup {
 }
 
 /******* Register ********/
-.register-inputs > div{
-  margin-bottom: 20px;
-  width: 100%;
-}
-.register-inputs > button{
+
+.register-inputs > form > button{
   margin-top: auto;
 }
 
@@ -73,12 +75,7 @@ alo-popup {
 
 
 /******footer********/
-alo-popup-footer {
-  padding-top: 10px;
-  font-size: 1.3rem;
-  text-align: center;
-  border-top: 1px solid hsl(0, 0%, 88%);
-}
+
 alo-popup-footer span { color: #ff9600; font-weight: 700; cursor: pointer;}
 
 /************** Responsive movile *************/
