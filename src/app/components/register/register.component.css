@@ -80,14 +80,12 @@ alo-popup-footer span { color: #ff9600; font-weight: 700; cursor: pointer;}
 
 /************** Responsive movile *************/
 @media (max-width: 890px) {
-  .popup-container {
-    height: 100%;
-    justify-content: space-around;
+  alo-popup {
+    max-width: none;
   }
-  .register-inputs {
-    flex-direction: column;
+  .user-count{
+    width: 500px;
   }
-
   .date-inputs > .form-group{
     display: flex;
     flex-wrap: wrap;

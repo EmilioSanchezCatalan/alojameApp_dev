@@ -1,5 +1,6 @@
 alo-popup {
-  max-width: 500px;
+  width: 500px;
+  margin: 0 10px;
 }
 form {
   display: flex;
@@ -31,10 +32,8 @@ alo-popup-footer span { color: #ff9600; font-weight: 700; cursor: pointer;}
 /********* Responsive movile *******/
 
 @media (max-width: 890px) {
-  /* .forgot-pass  {
-    margin-bottom: 30px;
-  } */
   alo-popup {
-    max-width: none;
+    width: 95%;
+    margin: 0 auto;
   }
 }
