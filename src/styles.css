@@ -93,7 +93,7 @@ body{
 }
 
 /******** MatSnackBar *******/
-.error-validation{
+.mat-snack-bar-container.error-validation{
   background-color: rgb(207, 49, 49);
   font-weight: 400;
 }
