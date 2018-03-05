@@ -3,12 +3,13 @@
  * Purpose: Browser for shearch accommodation with some basics filters
  */
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 
 import { FormErrorInfo } from '../../interfaces/form-error-info';
 import { ValidatorErrorService } from '../../services/validator-error.service';
+declare var $: any;
 
 @Component({
   selector: 'alo-browser-filter',
@@ -16,7 +17,7 @@ import { ValidatorErrorService } from '../../services/validator-error.service';
   styleUrls: ['./browser-filter.component.css'],
   providers: [ ValidatorErrorService ]
 })
-export class BrowserFilterComponent {
+export class BrowserFilterComponent implements OnInit {
 
   public isFilterBrowserVisible: boolean;
   private formErrorInfo: FormErrorInfo;
@@ -45,6 +46,10 @@ export class BrowserFilterComponent {
         }
       ]
     };
+  }
+
+  ngOnInit() {
+    $('.selectpicker').selectpicker();
   }
 
   /**

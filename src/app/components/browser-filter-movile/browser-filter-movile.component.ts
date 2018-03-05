@@ -4,9 +4,11 @@
  */
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { FormErrorInfo } from '../../interfaces/form-error-info';
 import { ValidatorErrorService } from '../../services/validator-error.service';
+declare var $: any;
 
 @Component({
   selector: 'alo-browser-filter-movile',
@@ -14,12 +16,13 @@ import { ValidatorErrorService } from '../../services/validator-error.service';
   styleUrls: ['./browser-filter-movile.component.css'],
   providers: [ ValidatorErrorService ]
 })
-export class BrowserFilterMovileComponent {
+export class BrowserFilterMovileComponent implements OnInit {
 
   private formErrorInfo: FormErrorInfo;
 
   constructor(
-    private __valError: ValidatorErrorService
+    private __valError: ValidatorErrorService,
+    private __router: Router
   ) {
     this.formErrorInfo = {
       errorsInfo: [
@@ -42,7 +45,9 @@ export class BrowserFilterMovileComponent {
       ]
     };
   }
-
+  ngOnInit() {
+    $('.selectpicker').selectpicker();
+  }
   /**
    * Evalue the shearch form and navegate to the page lhome using the preferences fixed
    * @param { FormGroup } formShearch form for shearch homes
@@ -50,6 +55,7 @@ export class BrowserFilterMovileComponent {
   public shearchHome( formShearch: FormGroup): void {
     if (formShearch.valid === true) {
       // TODO navigation
+      this.__router.navigate(['/public/homes']);
     } else {
       this.__valError.checkErrors(formShearch, this.formErrorInfo);
     }

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material';
 import { CommonModule } from '@angular/common';
 
@@ -12,6 +13,7 @@ import { LoginModule } from '../login/login.module';
     MatButtonModule,
     RegisterModule,
     CommonModule,
+    RouterModule,
     LoginModule
   ],
   exports: [ NavbarSimpleComponent ]
