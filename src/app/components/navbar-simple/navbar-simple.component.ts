@@ -5,6 +5,7 @@
 
 import { Component } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material';
+import { Router,  Event as RouterEvent} from '@angular/router';
 
 import { RegisterComponent } from '../register/register.component';
 import { LoginComponent } from '../login/login.component';
@@ -18,8 +19,21 @@ export class NavbarSimpleComponent {
 
   public popupRegister: MatDialogRef<RegisterComponent>;
   public popupLogin: MatDialogRef<LoginComponent>;
+  public isInHome: boolean;
 
-  constructor( private __dialog: MatDialog ) { }
+  constructor(
+    private __dialog: MatDialog,
+    private __router: Router
+  ) {
+    this.isInHome = false;
+    __router.events.subscribe( (event: any) => {
+      if (event.url === '/public/index' || event.url === '/') {
+        this.isInHome = true;
+      } else {
+        this.isInHome = false;
+      }
+    });
+  }
 
   /**
    * Open a popup of Register

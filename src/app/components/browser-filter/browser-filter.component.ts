@@ -62,6 +62,7 @@ export class BrowserFilterComponent {
   public shearchHome( formShearch: FormGroup ): void {
     if (formShearch.valid === true) {
       // TODO navigation
+      this.__router.navigate(['/public/homes']);
     } else {
       this.__valError.checkErrors(formShearch, this.formErrorInfo);
     }

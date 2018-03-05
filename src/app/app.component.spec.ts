@@ -8,37 +8,36 @@ import { NavbarSimpleModule } from './components/navbar-simple/navbar-simple.mod
 import { AppComponent } from './app.component';
 
 
-@Component({
-  template: `Home`
-})
-class HomeComponent {
-}
+// @Component({
+//   template: `Home`
+// })
+// class HomeComponent {
+// }
 
-const routes: Routes = [
-  {path: 'home', component: HomeComponent},
-];
+// const routes: Routes = [
+//   {path: 'home', component: HomeComponent},
+// ];
 
+// import {Injectable} from '@angular/core';
+// import { NavigationEnd } from '@angular/router';
+// import {Subject} from 'rxjs/Subject';
 
-import {Injectable} from '@angular/core';
-import { NavigationEnd } from '@angular/router';
-import {Subject} from 'rxjs/Subject';
+// @Injectable()
+// export class RouterStub {
+//   public url;
+//   private subject = new Subject();
+//   public events = this.subject.asObservable();
 
-@Injectable()
-export class RouterStub {
-  public url;
-  private subject = new Subject();
-  public events = this.subject.asObservable();
+//   navigate(url: string) {
+//     this.url = url;
+//     this.triggerNavEvents(url);
+//   }
 
-  navigate(url: string) {
-    this.url = url;
-    this.triggerNavEvents(url);
-  }
-
-  triggerNavEvents(url) {
-    let ne = new NavigationEnd(0, url, null);
-    this.subject.next(ne);
-  }
-}
+//   triggerNavEvents(url) {
+//     let ne = new NavigationEnd(0, url, null);
+//     this.subject.next(ne);
+//   }
+// }
 
 
 describe('AppComponent', () => {
@@ -49,11 +48,11 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        HomeComponent
+        // HomeComponent
       ],
       imports: [
         NavbarSimpleModule,
-        RouterTestingModule.withRoutes(routes),
+        RouterTestingModule,
         MatProgressSpinnerModule
       ]
     })

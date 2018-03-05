@@ -42,6 +42,28 @@ nav > *{ align-self: center; }
 .cnt-start, .cnt-end { display: flex}
 .cnt-start > *, .cnt-end > * { align-self: center;}
 
+
+#main-browser {
+  font-size: 1.3rem;
+  width: 500px;
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, .2);
+  border: none;
+  background-color: white;
+  padding: 7px 20px 7px 45px;
+}
+.effect-browser::before{
+  content: '\F002';
+  font-family: 'FontAwesome';
+  position: absolute;
+  font-size: 1.6rem;
+  color: rgba(0,0,0, .3);
+  top: 4px;
+  left: 10px;
+}
+.effect-browser{
+  position: relative;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, .2);
+}
 /************ Responsive *************/
 
 .btn-login-movile { display: none; }
