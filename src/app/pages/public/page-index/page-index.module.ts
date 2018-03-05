@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
-import { PageHomeComponent } from './page-home.component';
+import { PageIndexComponent } from './page-index.component';
 import { BrowserFilterModule } from '../../../components/browser-filter/browser.filter.module';
 import { BrowserFilterMovileModule } from '../../../components/browser-filter-movile/browser-filter-movile.module';
 
 @NgModule({
-  declarations: [ PageHomeComponent ],
+  declarations: [ PageIndexComponent ],
   imports: [
     BrowserFilterModule,
     BrowserFilterMovileModule
   ],
-  exports: [ PageHomeComponent ]
+  exports: [ PageIndexComponent ]
 })
-export class PageHomeModule {}
+export class PageIndexModule {}
