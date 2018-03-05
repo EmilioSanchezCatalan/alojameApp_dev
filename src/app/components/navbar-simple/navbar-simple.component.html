@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav>
+<nav [class.nav-responsive]="!isInHome">
   <!-- Logotype -->
   <a class="logo" [routerLink]="['/']">
     <img src="assets/img/ic_logo_border.png">
@@ -18,7 +18,8 @@
 
     <!--  End of container navbar -->
     <div class="cnt-end">
-      <button (click)="openRegister()" mat-button class="btn-accent-orange">Regístrate</button>
+      <button (click)="openRegister()" mat-button class="btn-accent-orange btn-register">Regístrate</button>
+      <div class="btn-register-movile" (click)="openRegister()"><i class="fa fa-id-card-o" aria-hidden="true"></i></div>
       <button (click)="openLogin()" mat-button class="btn-normal-orange btn-login">Iniciar sesión</button>
       <div class="btn-login-movile" (click)="openLogin()"><i class="fa fa-user-circle-o" aria-hidden="true"></i></div>
 

@@ -5,10 +5,12 @@ import { MatSnackBarModule, MatProgressSpinnerModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarSimpleModule } from './components/navbar-simple/navbar-simple.module';
+import { ListHomesComponent } from './components/list-homes/list-homes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ListHomesComponent,
   ],
   imports: [
     BrowserAnimationsModule,

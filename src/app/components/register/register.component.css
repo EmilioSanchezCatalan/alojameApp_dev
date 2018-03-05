@@ -16,6 +16,7 @@ form {
   color: white;
   margin: 30px auto;
   padding: 25px 20px;
+  max-width: 500px;
   width: 95%;
   cursor: pointer;
   justify-content: space-between;
@@ -82,9 +83,6 @@ alo-popup-footer span { color: #ff9600; font-weight: 700; cursor: pointer;}
 @media (max-width: 890px) {
   alo-popup {
     max-width: none;
-  }
-  .user-count{
-    width: 500px;
   }
   .date-inputs > .form-group{
     display: flex;
