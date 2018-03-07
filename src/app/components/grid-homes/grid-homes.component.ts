@@ -13,7 +13,8 @@ declare var $: any;
 })
 export class GridHomesComponent implements  OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     $('.rating').rating('create');

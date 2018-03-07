@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GridHomesComponent } from './grid-homes.component';
 import { CardHomeModule } from '../card-home/card-home.module';
+import { AloPaginationModule } from '../alo-pagination/alo-pagination.module';
+
 describe('GridHomesComponent', () => {
   let component: GridHomesComponent;
   let fixture: ComponentFixture<GridHomesComponent>;
@@ -9,7 +11,10 @@ describe('GridHomesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ GridHomesComponent ],
-      imports: [CardHomeModule]
+      imports: [
+        CardHomeModule,
+        AloPaginationModule
+      ]
     })
     .compileComponents();
   }));

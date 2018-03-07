@@ -3,6 +3,6 @@
   display: block;
   width: 100%;
 }
-:host > * {
+.container-grid > * {
   margin-bottom: 20px;
 }

@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarSimpleModule } from './components/navbar-simple/navbar-simple.module';
 
-
 @NgModule({
   declarations: [AppComponent],
   imports: [

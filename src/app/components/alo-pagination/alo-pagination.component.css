@@ -1,0 +1,22 @@
+nav {
+  text-align: center;
+}
+.pagination.alo-pagination>li>a,
+.pagination.alo-pagination>li>span{
+  color: #f18600;
+  cursor: default;
+}
+.pagination.alo-pagination>.disabled>a,
+.pagination.alo-pagination>.disabled>a:focus,
+.pagination.alo-pagination>.disabled>a:hover,
+.pagination.alo-pagination>.disabled>span,
+.pagination.alo-pagination>.disabled>span:focus,
+.pagination.alo-pagination>.disabled>span:hover {
+  cursor: not-allowed;
+}
+
+.pagination.alo-pagination>.active>span {
+  background-color: #ff8d00;
+  border-color: #ff8d00;
+  color: white;
+}
