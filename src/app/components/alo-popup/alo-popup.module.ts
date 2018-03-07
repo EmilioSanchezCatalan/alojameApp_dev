@@ -1,4 +1,5 @@
-// TODO Responsive iphone 5 and 4; and more.
+// TODO ISSUE 0000002 El scroll vertical de los popus.
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 

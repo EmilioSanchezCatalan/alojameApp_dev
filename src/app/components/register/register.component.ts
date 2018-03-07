@@ -79,9 +79,9 @@ export class RegisterComponent {
   public setUserType(userType: string): void {
     this.userType = userType;
     setTimeout( () => {
-      // TODO revise an alternative
+      // TODO ISSUE 0000001 effecto de expansión en el popup
       $('.selectpicker').selectpicker();
-    }, 50);
+    }, 25);
   }
 
   /**
