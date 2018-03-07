@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { AgmCoreModule } from '@agm/core';
 
 import { PageLhomesComponent } from './page-lhomes.component';
+import { GridHomesModule } from '../../../components/grid-homes/grid-homes.module';
 
 describe('PageLhomesComponent', () => {
   let component: PageLhomesComponent;
@@ -8,7 +10,13 @@ describe('PageLhomesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageLhomesComponent ]
+      declarations: [ PageLhomesComponent ],
+      imports: [
+        GridHomesModule,
+        AgmCoreModule.forRoot({
+          apiKey: 'AIzaSyBmqtAnnZJ8C20gOdjmZKCq4SPaByTXMnk'
+        })
+      ]
     })
     .compileComponents();
   }));

@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
 
 import { GridHomesComponent } from './grid-homes.component';
+import { CardHomeModule } from '../card-home/card-home.module';
 
 @NgModule({
   declarations: [GridHomesComponent],
-  imports: [MatCardModule],
+  imports: [
+    CardHomeModule
+  ],
   exports: [GridHomesComponent]
 })
 export class GridHomesModule {}

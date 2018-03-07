@@ -1,0 +1,71 @@
+<mat-card class="example-card">
+
+  <!-- scroll -->
+  <div mat-card-image id="carousel-home-1" class="carousel slide" data-ride="carousel" data-interval="0">
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+      <!-- List of photos -->
+      <div class="item active">
+        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="...">
+      </div>
+
+      <div class="item">
+        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="...">
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-home-1" role="button" data-slide="prev">
+      <div class="control-scll">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+      </div>
+    </a>
+    <a class="right carousel-control" href="#carousel-home-1" role="button" data-slide="next">
+      <div class="control-scll">
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </div>
+    </a>
+  </div>
+
+  <!-- Content -->
+  <mat-card-content>
+    <section class="home-info">
+      <header>
+        <h3>Titulo de la casa</h3>
+        <span>600€</span>
+      </header>
+      <article class="list-services">
+        <div class="home-service">
+          <i class="fa fa-address-book" aria-hidden="true"></i>
+          <span>Limpiar</span>
+        </div>
+        <div class="home-service">
+          <i class="fa fa-address-book" aria-hidden="true"></i>
+          <span>Limpiar</span>
+        </div>
+        <div class="home-service">
+          <i class="fa fa-address-book" aria-hidden="true"></i>
+          <span>Limpiar</span>
+        </div>
+        <div class="home-service">
+          <i class="fa fa-address-book" aria-hidden="true"></i>
+          <span>Limpiar</span>
+        </div>
+      </article>
+    </section>
+  </mat-card-content>
+
+  <!-- Footer card -->
+  <mat-card-footer>
+    <div class="full-rating">
+      <div class="star-rating-show">
+        <input id="input-id" value="4.5" name="input-name" type="text" class="rating" data-min=0 data-max=5 data-step=0.5 data-size="xs" disabled>
+      </div>
+      <span class="n-rating">3000</span>
+    </div>
+
+  </mat-card-footer>
+</mat-card>

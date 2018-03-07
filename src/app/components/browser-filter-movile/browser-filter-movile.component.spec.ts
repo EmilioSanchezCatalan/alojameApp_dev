@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed, inject} from '@angular/core/testing';
 import { FormsModule, FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 import { MatSnackBarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -16,7 +17,8 @@ describe('BrowserFilterMovileComponent', () => {
       imports: [
         FormsModule,
         MatSnackBarModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        RouterTestingModule
       ],
       providers: [
         ValidatorErrorService,
