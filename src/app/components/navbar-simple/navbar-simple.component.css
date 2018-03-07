@@ -6,7 +6,11 @@ nav{
   flex-wrap: nowrap;
   padding: 0 15px;
   background-color: white;
-  box-shadow: rgba(0,0,0,0.3) 0px 0px 18px 1px
+  box-shadow: rgba(0,0,0,0.3) 0px 0px 18px 1px;
+  position: fixed;
+  width: 100%;
+  z-index: 900;
+  top: 0;
 }
 
 nav > *{ align-self: center; }

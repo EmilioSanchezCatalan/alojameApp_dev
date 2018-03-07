@@ -1,0 +1,28 @@
+.grid-homes {
+  display: inline-block;
+  margin-left: auto;
+  width: 65vw;
+  float: right;
+}
+.maps-homes {
+  position: fixed;
+  height: calc( 100vh - 56px );
+  width: 35vw;
+  padding: 30px;
+  top: 56px;
+  background-color: white;
+}
+agm-map {
+  height: 100%;
+  width: 100%;
+
+}
+
+@media (max-width: 1080px) {
+  .maps-homes{
+    display: none;
+  }
+  .grid-homes {
+    width: 100%;
+  }
+}

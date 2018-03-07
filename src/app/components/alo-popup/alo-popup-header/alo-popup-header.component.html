@@ -1,6 +1,12 @@
 <!-- Header -->
+
+<!-- Close cross -->
 <span (click)="closePopup()"><i class="fa fa-times" aria-hidden="true"></i></span>
+
+<!-- Title -->
 <h1>
   <ng-content></ng-content>
+
+  <!-- Button back -->
   <i *ngIf="hasBack" class="fa fa-reply" aria-hidden="true" (click)="goBack()"></i>
 </h1>

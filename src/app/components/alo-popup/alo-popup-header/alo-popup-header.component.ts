@@ -1,3 +1,12 @@
+/**
+ * @author Emilio Sánchez <esc00019@gmail.com>
+ * Purpose: define the representation of the popups
+ * Inputs:
+ *    --> hasBack: {boolean} indicate if it has or not a event back
+ * Outputs:
+ *    --> back: emit a event when is pressed the button back;
+ *    --> close: emit a event when is pressed the button cross for close the popup
+ */
 import { Component, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({

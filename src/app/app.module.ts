@@ -5,13 +5,10 @@ import { MatSnackBarModule, MatProgressSpinnerModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarSimpleModule } from './components/navbar-simple/navbar-simple.module';
-import { ListHomesComponent } from './components/list-homes/list-homes.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ListHomesComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -23,3 +20,4 @@ import { ListHomesComponent } from './components/list-homes/list-homes.component
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+// api google AIzaSyDRIF01dIqTO3KGa96ss-h24GNQNHn9Opw

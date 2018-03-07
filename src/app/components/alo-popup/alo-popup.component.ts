@@ -1,3 +1,7 @@
+/**
+ * @author Emilio Sánchez <esc00019@gmail.com>
+ * Purpose: container that define the structure of the popups
+ */
 import { Component } from '@angular/core';
 
 @Component({
