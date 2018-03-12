@@ -1,0 +1,61 @@
+<!-- Filter Date enter -->
+<alo-button-filter [title]="'Fecha de Entrada'">
+  <div class="date-into">
+    <header>
+      <h5>Entrada</h5>
+    </header>
+    <section>
+      <input [owlDateTimeTrigger]="dateInto" [owlDateTime]="dateInto">
+      <owl-date-time [pickerType]="'calendar'" #dateInto></owl-date-time>
+    </section>
+  </div>
+</alo-button-filter>
+
+<!-- Filter of type rent -->
+<alo-button-filter id="type-rent" [title]="'Tipo de Alquiler'">
+  <div class="type-rent">
+    <mat-checkbox value="1">Propiedad completa</mat-checkbox>
+    <mat-checkbox value="2">Por habitación</mat-checkbox>
+    <mat-checkbox value="2">Por cama</mat-checkbox>
+  </div>
+
+</alo-button-filter>
+
+<!-- Filter of price -->
+<alo-button-filter id="type-price" [title]="'Precio €'">
+  <div class="cnt-price">
+    <div class="m-price">
+      <header>
+        <h5>Min</h5>
+        <input type="number" />
+        <span>&nbsp;€</span>
+      </header>
+      <section>
+        <mat-slider></mat-slider>
+      </section>
+    </div>
+    <div class="m-price">
+      <header>
+        <h5>Max</h5>
+        <input type="number" />
+        <span>&nbsp;€</span>
+      </header>
+      <section>
+        <mat-slider></mat-slider>
+      </section>
+    </div>
+  </div>
+
+</alo-button-filter>
+
+<!-- Filter of type of accomodation -->
+<alo-button-filter id="filter-typeAccom" [title]="'Tipo de Alojamiento'">
+  <div class="type-accomodation">
+    <mat-checkbox value="1">Casa</mat-checkbox>
+    <mat-checkbox value="2">Piso</mat-checkbox>
+    <mat-checkbox value="2">Residencia</mat-checkbox>
+  </div>
+</alo-button-filter>
+
+<!-- More filters -->
+<button class="btn btn-default" [class.button-active]="hasMoreFilters" (click)="setEventMoreFilters();">Mas Filtros</button>

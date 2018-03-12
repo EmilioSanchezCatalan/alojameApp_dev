@@ -1,0 +1,75 @@
+:host {
+  background-color: white;
+  height: 64px;
+  display: block;
+  position: fixed;
+  width: 100%;
+  z-index: 900;
+  border: 1px rgba(0,0,0,0.1) solid;
+  border-right: none;
+  border-left: none;
+  box-sizing: border-box;
+  padding: 0 25px;
+  line-height: 64px;
+}
+
+:host > * {
+  margin: 0 5px;
+}
+
+/* Date go Into */
+.date-into section {
+  text-align: center;
+}
+.date-into input {
+  text-align: center;
+  width: 50%;
+}
+/* Price */
+.cnt-price {}
+  .m-price header {
+    display: flex;
+  }
+  .m-price header > * {
+    align-self: center;
+  }
+  .cnt-price input {
+    text-align: right;
+    margin-left: auto;
+    width: 75px;
+  }
+
+  .cnt-price mat-slider {
+    width: 100%;
+  }
+
+/* Type of rent */
+.type-rent{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Type of acomodation */
+.type-accomodation{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media (max-width: 720px) {
+  #filter-typeAccom {
+    display: none;
+  }
+}
+@media (max-width: 550px) {
+  #type-rent {
+    display: none;
+  }
+}
+@media (max-width: 420px) {
+  #type-price {
+    display: none;
+  }
+}

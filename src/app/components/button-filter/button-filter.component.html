@@ -1,0 +1,17 @@
+<div class="button-filtercontainer">
+  <button type="button" class="btn btn-default" (click)="isContentDisplay = true" [class.button-active]="isContentDisplay || isFiltering">
+    {{title}}
+  </button>
+  <div class="button-content" *ngIf="isContentDisplay == true">
+    <div class="content">
+      <ng-content></ng-content>
+    </div>
+
+    <div class="set-changes">
+      <span (click)="setIsFiltering(false); setRestartEvent(); isContentDisplay = false">Restablecer</span>
+      <span (click)="setIsFiltering(true); setFilteredEvent(); isContentDisplay = false">Aplicar</span>
+    </div>
+  </div>
+</div>
+
+<div class="background-block" *ngIf="isContentDisplay === true" (click)="isContentDisplay = false"></div>

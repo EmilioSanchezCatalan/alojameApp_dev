@@ -1,8 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AgmCoreModule } from '@agm/core';
+import { MatCheckboxModule, MatSliderModule } from '@angular/material';
 
 import { PageLhomesComponent } from './page-lhomes.component';
 import { GridHomesModule } from '../../../components/grid-homes/grid-homes.module';
+import { FiltersModule } from '../../../components/filters/filters.module';
 
 describe('PageLhomesComponent', () => {
   let component: PageLhomesComponent;
@@ -13,6 +15,9 @@ describe('PageLhomesComponent', () => {
       declarations: [ PageLhomesComponent ],
       imports: [
         GridHomesModule,
+        FiltersModule,
+        MatCheckboxModule,
+        MatSliderModule,
         AgmCoreModule.forRoot({
           apiKey: 'AIzaSyBmqtAnnZJ8C20gOdjmZKCq4SPaByTXMnk'
         })
