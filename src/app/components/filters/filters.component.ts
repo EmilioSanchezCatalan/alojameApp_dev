@@ -1,3 +1,11 @@
+/**
+ * @author Emilio Sánchez Catalán <esc00019@gmail.com>
+ * Purpose: filters dedicated in the list of homes showed
+ * Inputs:
+ *    --> hasMoreFilters: indicate if the button have been activate.
+ * Outputs:
+ *    --> moreFilters: indicate that is button 'mas filtros' was been clicked
+ */
 import { Component, Output, EventEmitter, Input} from '@angular/core';
 
 @Component({

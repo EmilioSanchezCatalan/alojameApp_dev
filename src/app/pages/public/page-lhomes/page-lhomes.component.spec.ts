@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AgmCoreModule } from '@agm/core';
 import { MatCheckboxModule, MatSliderModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 import { PageLhomesComponent } from './page-lhomes.component';
 import { GridHomesModule } from '../../../components/grid-homes/grid-homes.module';
@@ -18,6 +19,7 @@ describe('PageLhomesComponent', () => {
         FiltersModule,
         MatCheckboxModule,
         MatSliderModule,
+        FormsModule,
         AgmCoreModule.forRoot({
           apiKey: 'AIzaSyBmqtAnnZJ8C20gOdjmZKCq4SPaByTXMnk'
         })
@@ -34,5 +36,15 @@ describe('PageLhomesComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('test showFilterSection()', () => {
+    it('should be show change the state of the var isFilterShowed', () => {
+      component.showFilterSection();
+      expect(component.isFilterShowed).toBeTruthy();
+      component.showFilterSection();
+      expect(component.isFilterShowed).toBeFalsy();
+    });
+
   });
 });

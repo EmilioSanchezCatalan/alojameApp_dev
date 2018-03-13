@@ -33,4 +33,10 @@ describe('FiltersComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('test setEventMoreFilters', () => {
+    it('should be indicate that the button more filters is clicked', () => {
+      component.setEventMoreFilters();
+    });
+  });
 });

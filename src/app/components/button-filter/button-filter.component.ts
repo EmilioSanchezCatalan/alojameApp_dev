@@ -1,3 +1,12 @@
+/**
+ * @author Emilio Sánchez Catalán <esc00019@gmail.com>
+ * Purpose: type of button with a dropdown panel for represent content
+ * Inputs:
+ *    --> title: text into the button.
+ * Outputs:
+ *    --> filtered: indicated if the filter have been apply
+ *    --> restart: indicated if the filter have been restart
+ */
 import { Component, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
