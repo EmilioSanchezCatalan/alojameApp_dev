@@ -1,0 +1,8 @@
+#page-home header {
+  display: flex;
+  overflow: hidden;
+}
+#page-home header img {
+  height: 500px;
+  width: auto;
+}
