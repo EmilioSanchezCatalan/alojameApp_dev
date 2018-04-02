@@ -1,18 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatExpansionModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeDetailsComponent } from './home-details.component';
 
-import { HomeDetailsModule } from '../../../components/home-details/home-details.module';
-import { PageHomeComponent } from './page-home.component';
-
-describe('PageHomeComponent', () => {
-  let component: PageHomeComponent;
-  let fixture: ComponentFixture<PageHomeComponent>;
+describe('HomeDetailsComponent', () => {
+  let component: HomeDetailsComponent;
+  let fixture: ComponentFixture<HomeDetailsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageHomeComponent ],
+      declarations: [ HomeDetailsComponent ],
       imports: [
-        HomeDetailsModule,
+        MatExpansionModule,
         BrowserAnimationsModule
       ]
     })
@@ -20,7 +19,7 @@ describe('PageHomeComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageHomeComponent);
+    fixture = TestBed.createComponent(HomeDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

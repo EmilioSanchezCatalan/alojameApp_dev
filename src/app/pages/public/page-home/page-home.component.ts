@@ -1,3 +1,7 @@
+/**
+ * @author Emilio Sánchez Catalán <esc00019@gmail.com>
+ * Purpose: page detail of one homew
+ */
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,11 +9,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './page-home.component.html',
   styleUrls: ['./page-home.component.css']
 })
-export class PageHomeComponent implements OnInit {
+export class PageHomeComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

@@ -1,0 +1,109 @@
+section {
+  background-color: white;
+  padding: 20px 40px;
+  box-shadow: 0.5px 1px 0px 1px rgba(0,0,0,.2);
+}
+header {
+  display: flex;
+  padding: 10px 0;
+  flex-direction: row;
+}
+header > * {
+  align-self: center;
+}
+header h1 {
+  margin: 0;
+}
+header h2 {
+  font-size: 1.5em;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+header figure {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+}
+header figure img {
+  width: 60px;
+   height: 60px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+header figure caption {
+  padding-top: 1.5px;
+  padding-bottom: 0;
+}
+
+/* Details informations of the rooms */
+#list-details {
+  display: flex;
+}
+  #list-details .item-detail {
+    margin-right: 20px;
+  }
+
+/* List of properties avaliables */
+#list-properties {
+  margin: 40px 0;
+}
+  #list-properties > * {
+    margin: 20px 0;
+  }
+  #list-properties > h2 {
+    font-size: 2em;
+  }
+  #list-properties mat-panel-title {
+    font-size: 1.2em;
+  }
+
+/* List of rooms */
+#home-rooms .content-panel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+#home-rooms .item-room > *{
+  font-size: 3em;
+  margin: 0 5px;
+}
+
+/* List of services */
+#list-services .content-panel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+#list-services .item-service {
+  flex-basis: calc( 100% / 3);
+  margin: 5px 0;
+}
+
+/* Rules */
+#list-rent-rules .content-panel {
+  margin: 10px 0;
+}
+#list-rules h4 {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+#list-rules .rules-content {
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Rent rules  */
+#list-rent-rules .content-panel {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
