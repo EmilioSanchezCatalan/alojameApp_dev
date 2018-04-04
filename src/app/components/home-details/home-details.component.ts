@@ -1,5 +1,6 @@
 /**
- * Purpose:
+ * @author Emilio Sánchez Catalán
+ * Purpose: show the properties of a home
  */
 import { Component } from '@angular/core';
 

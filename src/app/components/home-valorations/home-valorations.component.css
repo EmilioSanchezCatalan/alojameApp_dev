@@ -1,0 +1,65 @@
+#valoration-content {
+  background-color: white;
+  padding: 20px 40px;
+  border: 1px solid rgba(0,0,0,.2);
+}
+
+/* Valoration header */
+#valoration-content > header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-bottom: 20px;
+}
+#valoration-content > * {
+  align-self: center;
+}
+#valoration-content header h2 {
+  font-size: 2em;
+  margin: 0;
+  line-height: 41.5px;
+}
+
+#valoration-content > header .label-valoration {
+  margin-left: 200px;
+  line-height: 41.5px;
+  margin-right: 10px;
+  font-style: italic;
+}
+#valoration-content header .n-rating{
+  line-height: 41.5px;
+  margin-left: 5px;
+}
+
+/* List of valorations  */
+#list-valorations .item-valoration {
+  padding: 25px 0;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: rgba(0, 0, 0, .2);
+}
+#list-valorations .item-valoration header{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-bottom: 25px;
+  padding: 0 10px;
+}
+#list-valorations .item-valoration header > * {
+  align-self: center;
+}
+#list-valorations .item-valoration .avatar-user img{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+#list-valorations .item-valoration .name-user {
+  margin-left: 20px;
+  margin-right: 15px;
+  font-weight: bold;
+}
+#list-valorations .valoration-text {
+  margin: 0 40px;
+}

@@ -1,7 +1,8 @@
 section {
   background-color: white;
   padding: 20px 40px;
-  box-shadow: 0.5px 1px 0px 1px rgba(0,0,0,.2);
+  border: 1px solid rgba(0,0,0,.2);
+  margin-bottom: 10px;
 }
 header {
   display: flex;
@@ -28,7 +29,7 @@ header figure {
 }
 header figure img {
   width: 60px;
-   height: 60px;
+  height: 60px;
   object-fit: cover;
   object-position: center;
   border-radius: 50%;

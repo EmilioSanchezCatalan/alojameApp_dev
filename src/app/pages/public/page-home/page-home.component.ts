@@ -1,6 +1,6 @@
 /**
  * @author Emilio Sánchez Catalán <esc00019@gmail.com>
- * Purpose: page detail of one homew
+ * Purpose: page detail of one home
  */
 import { Component, OnInit } from '@angular/core';
 
