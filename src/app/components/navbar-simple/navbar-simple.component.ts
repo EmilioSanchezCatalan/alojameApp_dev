@@ -1,9 +1,13 @@
 /**
  * @author Emilio Sánchez <esc00019@gmail.com>
  * Purpose: Navbar component for navigate for the page without browser flat
+ * Inputs:
+ *    --> status: set the type of navbar
+ *            - public: navbar of section public
+ *            - owner: navbar of section owner
  */
 
-import { Component } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material';
 import { Router,  Event as RouterEvent} from '@angular/router';
 
@@ -15,8 +19,9 @@ import { LoginComponent } from '../login/login.component';
   templateUrl: './navbar-simple.component.html',
   styleUrls: ['./navbar-simple.component.css']
 })
-export class NavbarSimpleComponent {
+export class NavbarSimpleComponent implements OnInit {
 
+  @Input() status: string;
   public popupRegister: MatDialogRef<RegisterComponent>;
   public popupLogin: MatDialogRef<LoginComponent>;
   public isInHome: boolean;
@@ -26,8 +31,12 @@ export class NavbarSimpleComponent {
     private __router: Router
   ) {
     this.isInHome = false;
-    __router.events.subscribe( (event: any) => {
-      if (event.url === '/public/index' || event.url === '/') {
+    this.status = 'public';
+  }
+
+  ngOnInit() {
+    this.__router.events.subscribe( (event: any) => {
+      if (this.status === 'public' && (event.url === '/public/index' || event.url === '/') ) {
         this.isInHome = true;
       } else {
         this.isInHome = false;

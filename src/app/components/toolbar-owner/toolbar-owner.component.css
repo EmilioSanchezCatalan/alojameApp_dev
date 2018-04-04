@@ -1,0 +1,26 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 50px;
+  background-color: white;
+}
+.item-menu {
+  align-self: center;
+  font-size: 1.5em;
+  flex-basis: calc( 100% / 3);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, .2);
+  cursor: pointer;
+}
+.item-menu:nth-child(2) {
+  border-right: 0;
+  border-left: 0;
+}
+.item-menu > * {
+  align-self: center;
+}

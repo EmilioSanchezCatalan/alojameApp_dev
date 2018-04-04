@@ -1,12 +1,7 @@
 /*************** Card *************/
-.example-card {
+.home-card {
   max-width: 400px;
   margin: 0 auto;
-}
-
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
 }
 
     /*************** Carousel ***********/
@@ -32,7 +27,6 @@
     }
 
 /************* Content **************/
-
 
     /**** Header ***/
     .home-info header {
@@ -88,3 +82,24 @@
       font-weight: bold;
       font-size: 0.9rem;
     }
+
+/********* Functions **********/
+#card-description { position: relative; }
+#card-description.hasfunctionality { cursor: pointer; }
+#card-description.hasfunctionality:hover #f-cape { display: block; }
+#card-description.hasfunctionality:hover #f-crud { display: block; }
+#f-cape {
+  position: absolute;
+  background-color: rgba(255, 255, 255, .7);
+  display: none;
+  width: calc(100% + 48px);
+  height: 100%;
+  top: 0;
+  left: -24px;
+}
+#f-crud {
+  display: none;
+  position: absolute;
+  right: -10px;
+  bottom: 15px;
+}

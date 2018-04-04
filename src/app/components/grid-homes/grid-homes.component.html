@@ -1,34 +1,28 @@
 <!-- Grid of Card Homes -->
 <div class="container-grid row">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <alo-card-home></alo-card-home>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4" *ngIf="function === 'crud'">
+    <div id="create-card">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+      <div id="create-cape"></div>
+    </div>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <alo-card-home></alo-card-home>
+    <alo-card-home [function]="function"></alo-card-home>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <alo-card-home></alo-card-home>
+    <alo-card-home [function]="function"></alo-card-home>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <alo-card-home></alo-card-home>
+    <alo-card-home [function]="function"></alo-card-home>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <alo-card-home></alo-card-home>
+    <alo-card-home [function]="function"></alo-card-home>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <alo-card-home></alo-card-home>
+    <alo-card-home [function]="function"></alo-card-home>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <alo-card-home></alo-card-home>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <alo-card-home></alo-card-home>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <alo-card-home></alo-card-home>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <alo-card-home></alo-card-home>
+    <alo-card-home [function]="function"></alo-card-home>
   </div>
 </div>
 
