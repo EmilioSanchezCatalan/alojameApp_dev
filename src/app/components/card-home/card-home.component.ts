@@ -7,6 +7,7 @@
  *              - crud: functionality crud
  */
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -19,12 +20,21 @@ export class CardHomeComponent implements OnInit {
 
   @Input() function: string;
 
-  constructor() {
+  constructor(
+    private __router: Router
+  ) {
     this.function = 'none';
   }
 
   ngOnInit() {
     $('.rating').rating('create');
+  }
+
+  /**
+   * Navigate to the view home-detail of the home selected
+   */
+  public gotoShowHome(): void {
+    this.__router.navigate(['private', 'own-home', 'show']);
   }
 
 }

@@ -10,7 +10,7 @@ import { FilterBrowser } from '../../../interfaces/filter-browser';
 declare var $: any;
 
 @Component({
-  selector: 'app-page-lhomes',
+  selector: 'page-lhomes',
   templateUrl: './page-lhomes.component.html',
   styleUrls: ['./page-lhomes.component.css']
 })

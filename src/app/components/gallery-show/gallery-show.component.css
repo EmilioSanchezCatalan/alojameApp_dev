@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+img {
+  height: 500px;
+  width: auto;
+}
+button{
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+}
+button i {
+  color: white;
+  margin-right: 10px
+}

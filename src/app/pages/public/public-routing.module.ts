@@ -1,3 +1,7 @@
+/**
+ * @author Emilio Sánchez Catalán <esc00019@gmail.com>
+ * Purpose: has the configuration of the routes on the public section
+ */
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 

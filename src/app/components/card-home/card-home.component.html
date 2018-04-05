@@ -8,11 +8,11 @@
 
       <!-- List of photos -->
       <div class="item active">
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="...">
+        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
       </div>
 
       <div class="item">
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="...">
+        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
       </div>
 
     </div>
@@ -72,7 +72,7 @@
 
     <div id="f-crud" *ngIf="function === 'crud'">
       <div class="btn-group" role="group">
-        <button type="button" class="btn btn-default"><i class="fa fa-eye" aria-hidden="true"></i></button>
+        <button type="button" class="btn btn-default" (click)="gotoShowHome()"><i class="fa fa-eye" aria-hidden="true"></i></button>
         <button type="button" class="btn btn-default"><i class="fa fa-pencil" aria-hidden="true"></i></button>
         <button type="button" class="btn btn-default"><i class="fa fa-users" aria-hidden="true"></i></button>
         <button type="button" class="btn btn-default"><i class="fa fa-trash" aria-hidden="true"></i></button>

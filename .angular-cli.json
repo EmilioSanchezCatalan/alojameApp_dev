@@ -22,6 +22,7 @@
         "../node_modules/font-awesome/css/font-awesome.min.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/bootstrap-select/dist/css/bootstrap-select.min.css",
+        "../node_modules/angular2-lightbox/lightbox.css",
         "styles.css",
         "assets/css/star-rating.css",
         "customTheme.scss"

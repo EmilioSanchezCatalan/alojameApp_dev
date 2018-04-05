@@ -68,7 +68,39 @@ body{
 }
 .btn.btn-orange:active:focus{ outline-color: #ff9600; }
 
+.btn.btn-blue {
+  color: #fff;
+  font-weight: 700;
+  background-color: #088AA8;
+  border-color: #066d85;
+}
+
+.btn.btn-blue:focus {
+  color: #fff;
+  background-color: #088AA8;
+  border-color: #066d85;
+  outline-color: #088AA8;
+}
+.btn.btn-blue:hover {
+  color: #fff;
+  background-color: #006d86;
+  border-color: #065e73;
+}
+.btn.btn-blue:active{
+  color: #fff;
+  background-color: #07bce7;
+  border-color: #065e73;
+  outline-color: #088AA8;
+}
+
 .input-group-btn button { min-width: 55px; }
+
+/******* Button Default active *******/
+.button-active{
+  background-color: #088AA8;
+  color: white;
+  border-color: #088AA8;
+}
 
 /*********** Forms bootstrap adapts ******/
 .form-control:focus {
@@ -106,11 +138,4 @@ body{
 /******** Star rating ********/
 .star-rating-show .clear-rating, .star-rating-show .caption {
     display: none !important;
-}
-
-/******* Button Default active *******/
-.button-active{
-  background-color: #088AA8;
-  color: white;
-  border-color: #088AA8;
 }
