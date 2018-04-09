@@ -1,0 +1,32 @@
+#roomers-control {
+  background-color: white;
+  padding: 20px 40px;
+  border: 1px solid rgba(0,0,0,.2);
+  margin-bottom: 10px;
+}
+#roomers-control header {
+  padding-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid;
+  border-color: rgba(0, 0, 0, .2);
+}
+
+#roomers-control table {
+  margin: 50px 0;
+  width: 100%;
+}
+#roomers-control  td:first-child {
+  text-align: center;
+}
+#roomers-control  td:last-child {
+  text-align: right;
+}
+#roomers-control .user-avatar img{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+#roomers-control .fa-minus { color: #d20404; }
+#roomers-control .fa-plus { color: rgb(0, 176, 2); }

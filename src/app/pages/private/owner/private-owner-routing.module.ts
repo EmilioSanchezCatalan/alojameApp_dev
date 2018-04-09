@@ -7,12 +7,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { PageOwnHomesComponent } from './page-own-homes/page-own-homes.component';
 import { PageOwnHomeComponent } from './page-own-home/show/page-own-home.component';
+import { PageOwnHomeStudentsComponent } from './page-own-home/students/page-own-home-students.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'own-homes', pathMatch: 'full'},
   { path: 'own-homes', component: PageOwnHomesComponent },
   { path: 'own-home', children: [
-    { path: 'show', component: PageOwnHomeComponent }
+    { path: 'show', component: PageOwnHomeComponent },
+    { path: 'students', component: PageOwnHomeStudentsComponent }
   ]}
 ];
 

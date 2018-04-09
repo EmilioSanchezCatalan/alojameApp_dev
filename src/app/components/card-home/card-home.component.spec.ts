@@ -35,4 +35,10 @@ describe('CardHomeComponent', () => {
       component.gotoShowHome();
     });
   });
+
+  describe('test gotoStudentsHome()', () => {
+    it('should be navegate to the home\'s students-control', () => {
+      component.gotoStudentsHome();
+    });
+  });
 });

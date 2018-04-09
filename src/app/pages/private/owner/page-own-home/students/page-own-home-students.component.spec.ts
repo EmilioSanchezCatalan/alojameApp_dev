@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageOwnHomeStudentsComponent } from './page-own-home-students.component';
+import { RoomersControlModule } from '../../../../../components/roomers-control/roomers-control.module';
+import { RoomersRequestModule } from '../../../../../components/roomers-request/roomers-request.module';
 
 describe('PageOwnHomeStudentsComponent', () => {
   let component: PageOwnHomeStudentsComponent;
@@ -8,7 +10,11 @@ describe('PageOwnHomeStudentsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageOwnHomeStudentsComponent ]
+      declarations: [ PageOwnHomeStudentsComponent ],
+      imports: [
+        RoomersControlModule,
+        RoomersRequestModule
+      ]
     })
     .compileComponents();
   }));
