@@ -1,11 +1,17 @@
 <nav>
   <div class="item-menu">
-    <span>Mis pisos</span>
+    <a [routerLink]="['/private', 'own-homes']">
+      <span>Mis pisos</span>
+    </a>
   </div>
   <div class="item-menu">
-    <span>Mensajes</span>
+    <a [routerLink]="['/private', 'own-messages']">
+      <span>Mensajes</span>
+    </a>
   </div>
   <div class="item-menu">
-    <span>Valoraciones</span>
+    <a>
+      <span>Valoraciones</span>
+    </a>
   </div>
 </nav>

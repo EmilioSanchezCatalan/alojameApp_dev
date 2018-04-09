@@ -1,0 +1,49 @@
+#list-messages {
+  margin-top: 20px;
+  padding: 40px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, .2);
+}
+#list-messages .item-message {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 10px 5px;
+  align-items: stretch;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+#list-messages .item-message:hover { background-color: #f5f3f3; }
+#list-messages .item-message:first-child { border-top: 1px solid rgba(0, 0, 0, .1); }
+#list-messages .item-message > * { align-self: center; }
+
+#list-messages .user-avatar img{
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+#list-messages .message-content {
+  margin-left: 30px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5px 0;
+  justify-content: space-between;
+}
+
+#list-messages .message-content .message-title {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+#list-messages .item-message > .message-date {
+  margin-left: auto;
+  align-self: flex-start;
+}
+#list-messages .message-tool i {
+  font-size: 4.2em;
+  margin-left: 40px;
+  color: #d1d1d1;
+}

@@ -8,6 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PageOwnHomesComponent } from './page-own-homes/page-own-homes.component';
 import { PageOwnHomeComponent } from './page-own-home/show/page-own-home.component';
 import { PageOwnHomeStudentsComponent } from './page-own-home/students/page-own-home-students.component';
+import { PageOwnMessagesComponent } from './page-own-messages/page-own-messages.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'own-homes', pathMatch: 'full'},
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'own-home', children: [
     { path: 'show', component: PageOwnHomeComponent },
     { path: 'students', component: PageOwnHomeStudentsComponent }
-  ]}
+  ]},
+  { path: 'own-messages', component: PageOwnMessagesComponent}
 ];
 
 @NgModule({

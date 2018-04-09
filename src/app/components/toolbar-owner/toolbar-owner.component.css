@@ -21,6 +21,10 @@ nav {
   border-right: 0;
   border-left: 0;
 }
-.item-menu > * {
-  align-self: center;
+.item-menu > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%
 }
+.item-menu a > * { align-self: center; }
