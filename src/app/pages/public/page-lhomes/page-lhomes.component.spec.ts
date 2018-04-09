@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AgmCoreModule } from '@agm/core';
 import { MatCheckboxModule, MatSliderModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { PageLhomesComponent } from './page-lhomes.component';
 import { GridHomesModule } from '../../../components/grid-homes/grid-homes.module';
@@ -20,6 +21,7 @@ describe('PageLhomesComponent', () => {
         MatCheckboxModule,
         MatSliderModule,
         FormsModule,
+        RouterTestingModule,
         AgmCoreModule.forRoot({
           apiKey: 'AIzaSyBmqtAnnZJ8C20gOdjmZKCq4SPaByTXMnk'
         })

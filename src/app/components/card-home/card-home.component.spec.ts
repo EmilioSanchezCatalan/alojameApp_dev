@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatCardModule } from '@angular/material';
+import { RouterTestingModule } from '@angular/router/testing';
+
 import { CardHomeComponent } from './card-home.component';
+
 
 describe('CardHomeComponent', () => {
   let component: CardHomeComponent;
@@ -9,7 +12,10 @@ describe('CardHomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CardHomeComponent ],
-      imports: [ MatCardModule ]
+      imports: [
+        MatCardModule,
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   }));
@@ -22,5 +28,11 @@ describe('CardHomeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('test gotoShowHome()', () => {
+    it('should be navegate to the home', () => {
+      component.gotoShowHome();
+    });
   });
 });

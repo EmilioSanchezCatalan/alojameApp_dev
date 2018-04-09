@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { GridHomesComponent } from './grid-homes.component';
 import { CardHomeModule } from '../card-home/card-home.module';
@@ -13,7 +14,8 @@ describe('GridHomesComponent', () => {
       declarations: [ GridHomesComponent ],
       imports: [
         CardHomeModule,
-        AloPaginationModule
+        AloPaginationModule,
+        RouterTestingModule
       ]
     })
     .compileComponents();

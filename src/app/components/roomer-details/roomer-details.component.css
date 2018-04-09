@@ -1,0 +1,74 @@
+#roomer-content {
+  background-color: white;
+  padding: 20px 40px;
+  border: 1px solid rgba(0,0,0,.2);
+  margin-bottom: 10px;
+}
+
+/* Valoration header */
+#roomer-content > header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding-bottom: 20px;
+  border-bottom: 1px solid;
+  border-color: rgba(0, 0, 0, .2);
+}
+
+#roomer-content > * {
+  align-self: center;
+}
+#roomer-content header h2 {
+  font-size: 2em;
+  margin: 0;
+  line-height: 41.5px;
+}
+
+#table-roomers {
+  margin: 30px auto;
+  display: flex;
+  width: 85%;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+#table-roomers .row-user {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  border: 1px solid rgba(0, 0, 0, .08);
+  padding: 15px;
+}
+#table-roomers .row-user:not(:first-child) {
+  border-top: none;
+}
+
+#table-roomers .row-user > * { align-self: center; }
+
+#table-roomers .user-avatar img{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+
+}
+#table-roomers .user-name, .user-mail {
+  font-size: 1em;
+  margin: 0 10px;
+}
+#table-roomers .user-mail .label-mail {
+  font-style: italic;
+  font-weight: bold;
+  margin-right: 2.5px;
+}
+#table-roomers .user-tool { margin-left: auto; margin-right: 20px}
+#table-roomers .user-tool span {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #ff9600;
+}
+#table-roomers .user-tool span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

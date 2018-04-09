@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { LightboxModule } from 'angular2-lightbox';
 
 import { GalleryShowComponent } from './gallery-show.component';
 
@@ -8,7 +9,8 @@ describe('GalleryShowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GalleryShowComponent ]
+      declarations: [ GalleryShowComponent ],
+      imports: [LightboxModule  ]
     })
     .compileComponents();
   }));
@@ -21,5 +23,11 @@ describe('GalleryShowComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('test openGallery()', () => {
+    it('should open a lightbox with all the home\'s photografies', () => {
+      component.openGallery();
+    });
   });
 });

@@ -3,6 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HomeDetailsModule } from '../../../components/home-details/home-details.module';
 import { PageHomeComponent } from './page-home.component';
+import { HomeValorationsModule } from '../../../components/home-valorations/home-valorations.module';
+import { GalleryShowModule } from '../../../components/gallery-show/gallery-show.module';
 
 describe('PageHomeComponent', () => {
   let component: PageHomeComponent;
@@ -13,7 +15,9 @@ describe('PageHomeComponent', () => {
       declarations: [ PageHomeComponent ],
       imports: [
         HomeDetailsModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        GalleryShowModule,
+        HomeValorationsModule
       ]
     })
     .compileComponents();
