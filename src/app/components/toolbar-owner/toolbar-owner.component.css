@@ -27,4 +27,5 @@ nav {
   justify-content: center;
   width: 100%
 }
+.item-menu > a.active-route { font-weight: bold; }
 .item-menu a > * { align-self: center; }
