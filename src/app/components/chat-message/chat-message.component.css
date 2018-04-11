@@ -1,0 +1,89 @@
+#chat-message {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, .2);
+}
+
+/********** Header *************/
+#chat-message header {
+  display: flex;
+  flex-direction: row;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+  #chat-message header > * {
+    align-items: center;
+    padding: 10px 0;
+  }
+  /*********** Avatar ***********/
+    #chat-message .user-avatar img{
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+    }
+
+  /********** Nombre ***********/
+  #chat-message header > #username {
+    font-size: 1.3em;
+    margin-left: 20px;
+    padding-left: 20px;
+    border-left: 1px solid rgba(0, 0, 0, .1);
+    flex-basis: 100%;
+    margin-right: 20px;
+    border-right: 1px solid rgba(0, 0, 0, .1);
+  }
+
+  /************ Botton de volver ************/
+  #chat-message header > #back-button {
+    font-size: 2.5em;
+    text-align: center;
+    cursor: pointer;
+  }
+    #chat-message header > #back-button i { width: 50px; }
+
+/********* Chat Content  **********/
+#chat-container {
+  background-color: rgba(0, 0, 0, .01);
+  height: 60vh;
+  margin: 0px 15px;
+  border-left: 1px solid rgba(0, 0, 0,.2);
+  border-right: 1px solid rgba(0, 0, 0,.2);
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+  .message-unit {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, .3);
+    display: inline-block;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, .1);
+  }
+    .message-dest {
+      align-self: flex-start;
+    }
+    .message-send {
+      align-self: flex-end;
+    }
+
+/************** Chat inputs **********/
+#chat-input {
+  margin: 0 15px;
+  border-top: 1px solid rgba(0, 0, 0,.2);
+  padding: 15px 30px;
+}
+  #chat-input > * {
+    width: 80%;
+    margin: 0 auto;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+  #chat-input input {
+    flex-basis: 100%;
+    margin: 0 10px;
+  }

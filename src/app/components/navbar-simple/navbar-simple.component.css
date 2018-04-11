@@ -12,7 +12,9 @@ nav{
   z-index: 900;
   top: 0;
 }
-
+nav.noshadown {
+  box-shadow: none;
+}
 nav > *{ align-self: center; }
 
 /***************Logo***********************/

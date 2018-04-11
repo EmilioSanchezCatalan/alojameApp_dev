@@ -9,6 +9,7 @@ import { PageOwnHomesComponent } from './page-own-homes/page-own-homes.component
 import { PageOwnHomeComponent } from './page-own-home/show/page-own-home.component';
 import { PageOwnHomeStudentsComponent } from './page-own-home/students/page-own-home-students.component';
 import { PageOwnMessagesComponent } from './page-own-messages/page-own-messages.component';
+import { PageOwnMessageComponent } from './page-own-message/page-own-message.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'own-homes', pathMatch: 'full'},
@@ -17,7 +18,8 @@ const routes: Routes = [
     { path: 'show', component: PageOwnHomeComponent },
     { path: 'students', component: PageOwnHomeStudentsComponent }
   ]},
-  { path: 'own-messages', component: PageOwnMessagesComponent}
+  { path: 'own-messages', component: PageOwnMessagesComponent },
+  { path: 'own-message', component: PageOwnMessageComponent }
 ];
 
 @NgModule({

@@ -1,5 +1,37 @@
+<!-- Container of the chat -->
 <section id="list-messages">
-  <div class="item-message">
+
+  <!-- An user conversation -->
+  <div class="item-message" (click)="gotoMessage()">
+
+    <!-- User Avatar -->
+    <div class="user-avatar">
+      <img src="http://www.carmovasconcelos-fenix.org/Escritores/EMILIO-SANCHEZ-FERNANDES/EmilioSanchezFdez1985.jpg">
+    </div>
+
+    <!-- Content of the user information -->
+    <div class="message-content">
+      <div class="message-title">
+        Emilio Sánchez Catalan
+      </div>
+      <div class="last-message">
+        Este es el ultimo message que hemos enviado
+      </div>
+    </div>
+
+    <!-- Date of the message -->
+    <div class="message-date">
+      23/05/2018
+    </div>
+
+    <!-- Tools for go into the conversation -->
+    <div class="message-tool">
+      <i class="fa fa-angle-right" aria-hidden="true"></i>
+    </div>
+  </div>
+
+  <!-- Others -->
+  <div class="item-message" (click)="gotoMessage()">
     <div class="user-avatar">
       <img src="http://www.carmovasconcelos-fenix.org/Escritores/EMILIO-SANCHEZ-FERNANDES/EmilioSanchezFdez1985.jpg">
     </div>
@@ -18,7 +50,7 @@
       <i class="fa fa-angle-right" aria-hidden="true"></i>
     </div>
   </div>
-  <div class="item-message">
+  <div class="item-message" (click)="gotoMessage()">
     <div class="user-avatar">
       <img src="http://www.carmovasconcelos-fenix.org/Escritores/EMILIO-SANCHEZ-FERNANDES/EmilioSanchezFdez1985.jpg">
     </div>
@@ -37,26 +69,7 @@
       <i class="fa fa-angle-right" aria-hidden="true"></i>
     </div>
   </div>
-  <div class="item-message">
-    <div class="user-avatar">
-      <img src="http://www.carmovasconcelos-fenix.org/Escritores/EMILIO-SANCHEZ-FERNANDES/EmilioSanchezFdez1985.jpg">
-    </div>
-    <div class="message-content">
-      <div class="message-title">
-        Emilio Sánchez Catalan
-      </div>
-      <div class="last-message">
-        Este es el ultimo message que hemos enviado
-      </div>
-    </div>
-    <div class="message-date">
-      23/05/2018
-    </div>
-    <div class="message-tool">
-      <i class="fa fa-angle-right" aria-hidden="true"></i>
-    </div>
-  </div>
-  <div class="item-message">
+  <div class="item-message" (click)="gotoMessage()">
     <div class="user-avatar">
       <img src="http://www.carmovasconcelos-fenix.org/Escritores/EMILIO-SANCHEZ-FERNANDES/EmilioSanchezFdez1985.jpg">
     </div>

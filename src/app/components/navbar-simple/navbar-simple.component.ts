@@ -25,12 +25,14 @@ export class NavbarSimpleComponent implements OnInit {
   public popupRegister: MatDialogRef<RegisterComponent>;
   public popupLogin: MatDialogRef<LoginComponent>;
   public isInHome: boolean;
+  public isInLHome: boolean;
 
   constructor(
     private __dialog: MatDialog,
     private __router: Router
   ) {
     this.isInHome = false;
+    this.isInLHome = false;
     this.status = 'public';
   }
 
@@ -40,6 +42,11 @@ export class NavbarSimpleComponent implements OnInit {
         this.isInHome = true;
       } else {
         this.isInHome = false;
+      }
+      if (event.url === '/public/homes') {
+        this.isInLHome = true;
+      } else {
+        this.isInLHome = false;
       }
     });
   }

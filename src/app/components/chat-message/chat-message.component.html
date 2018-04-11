@@ -1,0 +1,40 @@
+<!-- Section Chat message -->
+<section id="chat-message">
+
+  <!-- Header of the chat -->
+  <header>
+
+    <!-- Avatar image user -->
+    <div class="user-avatar">
+      <img src="http://www.carmovasconcelos-fenix.org/Escritores/EMILIO-SANCHEZ-FERNANDES/EmilioSanchezFdez1985.jpg">
+    </div>
+
+    <!-- Name of the user -->
+    <div id="username">
+      Emilio Sánchez Catalan
+    </div>
+
+    <!-- Back button for return to the list of messages -->
+    <a id="back-button" [routerLink]="['/private', 'own-messages']">
+      <i class="fa fa-angle-left" aria-hidden="true"></i>
+    </a>
+  </header>
+
+  <!-- Body of the chat -->
+  <article>
+
+    <!-- All the messages of the users -->
+    <div id="chat-container">
+      <span class="message-unit message-dest">Esto es un menssage del destinatario</span>
+      <span class="message-unit message-send">Esto es un menssage del receptor</span>
+    </div>
+
+    <!-- Tools for send messages -->
+    <footer id="chat-input">
+      <div>
+        <input type="text" />
+        <button class="btn btn-orange">Enviar</button>
+      </div>
+    </footer>
+  </article>
+</section>

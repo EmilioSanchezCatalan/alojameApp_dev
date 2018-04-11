@@ -1,7 +1,7 @@
 <!-- Navbar -->
 
 <!-- Public navbar -->
-<nav [class.nav-responsive]="!isInHome" *ngIf="status === 'public'">
+<nav [class.nav-responsive]="!isInHome" *ngIf="status === 'public'" [class.noshadown]="isInLHome">
   <!-- Logotype -->
   <a class="logo" [routerLink]="['/']">
     <img src="assets/img/ic_logo_border.png">
@@ -30,7 +30,7 @@
 </nav>
 
 <!-- Owner navbar -->
-<nav *ngIf="status === 'owner'">
+<nav *ngIf="status === 'owner'" [class.noshadown]="isInLHome">
   <!-- Logotype -->
   <a class="logo" [routerLink]="['private']">
     <img src="assets/img/ic_logo_border.png">
