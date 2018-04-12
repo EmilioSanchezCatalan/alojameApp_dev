@@ -139,6 +139,9 @@ body{
 .star-rating-show .clear-rating, .star-rating-show .caption {
     display: none !important;
 }
+.star-rating-clear .caption {
+  display: none !important;
+}
 
 /********* Table *************/
 table {
@@ -149,5 +152,5 @@ table tr {
   border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 table th,  table td {
-  padding: 15px 5px; 
+  padding: 15px 5px;
 }

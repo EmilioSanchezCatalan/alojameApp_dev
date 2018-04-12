@@ -3,6 +3,9 @@
  * Purpose: show the list of valoration avalieve
  */
 import { Component } from '@angular/core';
+import { MatDialogRef, MatDialog } from '@angular/material';
+
+import { MakeValorationComponent } from '../make-valoration/make-valoration.component';
 
 @Component({
   selector: 'alo-list-valorations',
@@ -11,5 +14,21 @@ import { Component } from '@angular/core';
 })
 export class ListValorationsComponent {
 
-  constructor() { }
+  public popupValoration: MatDialogRef<MakeValorationComponent>;
+
+  constructor(
+    private __matDialog: MatDialog
+  ) { }
+
+  /**
+   * Open a popup for make a valoration of item selected
+   */
+  public createValoration(): void {
+    this.popupValoration = this.__matDialog.open(MakeValorationComponent);
+    this.popupValoration.afterClosed().subscribe(
+      response => {
+        console.log('valorado');
+      }
+    );
+  }
 }
