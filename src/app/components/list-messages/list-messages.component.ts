@@ -21,6 +21,6 @@ export class ListMessagesComponent {
    * Go into a chat conversation with a User
    */
   public gotoMessage(): void {
-    this.__router.navigate(['private', 'own-message']);
+    this.__router.navigate(['private/owner', 'own-message']);
   }
 }

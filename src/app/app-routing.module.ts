@@ -9,8 +9,12 @@ const routes: Routes = [
     loadChildren: 'app/pages/public/public.module#PublicModule'
   },
   {
-    path: 'private',
+    path: 'private/owner',
     loadChildren: 'app/pages/private/owner/private-owner.module#PrivateOwnerModule'
+  },
+  {
+    path: 'private/student',
+    loadChildren: 'app/pages/private/student/private-student.module#PrivateStudentModule'
   }
 ];
 

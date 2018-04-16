@@ -34,14 +34,14 @@ export class CardHomeComponent implements OnInit {
    * Navigate to the view home-detail of the home selected
    */
   public gotoShowHome(): void {
-    this.__router.navigate(['private', 'own-home', 'show']);
+    this.__router.navigate(['private/owner', 'own-home', 'show']);
   }
 
   /**
    * Navigate to the view students for make the control of the roomers
    */
   public gotoStudentsHome(): void {
-    this.__router.navigate(['private', 'own-home', 'students']);
+    this.__router.navigate(['private/owner', 'own-home', 'students']);
   }
 
 }
