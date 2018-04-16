@@ -5,6 +5,7 @@
  *    --> function: defined the CardHomes's functionality
  *              - none: no functionality
  *              - crud: functionality crud
+ *              - subs: functionality of subscription
  */
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
@@ -34,7 +35,7 @@ export class CardHomeComponent implements OnInit {
    * Navigate to the view home-detail of the home selected
    */
   public gotoShowHome(): void {
-    if (this.function === 'owner') {
+    if (this.function === 'crud') {
       this.__router.navigate(['private/owner', 'own-home', 'show']);
     } else {
       this.__router.navigate(['private/student', 'home']);
