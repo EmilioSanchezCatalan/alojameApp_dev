@@ -38,7 +38,7 @@ export class CardHomeComponent implements OnInit {
     if (this.function === 'crud') {
       this.__router.navigate(['private/owner', 'own-home', 'show']);
     } else {
-      this.__router.navigate(['private/student', 'home']);
+      this.__router.navigate(['private/student', 'std-home']);
     }
   }
 

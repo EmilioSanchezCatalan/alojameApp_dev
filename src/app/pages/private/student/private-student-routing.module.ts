@@ -9,13 +9,15 @@ import { PageSubsHomesComponent } from './page-subs-homes/page-subs-homes.compon
 import { PageHomeComponent } from './page-home/page-home.component';
 import { PageStdMessagesComponent } from './page-std-messages/page-std-messages.component';
 import { PageStdMessageComponent } from './page-std-message/page-std-message.component';
+import { PageStdValorationsComponent } from './page-std-valorations/page-std-valorations.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'subs-homes', pathMatch: 'full'},
   { path: 'subs-homes', component: PageSubsHomesComponent },
-  { path: 'home', component: PageHomeComponent },
+  { path: 'std-home', component: PageHomeComponent },
   { path: 'std-messages', component: PageStdMessagesComponent },
-  { path: 'std-message', component: PageStdMessageComponent }
+  { path: 'std-message', component: PageStdMessageComponent },
+  { path: 'std-valorations', component: PageStdValorationsComponent }
 ];
 
 @NgModule({
