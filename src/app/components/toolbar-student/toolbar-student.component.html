@@ -1,0 +1,22 @@
+<nav>
+  <div class="item-menu">
+    <a [routerLink]="['/private/student', 'my-homes']" [class.active-route]="where === 'my-home'">
+      <span>Mi piso</span>
+    </a>
+  </div>
+  <div class="item-menu">
+    <a [routerLink]="['/private/student', 'subs-homes']" [class.active-route]="where === 'subs-homes'">
+      <span>Pisos Subscritos</span>
+    </a>
+  </div>
+  <div class="item-menu">
+    <a [routerLink]="['/private/student', 'std-messages']" [class.active-route]="where === 'messages'">
+      <span>Mensajes</span>
+    </a>
+  </div>
+  <div class="item-menu">
+    <a [routerLink]="['/private/student', 'std-valorations']" [class.active-route]="where === 'valorations'">
+      <span>Valoraciones</span>
+    </a>
+  </div>
+</nav>
