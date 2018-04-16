@@ -7,6 +7,7 @@ import { PageStdMessagesModule } from './page-std-messages/page-std-messages.mod
 import { PageStdMessageModule } from './page-std-message/page-std-message.module';
 import { PageStdValorationsModule } from './page-std-valorations/page-std-valorations.module';
 import { PageSearchHomesModule } from './page-search-homes/page-search-homes.module';
+import { PageHomeModule } from './page-home/page-home.module';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { PageSearchHomesModule } from './page-search-homes/page-search-homes.mod
     PageStdMessagesModule,
     PageStdMessageModule,
     PageStdValorationsModule,
-    PageSearchHomesModule
+    PageSearchHomesModule,
+    PageHomeModule
   ]
 })
 export class PrivateStudentModule {}

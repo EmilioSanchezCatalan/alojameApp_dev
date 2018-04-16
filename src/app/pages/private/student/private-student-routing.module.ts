@@ -11,6 +11,7 @@ import { PageStdMessagesComponent } from './page-std-messages/page-std-messages.
 import { PageStdMessageComponent } from './page-std-message/page-std-message.component';
 import { PageStdValorationsComponent } from './page-std-valorations/page-std-valorations.component';
 import { PageSearchHomesComponent } from './page-search-homes/page-search-homes.component';
+import { PageHomeComponent } from './page-home/page-home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'subs-homes', pathMatch: 'full'},
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'std-messages', component: PageStdMessagesComponent },
   { path: 'std-message', component: PageStdMessageComponent },
   { path: 'std-valorations', component: PageStdValorationsComponent },
-  { path: 'search-homes', component: PageSearchHomesComponent }
+  { path: 'search-homes', component: PageSearchHomesComponent },
+  { path: 'home', component: PageHomeComponent }
 ];
 
 @NgModule({
