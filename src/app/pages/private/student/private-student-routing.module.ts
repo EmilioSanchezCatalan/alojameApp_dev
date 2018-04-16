@@ -7,11 +7,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { PageSubsHomesComponent } from './page-subs-homes/page-subs-homes.component';
 import { PageHomeComponent } from './page-home/page-home.component';
+import { PageStdMessagesComponent } from './page-std-messages/page-std-messages.component';
+import { PageStdMessageComponent } from './page-std-message/page-std-message.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'subs-homes', pathMatch: 'full'},
   { path: 'subs-homes', component: PageSubsHomesComponent },
-  { path: 'home', component: PageHomeComponent }
+  { path: 'home', component: PageHomeComponent },
+  { path: 'std-messages', component: PageStdMessagesComponent },
+  { path: 'std-message', component: PageStdMessageComponent }
 ];
 
 @NgModule({

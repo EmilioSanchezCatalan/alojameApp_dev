@@ -12,6 +12,10 @@ import { Component } from '@angular/core';
 })
 export class ChatMessageComponent {
 
-  constructor() { }
+  public userType: string;
+
+  constructor() {
+    this.userType = localStorage.getItem('userType');
+  }
 
 }

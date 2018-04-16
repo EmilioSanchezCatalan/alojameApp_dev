@@ -15,7 +15,10 @@
     </div>
 
     <!-- Back button for return to the list of messages -->
-    <a id="back-button" [routerLink]="['/private/owner', 'own-messages']">
+    <a *ngIf="userType === 'owner'" id="back-button" [routerLink]="['/private/owner', 'own-messages']">
+      <i class="fa fa-angle-left" aria-hidden="true"></i>
+    </a>
+    <a *ngIf="userType === 'student'" id="back-button" [routerLink]="['/private/student', 'std-messages']">
       <i class="fa fa-angle-left" aria-hidden="true"></i>
     </a>
   </header>

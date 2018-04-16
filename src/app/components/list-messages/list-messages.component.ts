@@ -21,6 +21,10 @@ export class ListMessagesComponent {
    * Go into a chat conversation with a User
    */
   public gotoMessage(): void {
-    this.__router.navigate(['private/owner', 'own-message']);
+    if (localStorage.getItem('userType') === 'owner') {
+      this.__router.navigate(['private/owner', 'own-message']);
+    } else if (localStorage.getItem('userType') === 'student') {
+      this.__router.navigate(['private/student', 'std-message']);
+    }
   }
 }
