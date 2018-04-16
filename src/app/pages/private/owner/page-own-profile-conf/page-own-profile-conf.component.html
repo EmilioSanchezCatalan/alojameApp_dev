@@ -1,0 +1,134 @@
+<section id="page-own-profile-conf" class="container">
+  <header>
+    <h1>Configuración de mi perfil</h1>
+    <div class="user-avatar">
+      <img src="http://littlebrownjugnetwork.com/wp-content/uploads/2013/09/emilioestevez.jpg" />
+      <button id="upload-img" type="button" class="btn btn-default"><i class="fa fa-upload" aria-hidden="true"></i></button>
+    </div>
+  </header>
+  <article class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="">E-mail</label>
+        <input class="form-control" type="text" />
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="">Contraseña</label>
+        <input class="form-control" type="password" />
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="">Nombre</label>
+        <input class="form-control"  type="text" />
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="">Apellidos</label>
+        <input class="form-control" type="text" />
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="">Genero</label>
+        <select name="gender" data-width="300px" class="selectpicker" ngModel required>
+          <option selected value="">Mes</option>
+          <option value="man">Hombre</option>
+          <option value="woman">Mujer</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <div class="date-inputs">
+          <span>Fecha de nacimiento</span>
+            <div class="form-group">
+              <select name="birthMonth" class="selectpicker" data-width="200px" data-container="body" ngModel required>
+                <option selected value="">Mes</option>
+                <option value="01">Enero</option>
+                <option value="02">Febrero</option>
+                <option value="03">Marzo</option>
+                <option value="04">Abril</option>
+                <option value="05">Mayo</option>
+                <option value="06">Junio</option>
+                <option value="07">Julio</option>
+                <option value="08">Agosto</option>
+                <option value="09">Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+              </select >
+              <select name="birthDay" class="selectpicker" data-width="115px" data-container="body" ngModel required>
+                <option selected value="">Día</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+              </select>
+              <select name="birthYear" class="selectpicker" data-width="150px" data-container="body" ngModel required>
+                <option selected value="">Año</option>
+                <ng-container *ngFor="let year of yearsList">
+                  <option value="{{year}}">{{year}}</option>
+                </ng-container>
+              </select>
+            </div>
+          </div>
+      </div>
+    </div>
+  </article>
+  <hr>
+  <article class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="">NIF</label>
+        <input class="form-control" type="text" />
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="">Dirección</label>
+        <input class="form-control" type="text" />
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="">Nacionalidad</label>
+        <select name="gender" data-width="300px" class="selectpicker" ngModel required>
+          <option selected value="">Nacionalidad</option>
+          <option value="man">España</option>
+          <option value="woman">Argentina</option>
+        </select>
+      </div>
+    </div>
+  </article>
+</section>

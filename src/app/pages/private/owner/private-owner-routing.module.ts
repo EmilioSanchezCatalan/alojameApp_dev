@@ -11,6 +11,7 @@ import { PageOwnHomeStudentsComponent } from './page-own-home/students/page-own-
 import { PageOwnMessagesComponent } from './page-own-messages/page-own-messages.component';
 import { PageOwnMessageComponent } from './page-own-message/page-own-message.component';
 import { PageOwnValorationsComponent } from './page-own-valorations/page-own-valorations.component';
+import { PageOwnProfileConfComponent } from './page-own-profile-conf/page-own-profile-conf.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'own-homes', pathMatch: 'full'},
@@ -21,7 +22,10 @@ const routes: Routes = [
   ]},
   { path: 'own-messages', component: PageOwnMessagesComponent },
   { path: 'own-message', component: PageOwnMessageComponent },
-  { path: 'own-valorations', component: PageOwnValorationsComponent }
+  { path: 'own-valorations', component: PageOwnValorationsComponent },
+  { path: 'own-profile', children: [
+    { path: 'configuration', component: PageOwnProfileConfComponent }
+  ]}
 ];
 
 @NgModule({

@@ -7,6 +7,7 @@ import { PageOwnHomeStudentModule } from './page-own-home/students/page-own-home
 import { PageOwnMessagesModule } from './page-own-messages/page-own-messages.module';
 import { PageOwnMessageModule } from './page-own-message/page-own-message.module';
 import { PageOwnValorationsModule } from './page-own-valorations/page-own-valorations.module';
+import { PageOwnProfileConfModule } from './page-own-profile-conf/page-own-profile-conf.module';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { PageOwnValorationsModule } from './page-own-valorations/page-own-valora
     PageOwnHomeStudentModule,
     PageOwnMessagesModule,
     PageOwnMessageModule,
-    PageOwnValorationsModule
+    PageOwnValorationsModule,
+    PageOwnProfileConfModule
   ]
 })
 export class PrivateOwnerModule {}
