@@ -43,7 +43,7 @@ export class NavbarSimpleComponent implements OnInit {
       } else {
         this.isInHome = false;
       }
-      if (event.url === '/public/homes') {
+      if (event.url === '/public/homes' || event.url === '/private/student/search-homes') {
         this.isInLHome = true;
       } else {
         this.isInLHome = false;

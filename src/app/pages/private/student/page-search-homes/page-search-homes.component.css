@@ -1,0 +1,106 @@
+.grid-homes {
+  display: inline-block;
+  margin-left: auto;
+  width: 65vw;
+  float: right;
+  margin-top: 64px;
+}
+.filters-homes{
+  display: inline-block;
+  margin-left: auto;
+  width: 65vw;
+  float: right;
+  margin-top: 64px;
+  background-color: white;
+  border: 1px rgba(0,0,0,0.1) solid;
+  border-top: none;
+}
+.filters-content {
+  padding: 30px;
+}
+.maps-homes {
+  position: fixed;
+  height: calc( 100vh - 120px );
+  width: 35vw;
+  padding: 30px;
+  top: 120px;
+  background-color: white;
+}
+agm-map {
+  height: 100%;
+  width: 100%;
+}
+
+/************ Filters ************/
+
+#type-rent, #type-accomodation{
+  display: none;
+}
+.selctors-nRooms label{
+  display: block;
+  font-size: 1.5em;
+}
+.filter-price { display: none; }
+.filter-price { padding: 0 15px; }
+.filter-price h3 { font-size: 1.5em; }
+.filter-price header  { display: flex; }
+.filter-price header > * { align-self: center; }
+.filter-price header input { margin-left: auto; }
+.filter-price mat-slider { width: 100%; }
+.list-services, .list-rules {
+  padding: 15px;
+}
+.list-services h3, .list-rules h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.footer-tools {
+  display: flex;
+  height: 100px;
+}
+.footer-tools > div {
+  flex-basis: 50%;
+  justify-content: center;
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+.footer-tools > div:hover:first-child { background-color: rgba(0, 0, 0, .1); }
+.footer-tools > div:hover:last-child { background-color: #088AA833; }
+.footer-tools > div > * { align-self: center; }
+.footer-tools .resert {
+  font-size: 1.5em;
+  color: grey;
+
+}
+.footer-tools .apply {
+  font-size: 1.5em;
+  color: #088AA8;
+}
+@media (max-width: 1080px) {
+  .maps-homes{
+    display: none;
+  }
+  .grid-homes {
+    width: 100%;
+  }
+  .filters-homes {
+    width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  #type-accomodation {
+    display: block;
+  }
+}
+@media (max-width: 550px) {
+  #type-rent {
+    display: block;
+  }
+}
+@media (max-width: 420px) {
+  .filter-price {
+    display: block;
+  }
+}

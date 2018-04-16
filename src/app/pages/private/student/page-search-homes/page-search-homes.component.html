@@ -1,0 +1,197 @@
+<!-- Filters in toolbar -->
+<alo-filters (moreFilters)="showFilterSection();"></alo-filters>
+
+<!-- List of homes -->
+<div class="grid-homes" *ngIf="!isFilterShowed">
+  <alo-grid-homes></alo-grid-homes>
+</div>
+
+<!-- More filters of browser -->
+<div class="filters-homes" *ngIf="isFilterShowed">
+
+  <!-- Content of filters -->
+  <div class="filters-content">
+
+    <div class="row selctors-nRooms">
+
+      <!-- Number of bedrooms -->
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        <div class="form-group">
+          <label for="nRooms">Número de Habitaciones</label>
+          <select class="selectpicker" id="nRooms" name="nRooms" [(ngModel)]="filterState.number_bedthrooms" data-width="100%">
+            <option selected value="">Nº Cuartos</option>
+            <option value="1">1 cuarto</option>
+            <option value="2">2 cuartos</option>
+            <option value="3">3 cuartos</option>
+            <option value="4">4 cuartos</option>
+            <option value="5">5 cuartos</option>
+            <option value="6">6 cuartos</option>
+            <option value="7">7 cuartos</option>
+            <option value="8">8 cuartos</option>
+            <option value="9">9 cuartos</option>
+            <option value="10">10 cuartos</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Number of bathrooms -->
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        <div class="form-group">
+          <label for="nBath">Número de Baños</label>
+          <select class="selectpicker" id="nBath" [(ngModel)]="filterState.number_bathrooms" name="nBath" data-width="100%">
+            <option selected value="">Nº Cuartos de baño</option>
+            <option value="1">1 cuarto</option>
+            <option value="2">2 cuartos</option>
+            <option value="3">3 cuartos</option>
+            <option value="4">4 cuartos</option>
+            <option value="5">5 cuartos</option>
+            <option value="6">6 cuartos</option>
+            <option value="7">7 cuartos</option>
+            <option value="8">8 cuartos</option>
+            <option value="9">9 cuartos</option>
+            <option value="10">10 cuartos</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Numbers of kitchens -->
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        <div class="form-group">
+          <label for="nKitchen">Número de Cocinas</label>
+          <select class="selectpicker" id="nKitchen" name="nKitchen" [(ngModel)]="filterState.number_kitchen" data-width="100%">
+            <option selected value="">Nº Cuartos de cocinas</option>
+            <option value="1">1 cuarto</option>
+            <option value="2">2 cuartos</option>
+            <option value="3">3 cuartos</option>
+            <option value="4">4 cuartos</option>
+            <option value="5">5 cuartos</option>
+            <option value="6">6 cuartos</option>
+            <option value="7">7 cuartos</option>
+            <option value="8">8 cuartos</option>
+            <option value="9">9 cuartos</option>
+            <option value="10">10 cuartos</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Filter Price -->
+    <div class="row filter-price">
+      <h3>Precio</h3>
+      <div class="m-price">
+        <header>
+          <h5>Min</h5>
+          <input type="number" [(ngModel)]="filterState.price_min" />
+          <span>&nbsp;€</span>
+        </header>
+        <section>
+          <mat-slider></mat-slider>
+        </section>
+      </div>
+      <div class="m-price">
+        <header>
+          <h5>Max</h5>
+          <input type="number" [(ngModel)]="filterState.price_min" />
+          <span>&nbsp;€</span>
+        </header>
+        <section>
+          <mat-slider></mat-slider>
+        </section>
+      </div>
+    </div>
+
+
+    <!-- Types of Accomodation -->
+    <div id="type-accomodation" class="list-services row">
+      <h3>Tipos de Alojamiento</h3>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <mat-checkbox value="1">Casa</mat-checkbox>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <mat-checkbox value="2">Piso</mat-checkbox>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <mat-checkbox value="2">Residencia</mat-checkbox>
+      </div>
+    </div>
+
+    <!-- Types of rent -->
+    <div id="type-rent" class="list-services row">
+      <h3>Tipos de Alquiler</h3>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <mat-checkbox value="1">Propiedad completa</mat-checkbox>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <mat-checkbox value="2">Por habitación</mat-checkbox>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <mat-checkbox value="2">Por cama</mat-checkbox>
+      </div>
+    </div>
+
+    <!-- Services of Flats -->
+    <div class="list-services row">
+      <h3>Lista de Servicios</h3>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <mat-checkbox value="wifi">Wifi</mat-checkbox>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <mat-checkbox value="Calefaccion">Calefacción</mat-checkbox>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <mat-checkbox value="Aire acondicionado">Aire acondicionado</mat-checkbox>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <mat-checkbox value="Lavadora">Lavadora</mat-checkbox>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <mat-checkbox value="Secadora">Secadora</mat-checkbox>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <mat-checkbox value="Servicio de limpieza">Servicio de limpieza</mat-checkbox>
+      </div>
+    </div>
+
+    <!-- Reglas de la habitacion -->
+    <div class="list-rules row">
+      <h3>Reglas de convivencia</h3>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <mat-checkbox value="wifi">Solo mujeres</mat-checkbox>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <mat-checkbox value="Calefaccion">Solo hombres</mat-checkbox>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <mat-checkbox value="Aire acondicionado">Se permite fumar</mat-checkbox>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <mat-checkbox value="Lavadora">Se permiten mascotas</mat-checkbox>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Tools of filters -->
+  <div class="footer-tools">
+    <div>
+      <span class="resert">Restablecer</span>
+    </div>
+    <div>
+      <span class="apply" (click)="applyFilters()">Aplicar</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Google Maps -->
+<div class="maps-homes">
+  <agm-map
+    [latitude]="40.4072533"
+    [longitude]="-3.4080137"
+    [zoom]="8"
+    [disableDefaultUI]="false"
+    [zoomControl]="false">
+
+  </agm-map>
+</div>

@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'page-home',
-  templateUrl: './page-home.component.html',
-  styleUrls: ['./page-home.component.css']
+  templateUrl: './page-std-home.component.html',
+  styleUrls: ['./page-std-home.component.css']
 })
-export class PageHomeComponent {
+export class PageStdHomeComponent {
 
   constructor() { }
 }
