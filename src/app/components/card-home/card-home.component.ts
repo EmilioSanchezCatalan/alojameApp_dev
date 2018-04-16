@@ -34,7 +34,11 @@ export class CardHomeComponent implements OnInit {
    * Navigate to the view home-detail of the home selected
    */
   public gotoShowHome(): void {
-    this.__router.navigate(['private/owner', 'own-home', 'show']);
+    if (this.function === 'owner') {
+      this.__router.navigate(['private/owner', 'own-home', 'show']);
+    } else {
+      this.__router.navigate(['private/student', 'home']);
+    }
   }
 
   /**

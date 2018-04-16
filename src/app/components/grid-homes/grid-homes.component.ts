@@ -5,6 +5,7 @@
  *    --> function: defined the CardHomes's functionality of the GridHome
  *              - none: no functionality
  *              - crud: functionality crud
+ *              - subs: functionality subscribed homes
  */
 import { Component, OnInit, Input} from '@angular/core';
 

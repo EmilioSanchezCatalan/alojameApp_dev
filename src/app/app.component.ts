@@ -9,6 +9,7 @@ import { Router, Event as RouterEvent, NavigationStart, NavigationEnd } from '@a
 export class AppComponent implements OnDestroy {
 
   public isloading: boolean;
+  public userType: string;
 
   constructor(
     private __router: Router,
@@ -17,6 +18,8 @@ export class AppComponent implements OnDestroy {
     __router.events.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event);
     });
+    localStorage.setItem('userType', 'student');
+    this.userType = localStorage.getItem('userType');
   }
 
   ngOnDestroy() {
