@@ -26,7 +26,12 @@ describe('ListMessagesComponent', () => {
   });
 
   describe('test gotoMessage()', () => {
-    it('should be navegate to the message', () => {
+    it('should be navegate to the message in a owner section', () => {
+      localStorage.setItem('userType', 'owner');
+      component.gotoMessage();
+    });
+    it('should be navegate to the message in a student section', () => {
+      localStorage.setItem('userType', 'student');
       component.gotoMessage();
     });
   });

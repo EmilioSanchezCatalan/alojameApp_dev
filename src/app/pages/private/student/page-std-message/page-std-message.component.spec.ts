@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { PageStdMessageComponent } from './page-std-message.component';
+import { ChatMessageModule } from '../../../../components/chat-message/chat-message.module';
 
 describe('PageStdMessageComponent', () => {
   let component: PageStdMessageComponent;
@@ -8,7 +10,11 @@ describe('PageStdMessageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageStdMessageComponent ]
+      declarations: [ PageStdMessageComponent ],
+      imports: [
+        ChatMessageModule,
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   }));

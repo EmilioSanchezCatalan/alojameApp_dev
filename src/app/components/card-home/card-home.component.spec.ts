@@ -31,7 +31,11 @@ describe('CardHomeComponent', () => {
   });
 
   describe('test gotoShowHome()', () => {
-    it('should be navegate to the home', () => {
+    it('should be navegate to the home for the student', () => {
+      component.gotoShowHome();
+    });
+    it('should be navegate to the home for the owner', () => {
+      component.function = 'crud';
       component.gotoShowHome();
     });
   });

@@ -47,6 +47,5 @@ describe('PageLhomesComponent', () => {
       component.showFilterSection();
       expect(component.isFilterShowed).toBeFalsy();
     });
-
   });
 });
