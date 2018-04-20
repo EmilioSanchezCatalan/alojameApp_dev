@@ -1,0 +1,15 @@
+/**
+ * @author Emilio Sánchez Catalán <esc00019@gmail.com>
+ * Purpose: view with a button for save or cancel a form
+ */
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'alo-form-save',
+  templateUrl: './form-save.component.html',
+  styleUrls: ['./form-save.component.css']
+})
+export class FormSaveComponent {
+
+  constructor() { }
+}

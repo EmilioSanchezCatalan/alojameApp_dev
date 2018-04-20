@@ -1,82 +1,9 @@
 #page-own-profile-conf {
   margin-top: 100px;
-  padding: 40px;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, .2);
 }
-
-/********* Header *********/
-#page-own-profile-conf header {
-  display: flex;
-  justify-content: center;
+#page-own-profile-conf > * {
+  margin-bottom: 10px;
 }
-  #page-own-profile-conf header > * {
-    align-self: center;
-    margin: 0 15px;
-    margin-bottom: 40px;
-  }
-  #page-own-profile-conf header h1 {
-    flex-basis: 550px;
-    font-size: 4.5em;
-  }
-  #page-own-profile-conf .user-avatar {
-    border: 1px solid rgba(0, 0, 0, .4);
-    position: relative;
-  }
-    #page-own-profile-conf .user-avatar img {
-      width: 250px;
-      height: 250px;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    #upload-img {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-    }
-
-/******* FORMS *******/
-  article.row {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-    .form-group {
-      display: flex;
-      justify-content: space-between;
-    }
-      .form-group > * {
-        align-self: center;
-      }
-      .form-group input {
-        max-width: 300px;
-      }
-
-  /***** Date Inputs *****/
-  .date-inputs {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  .date-inputs > * { align-self: center; }
-  .date-inputs > span {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  .date-inputs > span i {
-    color: #a9a9a94f;
-    font-size: 1.7rem;
-    vertical-align: middle;
-    position: relative;
-    top: -1px;
-    cursor: pointer;
-  }
-  .date-inputs > .form-group{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    flex-wrap: wrap;
-  }
-  .date-inputs > .form-group > * {
-    margin: 0 10px;
-  }
+#page-own-profile-conf > div:nth-child(3) {
+  margin-bottom: 80px;
+}

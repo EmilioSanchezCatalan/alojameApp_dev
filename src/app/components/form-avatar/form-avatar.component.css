@@ -1,0 +1,46 @@
+#form-avatar {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, .2);
+  padding: 40px;
+}
+  /****** Header ******/
+  #form-avatar header h3 {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 40px;
+  }
+
+  /***** List forms ******/
+  #form-avatar article {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+    /****** User IMG *******/
+    #form-avatar .user-avatar {
+      border: 1px solid rgba(0, 0, 0, .4);
+      border-radius: 4px;
+    }
+      #form-avatar .user-avatar img {
+        object-fit: cover;
+        object-position: center;
+        height: 150px;
+        width: 150px;
+        border-radius: 4px
+      }
+  /****** Upload img *******/
+  #form-avatar i {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    background-color: rgba(0, 0, 0, .1);
+    color: rgba(0, 0, 0, .5);
+    margin-left: 15px;
+    align-self: flex-end;
+    cursor: pointer;
+  }

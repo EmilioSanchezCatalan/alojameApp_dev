@@ -1,0 +1,23 @@
+#form-personal-info {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, .2);
+  padding: 40px;
+}
+  /****** Header ******/
+  #form-personal-info header h3 {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 40px;
+  }
+
+  /***** List forms ******/
+  #form-personal-info article {
+    margin-bottom: 20px;
+  }
+  #form-personal-info article h4 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  #change-pass { text-align: center; }

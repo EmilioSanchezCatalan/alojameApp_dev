@@ -1,0 +1,35 @@
+#form-owner-info {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, .2);
+  padding: 40px;
+}
+  /****** Header ******/
+  #form-owner-info header h3 {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 40px;
+  }
+
+  /***** List forms ******/
+  #form-owner-info article {
+    margin-bottom: 20px;
+  }
+  #form-owner-info article h4 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .form-group { display: flex; }
+  .form-group > * { align-self: center;}
+  .form-group label { width: 110px; }
+  .form-group label i { margin-right: 10px; }
+  mat-slider {
+    width: 250px;
+  }
+  textarea {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    min-width: 100%;
+  }

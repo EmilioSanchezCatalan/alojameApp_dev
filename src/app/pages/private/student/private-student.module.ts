@@ -8,7 +8,7 @@ import { PageStdMessageModule } from './page-std-message/page-std-message.module
 import { PageStdValorationsModule } from './page-std-valorations/page-std-valorations.module';
 import { PageSearchHomesModule } from './page-search-homes/page-search-homes.module';
 import { PageHomeModule } from './page-home/page-home.module';
-import { PageStdProfileConfComponent } from './page-std-profile-conf/page-std-profile-conf.component';
+import { PageStdProfileConfModule } from './page-std-profile-conf/page-std-profile-conf.module';
 
 @NgModule({
   imports: [
@@ -19,8 +19,8 @@ import { PageStdProfileConfComponent } from './page-std-profile-conf/page-std-pr
     PageStdMessageModule,
     PageStdValorationsModule,
     PageSearchHomesModule,
-    PageHomeModule
-  ],
-  declarations: [PageStdProfileConfComponent]
+    PageHomeModule,
+    PageStdProfileConfModule
+  ]
 })
 export class PrivateStudentModule {}
