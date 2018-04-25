@@ -27,7 +27,7 @@ describe('ValidatorErrorService', () => {
       'address': ['', Validators.required ],
       'city': ['', Validators.required ],
       'typeHome': ['', Validators.required ],
-      'nGuest': ['', Validators.required ]
+      'nGuest': ['']
     });
     formErrorInfo = {
       errorsInfo: [

@@ -135,6 +135,16 @@ body{
   font-weight: 700;
 }
 
+/******** MatRadioButton *********/
+.mat-radio-label-content {
+  font-weight: normal;
+}
+
+/******* MatCheckbox *********/
+.mat-checkbox-label {
+  font-weight: normal;
+}
+
 /******** Star rating ********/
 .star-rating-show .clear-rating, .star-rating-show .caption {
     display: none !important;

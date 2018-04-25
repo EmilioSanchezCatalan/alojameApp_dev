@@ -1,0 +1,50 @@
+<section id="page-own-home-create" >
+  <nav>
+    <mat-progress-bar mode="determinate" [value]="( (actualStep + 1) * 100 )/8"></mat-progress-bar>
+  </nav>
+
+  <!-- Select type of home -->
+  <article class="container" *ngIf="listSteps[actualStep] === 'type'">
+    <alo-form-home-type></alo-form-home-type>
+  </article>
+
+  <!-- Number of homes on the room -->
+  <article class="container" *ngIf="listSteps[actualStep] === 'rooms'">
+    <alo-form-home-rooms></alo-form-home-rooms>
+  </article>
+
+  <!-- List of Services -->
+  <article class="container" *ngIf="listSteps[actualStep] === 'services'">
+    <alo-form-home-services></alo-form-home-services>
+  </article>
+
+  <!-- Address' home -->
+  <article class="container" *ngIf="listSteps[actualStep] === 'address'">
+    <alo-form-home-address></alo-form-home-address>
+  </article>
+
+  <!-- List of Home's rules -->
+  <article class="container" *ngIf="listSteps[actualStep] === 'rules'">
+    <alo-form-home-rules></alo-form-home-rules>
+  </article>
+
+  <!-- Home advise -->
+  <article class="container" *ngIf="listSteps[actualStep] === 'ad'">
+    <alo-form-home-ad></alo-form-home-ad>
+  </article>
+
+  <!-- Home imgs -->
+  <article class="container" *ngIf="listSteps[actualStep] === 'imgs'">
+    <alo-form-home-imgs></alo-form-home-imgs>
+  </article>
+
+  <!-- Finish creation -->
+  <article class="container" *ngIf="listSteps[actualStep] === 'finish'">
+    <alo-form-finish></alo-form-finish>
+  </article>
+
+  <!-- Creation toolbar -->
+  <alo-form-create-bar (back)="preStep()" (continue)="nextStep()" [dBack]="listSteps[actualStep] === 'type'"
+    [dContinue]="listSteps[actualStep] === 'finish'" [save]="listSteps[actualStep] === 'imgs'">
+  </alo-form-create-bar>
+</section>

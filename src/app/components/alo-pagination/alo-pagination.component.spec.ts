@@ -34,6 +34,9 @@ describe('AloPaginationComponent', () => {
     it('should emmit the number of page like arg', () => {
       component.paginedNavigation(3);
     });
+    it('should not emmit the event', () => {
+      component.paginedNavigation(5);
+    });
   });
 
 });

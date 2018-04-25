@@ -1,0 +1,61 @@
+#form-new-rule header h3 {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+/********* List rules *********/
+  .list-rules { margin: 0 15px; }
+
+  /******** Items rules *********/
+  .item-rule {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 15px;
+  }
+    .item-rule > * { align-self: center; }
+    .item-rule > input { max-width: 400px; }
+
+    /******** Tools of rules ********/
+    .rule-tools {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      margin: 0 20px;
+    }
+      .rule-tools > * { align-self: center; }
+      .rule-tools i {
+        font-size: 1.4em;
+        margin: 0 4px;
+      }
+      .rule-tools .fa-minus-square-o {
+        color: rgb(207, 48, 48);
+        cursor: pointer;
+      }
+      .rule-tools .fa-minus-square {
+        color: rgb(207, 48, 48);
+        cursor: pointer;
+      }
+      .rule-tools i.minus-disabled {
+        color: rgb(147, 147, 147);
+        cursor: no-drop;
+      }
+      .rule-tools i.fa-plus-square-o {
+        color: rgb(0, 117, 255);
+        cursor: pointer;
+       }
+       .rule-tools i.fa-plus-square {
+         color: rgb(0, 117, 255);
+         cursor: pointer;
+       }
+       .rule-tools i.plus-disabled {
+         color: rgb(147, 147, 147);
+         cursor: no-drop;
+       }
+      .rule-tools mat-slide-toggle {
+        margin-left: 25px;
+        min-width: 117px;
+      }

@@ -1,0 +1,9 @@
+<section id="form-save">
+  <div class="container">
+    <button class="btn btn-default" (click)="emitBackEvent()" [disabled]="dBack">VOLVER</button>
+    <button class="btn btn-orange" (click)="emitContinueEvent()" [disabled]="dContinue">
+      <ng-container *ngIf="!save">SIGUIENTE</ng-container>
+      <ng-container *ngIf="save">GUARDAR</ng-container>
+    </button>
+  </div>
+</section>

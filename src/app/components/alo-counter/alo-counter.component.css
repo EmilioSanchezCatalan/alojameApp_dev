@@ -1,0 +1,11 @@
+:host{
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+:host > * {
+  align-self: center;
+}
+.text-label {
+  font-size: 1.2em;
+}

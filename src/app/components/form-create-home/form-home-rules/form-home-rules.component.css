@@ -1,0 +1,26 @@
+#form-home-rules {
+  margin-top: 50px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, .2);
+  padding: 40px;
+  font-size: 1.3em;
+}
+
+  /***** Header ********/
+  #form-home-rules header h2{
+    margin: 0;
+    margin-bottom: 30px;
+  }
+
+  /***** Form component *******/
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-control-custom {
+    margin: 0 15px;
+  }
+  mat-radio-group {
+    display: flex;
+    flex-direction: column;
+  }

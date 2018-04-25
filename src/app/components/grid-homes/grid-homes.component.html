@@ -1,7 +1,7 @@
 <!-- Grid of Card Homes -->
 <div class="container-grid row">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4" *ngIf="function === 'crud'">
-    <div id="create-card">
+    <div id="create-card" (click)="gotoCreateHome()">
       <i class="fa fa-plus" aria-hidden="true"></i>
       <div id="create-cape"></div>
     </div>

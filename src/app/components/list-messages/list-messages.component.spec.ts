@@ -34,5 +34,9 @@ describe('ListMessagesComponent', () => {
       localStorage.setItem('userType', 'student');
       component.gotoMessage();
     });
+    it('should be not navegate', () => {
+      localStorage.setItem('userType', '');
+      component.gotoMessage();
+    });
   });
 });

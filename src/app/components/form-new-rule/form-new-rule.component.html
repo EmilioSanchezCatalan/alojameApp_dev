@@ -1,0 +1,34 @@
+<section id="form-new-rule">
+  <header>
+    <h3>Añadir nuevas normas</h3>
+  </header>
+
+  <!-- List of creted rules -->
+  <div class="list-rules">
+
+    <!-- Item rule -->
+    <div class="item-rule" *ngFor="let indexRule of rangeListRules()">
+
+      <!-- Rule desciption -->
+      <ng-container *ngIf="indexRule !== listRules.items.length">
+        <input type="text" name="" value="" class="form-control" [disabled]="indexRule === listRules.items.length" [(ngModel)]="listRules.items[indexRule].rule">
+      </ng-container>
+      <ng-container *ngIf="indexRule === listRules.items.length">
+        <input type="text" name="" value="" class="form-control" [disabled]="indexRule === listRules.items.length">
+      </ng-container>
+
+      <!-- Tools creation rule -->
+      <div class="rule-tools">
+        <i class="fa fa-minus-square-o" [class.minus-disabled]="indexRule === listRules.items.length" (mouseover)="fontMinusHoverEffect(iminus)"
+          (mouseout)="fontMinusHoverEffect(iminus)" (click)="removeRule(indexRule, iminus)" aria-hidden="true" #iminus></i>
+        <i class="fa fa-plus-square-o" [class.plus-disabled]="indexRule !== listRules.items.length" (mouseover)="fontPlusHoverEffect(iplus)"
+          (mouseout)="fontPlusHoverEffect(iplus)" (click)="addNewRule(iplus)" aria-hidden="true" #iplus></i>
+        <mat-slide-toggle [disabled]="indexRule === listRules.items.length" (change)="changeTypeRule(indexRule)">
+          <ng-container *ngIf="indexRule !== listRules.items.length">
+            {{ listRules.items[indexRule].type | typeRule }}
+          </ng-container>
+        </mat-slide-toggle>
+      </div>
+    </div>
+  </div>
+</section>

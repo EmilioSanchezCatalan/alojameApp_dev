@@ -1,10 +1,10 @@
 import { async, TestBed, inject} from '@angular/core/testing';
 
-import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/testing';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { FormsModule, FormBuilder, Validators} from '@angular/forms';
-import {MatDialogModule, MatDialog, MatDialogRef, MatSnackBarModule} from '@angular/material';
+import { MatDialogModule, MatDialog, MatDialogRef, MatSnackBarModule } from '@angular/material';
 
 import { ValidatorErrorService } from '../../services/validator-error.service';
 import { AloPopupModule } from '../../components/alo-popup/alo-popup.module';

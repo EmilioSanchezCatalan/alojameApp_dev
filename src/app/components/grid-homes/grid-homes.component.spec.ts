@@ -30,4 +30,10 @@ describe('GridHomesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('test gotoCreateHome()', () => {
+    it('should bee go to the page create home', () => {
+      component.gotoCreateHome();
+    });
+  });
 });

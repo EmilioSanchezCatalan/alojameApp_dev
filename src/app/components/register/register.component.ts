@@ -23,6 +23,7 @@ export class RegisterComponent {
   public yearsList: Array<number>;
   public userType: string;
   private __registerFormNames: FormErrorInfo;
+
   constructor(
     private __dialogRef: MatDialogRef<RegisterComponent>,
     private __valError: ValidatorErrorService

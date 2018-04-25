@@ -8,6 +8,7 @@
  *              - subs: functionality subscribed homes
  */
 import { Component, OnInit, Input} from '@angular/core';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -19,11 +20,20 @@ declare var $: any;
 export class GridHomesComponent implements  OnInit {
 
   @Input() function: string;
-  constructor() {
+  constructor(
+    private __router: Router
+  ) {
     this.function = 'none';
   }
 
   ngOnInit() {
     $('.rating').rating('create');
+  }
+
+  /**
+   * Navigate to the page create home
+   */
+  public gotoCreateHome(): void {
+    this.__router.navigate(['/private', 'owner', 'own-home', 'create']);
   }
 }

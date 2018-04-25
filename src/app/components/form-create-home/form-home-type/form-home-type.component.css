@@ -1,0 +1,27 @@
+#form-home-type {
+  margin-top: 50px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, .2);
+  padding: 40px;
+  font-size: 1.3em;
+}
+#form-home-type > .row {
+  margin-bottom: 20px;
+}
+
+  /****** Form components ****/
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-control-custom {
+    margin: 0 15px;
+  }
+  label {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  mat-radio-group {
+    display: inline-flex;
+    flex-direction: column;
+  }

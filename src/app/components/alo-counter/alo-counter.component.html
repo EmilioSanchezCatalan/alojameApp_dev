@@ -1,0 +1,10 @@
+<span class="text-label">
+  <ng-content></ng-content>
+</span>
+<div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default" (click)="resCounter()"><i class="fa fa-minus" aria-hidden="true"></i></button>
+    <button type="button" class="btn btn-default">{{total}}</button>
+    <button type="button" class="btn btn-default" (click)="sumCounter()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+  </div>
+</div>

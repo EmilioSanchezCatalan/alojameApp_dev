@@ -1,0 +1,46 @@
+#form-home-ad {
+  margin-top: 50px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, .2);
+  padding: 40px;
+  font-size: 1.3em;
+}
+
+  /***** Header ****/
+  #form-home-ad header h2{
+    margin: 0;
+    margin-bottom: 30px;
+  }
+  /****** Content *****/
+  #form-home-ad .row {
+    margin-bottom: 30px;
+  }
+
+  /**** Form elements ****/
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  label { font-weight: normal; }
+  .label-strong {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+
+    /**** Min residence *****/
+    .min-stance {
+      display: flex;
+      flex-direction: row;
+      max-width: 150px;
+      flex-wrap: nowrap;
+    }
+      .min-stance > * { align-self: center; }
+      .min-stance span {
+        font-size: 0.8em;
+        font-weight: bold;
+        margin-left: 10px;
+      }
+  .form-control-custom, mat-checkbox {
+    margin: 0 15px;
+  }
