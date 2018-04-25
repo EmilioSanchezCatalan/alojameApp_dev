@@ -1,0 +1,5 @@
+#page-std-profile { margin-top: 100px; }
+
+#page-std-profile > * {
+  margin-bottom: 20px;
+}

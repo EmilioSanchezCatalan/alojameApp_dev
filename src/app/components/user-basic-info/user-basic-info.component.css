@@ -1,0 +1,82 @@
+#user-basic-info {
+  border: 1px solid rgba(0, 0, 0, .2);
+  background-color: white;
+  padding: 40px;
+}
+
+  /****** Header ******/
+  #user-basic-info > header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    width: 80%;
+    margin: 0 auto;
+  }
+    /***** User Avatar ****/
+      .user-avatar img {
+        object-fit: cover;
+        object-position: center;
+        width: 250px;
+        height: 250px;
+        border-radius: 4px;
+        border: 1px solid rgba(0, 0, 0, .2);
+      }
+    /***** User info *******/
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      margin-left: 50px;
+      flex-basis: 100%;
+    }
+
+      .user-info span:first-child {
+        font-size: 2em;
+        font-weight: bold;
+      }
+      .user-info span:last-child {
+        font-size: 1.2em;
+      }
+        .user-info span:last-child i {
+          margin-right: 5px;
+        }
+      .user-info button {
+        margin-top: auto;
+        align-self: flex-end;
+      }
+      .user-info button.btn-orange {
+        width: 100px;
+      }
+        .user-info button i { color: white; margin-right: 5px; }
+
+  /****** Content *******/
+
+  #user-description { margin-bottom: 30px; }
+  #user-basic-info .row > div header{
+    font-size: 1.7em;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  #user-basic-info .row .content { margin: 0 10px; }
+  #user-basic-info .row .content p { text-align: justify; }
+  #user-basic-info .item-skill {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 20px;
+  }
+  #user-basic-info .item-skill > * { align-self: center; }
+  .item-skill > span {
+    width: 90px;
+    margin-right: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+  }
+  .item-skill > span i { margin: 0 5px; }
+  .skill-bar {
+    height: 3px;
+    flex-basis: 250px;
+    background-color: rgb(255, 162, 0);
+    border-radius: 2px;
+  }

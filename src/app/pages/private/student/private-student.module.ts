@@ -10,6 +10,7 @@ import { PageSearchHomesModule } from './page-search-homes/page-search-homes.mod
 import { PageHomeModule } from './page-home/page-home.module';
 import { PageMyHomeModule } from './page-my-home/page-my-home.module';
 import { PageStdProfileConfModule } from './page-std-profile-conf/page-std-profile-conf.module';
+import { PageStdProfileModule } from './page-std-profile/page-std-profile.module';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { PageStdProfileConfModule } from './page-std-profile-conf/page-std-profi
     PageSearchHomesModule,
     PageHomeModule,
     PageMyHomeModule,
-    PageStdProfileConfModule
+    PageStdProfileConfModule,
+    PageStdProfileModule
   ]
 })
 export class PrivateStudentModule {}
