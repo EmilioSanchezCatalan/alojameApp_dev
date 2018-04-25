@@ -12,6 +12,7 @@ import { PageStdMessageComponent } from './page-std-message/page-std-message.com
 import { PageStdValorationsComponent } from './page-std-valorations/page-std-valorations.component';
 import { PageSearchHomesComponent } from './page-search-homes/page-search-homes.component';
 import { PageHomeComponent } from './page-home/page-home.component';
+import { PageMyHomeComponent } from './page-my-home/page-my-home.component';
 import { PageStdProfileConfComponent } from './page-std-profile-conf/page-std-profile-conf.component';
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'std-valorations', component: PageStdValorationsComponent },
   { path: 'search-homes', component: PageSearchHomesComponent },
   { path: 'home', component: PageHomeComponent },
+  { path: 'my-home', component: PageMyHomeComponent },
   { path: 'std-profile', children: [
     { path: 'configuration', component: PageStdProfileConfComponent }
   ]}

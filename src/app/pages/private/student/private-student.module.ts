@@ -8,6 +8,7 @@ import { PageStdMessageModule } from './page-std-message/page-std-message.module
 import { PageStdValorationsModule } from './page-std-valorations/page-std-valorations.module';
 import { PageSearchHomesModule } from './page-search-homes/page-search-homes.module';
 import { PageHomeModule } from './page-home/page-home.module';
+import { PageMyHomeModule } from './page-my-home/page-my-home.module';
 import { PageStdProfileConfModule } from './page-std-profile-conf/page-std-profile-conf.module';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { PageStdProfileConfModule } from './page-std-profile-conf/page-std-profi
     PageStdValorationsModule,
     PageSearchHomesModule,
     PageHomeModule,
+    PageMyHomeModule,
     PageStdProfileConfModule
   ]
 })
