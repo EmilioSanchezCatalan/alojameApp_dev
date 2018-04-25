@@ -11,6 +11,7 @@ import { PageHomeModule } from './page-home/page-home.module';
 import { PageMyHomeModule } from './page-my-home/page-my-home.module';
 import { PageStdProfileConfModule } from './page-std-profile-conf/page-std-profile-conf.module';
 import { PageStdProfileModule } from './page-std-profile/page-std-profile.module';
+import { PageStdProfileShowModule } from './page-std-profile-show/page-std-profile-show.module';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { PageStdProfileModule } from './page-std-profile/page-std-profile.module
     PageHomeModule,
     PageMyHomeModule,
     PageStdProfileConfModule,
-    PageStdProfileModule
+    PageStdProfileModule,
+    PageStdProfileShowModule
   ]
 })
 export class PrivateStudentModule {}

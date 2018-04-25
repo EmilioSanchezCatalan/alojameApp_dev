@@ -4,6 +4,8 @@
  */
 import { Component, Input } from '@angular/core';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'alo-user-basic-info',
   templateUrl: './user-basic-info.component.html',
@@ -12,8 +14,16 @@ import { Component, Input } from '@angular/core';
 export class UserBasicInfoComponent {
 
   @Input() function: string;
-  constructor() {
+  constructor(
+    private __router: Router
+  ) {
     this.function = 'none';
   }
 
+  /**
+   * Go to the page edit profile
+   */
+  public gotoEditProfile(): void {
+    this.__router.navigate(['private', 'student', 'std-profile', 'configuration']);
+  }
 }

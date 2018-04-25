@@ -9,7 +9,7 @@
         <i class="fa fa-envelope-o" aria-hidden="true"></i>
         esc00019@gmail.com
       </span>
-      <button *ngIf="function === 'edit'" class="btn btn-orange"><i class="fa fa-pencil" aria-hidden="true"></i>Editar</button>
+      <button (click)="gotoEditProfile()" *ngIf="function === 'edit'" class="btn btn-orange"><i class="fa fa-pencil" aria-hidden="true"></i>Editar</button>
     </div>
   </header>
   <hr>
