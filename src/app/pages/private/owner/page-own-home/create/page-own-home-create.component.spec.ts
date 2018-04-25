@@ -31,4 +31,33 @@ describe('PageOwnHomeCreateComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('test nextStep()', () => {
+    it('should sum +1 at the actual page', () => {
+      expect(component.actualStep).toBe(0);
+      component.nextStep();
+      expect(component.actualStep).toBe(1);
+    });
+    it('should not sum +1 at the actual page', () => {
+      component.actualStep = 8;
+      expect(component.actualStep).toBe(8);
+      component.nextStep();
+      expect(component.actualStep).toBe(8);
+    });
+  });
+
+  describe('test preStep()', () => {
+    it('should res +1 at the actual page', () => {
+      component.actualStep = 4;
+      expect(component.actualStep).toBe(4);
+      component.preStep();
+      expect(component.actualStep).toBe(3);
+    });
+    it('should not res +1 at the actual page', () => {
+      expect(component.actualStep).toBe(0);
+      component.preStep();
+      expect(component.actualStep).toBe(0);
+    });
+  });
+
 });

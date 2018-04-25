@@ -49,4 +49,11 @@ export class CardHomeComponent implements OnInit {
     this.__router.navigate(['private/owner', 'own-home', 'students']);
   }
 
+  /**
+   * Navigate to the view edit home configuration
+   */
+  public gotoEditHome(): void {
+    this.__router.navigate(['private/owner', 'own-home', 'edit']);
+  }
+
 }

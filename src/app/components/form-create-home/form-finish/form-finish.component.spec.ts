@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { FormFinishComponent } from './form-finish.component';
 
@@ -8,7 +9,8 @@ describe('FormFinishComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormFinishComponent ]
+      declarations: [ FormFinishComponent ],
+      imports: [RouterTestingModule]
     })
     .compileComponents();
   }));
@@ -21,5 +23,11 @@ describe('FormFinishComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('test gotoHome()', () => {
+    it('should navigate to the home page', () => {
+      component.gotoHome();
+    });
   });
 });

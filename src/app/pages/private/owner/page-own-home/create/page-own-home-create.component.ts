@@ -25,12 +25,18 @@ export class PageOwnHomeCreateComponent implements OnInit {
     $('.selectpicker').selectpicker();
   }
 
+  /**
+   * Sum one at the creations steps
+   */
   public nextStep(): void {
     if (this.actualStep < (this.listSteps.length - 1) ) {
       this.actualStep++;
     }
   }
 
+  /**
+   * Res one at the creations steps
+   */
   public preStep(): void {
     if (this.actualStep > 0) {
       this.actualStep--;

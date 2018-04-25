@@ -45,4 +45,10 @@ describe('CardHomeComponent', () => {
       component.gotoStudentsHome();
     });
   });
+
+  describe('test gotoEditHome()', () => {
+    it('should be navegate to the home\'s edit', () => {
+      component.gotoEditHome();
+    });
+  });
 });
