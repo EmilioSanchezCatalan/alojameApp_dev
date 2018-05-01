@@ -7,7 +7,7 @@
  *              - crud: functionality crud
  *              - subs: functionality of subscription
  */
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 declare var $: any;
@@ -29,6 +29,24 @@ export class CardHomeComponent implements OnInit {
 
   ngOnInit() {
     $('.rating').rating('create');
+  }
+
+  public gotoHome(): void {
+    if (this.function === 'none') {
+
+      switch (localStorage.getItem('userType')) {
+
+        case 'student':
+          this.__router.navigate(['private/student', 'home']);
+          break;
+        case 'public':
+          this.__router.navigate(['public', 'home']);
+          break;
+        case 'owner':
+          this.__router.navigate(['public', 'home']);
+          break;
+      }
+    }
   }
 
   /**

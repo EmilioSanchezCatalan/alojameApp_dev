@@ -3,6 +3,7 @@
  * Purpose: view with a button for save or cancel a form
  */
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'alo-form-save',
@@ -11,5 +12,14 @@ import { Component } from '@angular/core';
 })
 export class FormSaveComponent {
 
-  constructor() { }
+  constructor(
+    private __router: Router
+  ) { }
+
+  /**
+   * Cancel the saving an return to the previus state
+   */
+  public cancelSaving(): void {
+    this.__router.navigate(['private', 'student', 'std-profile', 'show']);
+  }
 }

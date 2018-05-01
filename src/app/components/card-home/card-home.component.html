@@ -4,7 +4,7 @@
   <div mat-card-image id="carousel-home-1" class="carousel slide" data-ride="carousel" data-interval="0">
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
+    <div class="carousel-inner" role="listbox" (click)="gotoHome()">
 
       <!-- List of photos -->
       <div class="item active">
@@ -29,7 +29,7 @@
       </div>
     </a>
   </div>
-  <div id="card-description" [class.hasfunctionality]="function !== 'none'">
+  <div id="card-description" [class.hasfunctionality]="function !== 'none'" (click)="gotoHome()" [style.cursor]="'pointer'">
     <!-- Content -->
     <mat-card-content>
       <section class="home-info">

@@ -1,5 +1,21 @@
 .spinner-center {
-  position: absolute;
-  top: calc(50% - 61px);
-  left: calc(50% - 61px);
+  position: fixed;
+  top: calc(50% - 157px);
+  left: calc(50% - 170px);
+  z-index: 999999;
+  background-color: white;
+  padding: 25px 25px;
+  border: 1px solid;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  min-width: 340px;
+}
+.spinner-center > div {
+  font-size: 2em;
+}
+
+.spinner-center > mat-spinner {
+  margin: 50px 0;
+  align-self: center;
 }

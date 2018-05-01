@@ -5,6 +5,7 @@ import { HomeDetailsModule } from '../../../../../components/home-details/home-d
 import { HomeValorationsModule } from '../../../../../components/home-valorations/home-valorations.module';
 import { GalleryShowModule } from '../../../../../components/gallery-show/gallery-show.module';
 import { RoomerDetailsModule } from '../../../../../components/roomer-details/roomer-details.module';
+import { SubscribeBarModule } from '../../../../../components/subscribe-bar/subscribe-bar.module';
 
 @NgModule({
   declarations: [PageOwnHomeComponent],
@@ -12,7 +13,8 @@ import { RoomerDetailsModule } from '../../../../../components/roomer-details/ro
     HomeDetailsModule,
     HomeValorationsModule,
     GalleryShowModule,
-    RoomerDetailsModule
+    RoomerDetailsModule,
+    SubscribeBarModule
   ],
   exports: [PageOwnHomeComponent]
 })

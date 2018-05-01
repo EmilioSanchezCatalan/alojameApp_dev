@@ -1,5 +1,8 @@
 <alo-navbar-simple [status]="userType"></alo-navbar-simple>
-<mat-spinner [diameter]="120" [color]="orage" class="spinner-center" *ngIf="isloading"></mat-spinner>
+<div class="spinner-center" *ngIf="isloading">
+  <div>Cargando...</div>
+  <mat-spinner [diameter]="120" [color]="orange"></mat-spinner>
+</div>
 
 <div style="margin-top: 56px;">
   <router-outlet></router-outlet>

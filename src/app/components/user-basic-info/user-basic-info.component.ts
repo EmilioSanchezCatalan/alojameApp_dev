@@ -26,4 +26,11 @@ export class UserBasicInfoComponent {
   public gotoEditProfile(): void {
     this.__router.navigate(['private', 'student', 'std-profile', 'configuration']);
   }
+
+  /**
+   * Open a chat with the user
+   */
+  public gotoChatUser(): void {
+    this.__router.navigate(['private', 'student', 'std-message']);
+  }
 }

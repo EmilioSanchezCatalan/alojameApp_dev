@@ -1,0 +1,21 @@
+<section id="form-save">
+  <div class="container">
+
+    <!-- Price -->
+    <div id="precio">
+      <span>Por 600 €/mes</span>
+    </div>
+    <button class="btn btn-orange" [disabled]="disabled" (click)="emitActionEvent()">
+
+      <!-- text subscribe -->
+      <ng-container *ngIf="subscribe">
+        Enviar solicitud
+      </ng-container>
+
+      <!-- text left home -->
+      <ng-container *ngIf="!subscribe">
+        Dejar el piso
+      </ng-container>
+    </button>
+  </div>
+</section>
