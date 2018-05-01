@@ -2,9 +2,7 @@
  * @author Emilio Sánchez Catalán <esc00019@gmail.com>
  * Purpose: view that allow to the owner edit his profile
  */
-import { Component, OnInit } from '@angular/core';
-
-declare var $: any;
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'page-own-profile-conf',
@@ -13,20 +11,6 @@ declare var $: any;
 })
 export class PageOwnProfileConfComponent {
 
-  public yearsList: Array<number>;
+  constructor() { }
 
-  constructor() {
-    this.yearsList = [];
-    this.dateGenerate();
-  }
-  /**
-   * Generate the list of years
-   */
-  public dateGenerate(): void {
-    const now_year: number = new Date().getFullYear();
-    for (let i = now_year; i >= 1910; i--) {
-      this.yearsList.push(i);
-    }
-    $('.selectpicker').selectpicker();
-  }
 }

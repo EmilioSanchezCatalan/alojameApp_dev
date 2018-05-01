@@ -20,6 +20,13 @@ export class FormSaveComponent {
    * Cancel the saving an return to the previus state
    */
   public cancelSaving(): void {
-    this.__router.navigate(['private', 'student', 'std-profile', 'show']);
+    switch (localStorage.getItem('userType')) {
+      case 'student':
+        this.__router.navigate(['private', 'student', 'std-profile', 'show']);
+        break;
+      case 'owner':
+        this.__router.navigate(['private', 'owner', 'own-homes']);
+        break;
+    }
   }
 }

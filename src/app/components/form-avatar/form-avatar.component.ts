@@ -3,6 +3,9 @@
  * Purpose: form with an avatar img
  */
 import { Component } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material';
+
+import { PopupImgUploadComponent } from '../popup-img-upload/popup-img-upload.component';
 
 @Component({
   selector: 'alo-form-avatar',
@@ -11,5 +14,20 @@ import { Component } from '@angular/core';
 })
 export class FormAvatarComponent {
 
-  constructor() { }
+    public popupImgUpload: MatDialogRef<PopupImgUploadComponent>;
+
+    constructor(
+      private __dialog: MatDialog
+    ) { }
+
+    /**
+     * Open a popup for upload the img
+     */
+    public openImgUploader(): void {
+      this.popupImgUpload = this.__dialog.open(PopupImgUploadComponent);
+      this.popupImgUpload.afterClosed().subscribe(
+        response => {
+        }
+      );
+    }
 }
