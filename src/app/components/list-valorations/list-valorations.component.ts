@@ -4,6 +4,7 @@
  */
 import { Component } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
 
 import { MakeValorationComponent } from '../make-valoration/make-valoration.component';
 
@@ -17,7 +18,8 @@ export class ListValorationsComponent {
   public popupValoration: MatDialogRef<MakeValorationComponent>;
 
   constructor(
-    private __matDialog: MatDialog
+    private __matDialog: MatDialog,
+    private __router: Router
   ) { }
 
   /**
@@ -30,5 +32,26 @@ export class ListValorationsComponent {
         console.log('valorado');
       }
     );
+  }
+
+  /**
+   * Navigate to the profile of the user selected
+   */
+  public gotoProfile(): void {
+    switch (localStorage.getItem('userType')) {
+      case 'owner':
+        this.__router.navigate(['private', 'owner', 'std-profile']);
+        break;
+      case 'student':
+        this.__router.navigate(['private', 'student', 'profile']);
+        break;
+    }
+  }
+
+  /**
+   * Navigate to the view home
+   */
+  public gotoHome(): void {
+    this.__router.navigate(['private', 'student', 'std-home']);
   }
 }

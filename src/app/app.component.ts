@@ -18,7 +18,7 @@ export class AppComponent implements OnDestroy {
     __router.events.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event);
     });
-    localStorage.setItem('userType', 'owner');
+    localStorage.setItem('userType', 'student');
     this.userType = localStorage.getItem('userType');
   }
 

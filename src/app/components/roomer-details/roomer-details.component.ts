@@ -3,6 +3,7 @@
  * Purpose: show the actual students thats they are living in the home
  */
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'alo-roomer-details',
@@ -11,5 +12,22 @@ import { Component } from '@angular/core';
 })
 export class RoomerDetailsComponent {
 
-  constructor() { }
+  constructor(
+    private __router: Router
+  ) { }
+
+  /**
+   * Navigate to the profile of the user selected
+   */
+  public gotoProfile(): void {
+    switch (localStorage.getItem('userType')) {
+
+      case 'owner':
+        this.__router.navigate(['private', 'owner', 'std-profile']);
+        break;
+      case 'student':
+        this.__router.navigate(['private', 'student', 'profile']);
+        break;
+    }
+  }
 }
