@@ -47,7 +47,8 @@
       .user-info button.btn-orange {
         width: 100px;
       }
-        .user-info button i { color: white; margin-right: 5px; }
+        .user-info button.btn-orange i { color: white; margin-right: 5px; }
+        .user-info button i { margin-right: 5px; }
 
   /****** Content *******/
 

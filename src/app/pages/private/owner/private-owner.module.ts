@@ -10,6 +10,7 @@ import { PageOwnMessagesModule } from './page-own-messages/page-own-messages.mod
 import { PageOwnMessageModule } from './page-own-message/page-own-message.module';
 import { PageOwnValorationsModule } from './page-own-valorations/page-own-valorations.module';
 import { PageOwnProfileConfModule } from './page-own-profile-conf/page-own-profile-conf.module';
+import { PageOwnProfileShowModule } from './page-own-profile-show/page-own-profile-show.module';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { PageOwnProfileConfModule } from './page-own-profile-conf/page-own-profi
     PageOwnMessageModule,
     PageOwnValorationsModule,
     PageOwnProfileConfModule,
-    PageOwnHomeEditModule
+    PageOwnHomeEditModule,
+    PageOwnProfileShowModule
   ]
 })
 export class PrivateOwnerModule {}
