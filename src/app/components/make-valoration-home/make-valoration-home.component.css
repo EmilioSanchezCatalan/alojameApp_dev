@@ -1,0 +1,33 @@
+alo-popup {
+  width: 500px;
+  margin: 0 10px;
+}
+
+  /*********** Content ************/
+  alo-popup-container article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+    .form-group { display: flex; }
+    .form-group > * {
+      align-self: center;
+    }
+    label {
+      margin: 0;
+      width: 135px;
+      margin-right: 40px;
+    }
+    alo-popup-container button {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+
+/********* Responsive **********/
+@media  (max-width: 890px) {
+  alo-popup {
+    width: 100%;
+  }
+}

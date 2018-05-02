@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material';
 
 import { ListValorationsComponent } from './list-valorations.component';
-import { MakeValorationModule } from '../make-valoration/make-valoration.module';
+import { MakeValorationStudentModule } from '../make-valoration-student/make-valoration-student.module';
 
 describe('ListValorationsComponent', () => {
   let component: ListValorationsComponent;
@@ -15,7 +15,7 @@ describe('ListValorationsComponent', () => {
       imports: [
         MatDialogModule,
         BrowserAnimationsModule,
-        MakeValorationModule
+        MakeValorationStudentModule
       ]
     })
     .compileComponents();
@@ -30,11 +30,11 @@ describe('ListValorationsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  describe('test createValoration()', () => {
+  describe('test createValorationStd()', () => {
     it('should be open a Register popup', () => {
-      component.createValoration();
+      component.createValorationStd();
       fixture.detectChanges();
-      component.popupValoration.close();
+      component.popupValorationStd.close();
       fixture.detectChanges();
     });
   });

@@ -3,17 +3,17 @@ import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/tes
 import { MatDialogModule, MatDialog, MatDialogRef} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MakeValorationComponent } from './make-valoration.component';
+import { MakeValorationStudentComponent } from './make-valoration-student.component';
 import { AloPopupModule } from '../../components/alo-popup/alo-popup.module';
 
-describe('MakeValorationComponent', () => {
-  let component: MakeValorationComponent;
+describe('MakeValorationStudentComponent', () => {
+  let component: MakeValorationStudentComponent;
   let dialog: MatDialog;
-  let dialogRef: MatDialogRef<MakeValorationComponent>;
+  let dialogRef: MatDialogRef<MakeValorationStudentComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MakeValorationComponent ],
+      declarations: [ MakeValorationStudentComponent ],
       imports: [
         AloPopupModule,
         BrowserAnimationsModule,
@@ -22,7 +22,7 @@ describe('MakeValorationComponent', () => {
     })
     .overrideModule(BrowserDynamicTestingModule, {
       set: {
-        entryComponents: [ MakeValorationComponent ]
+        entryComponents: [ MakeValorationStudentComponent ]
         }
     })
     .compileComponents();
@@ -30,7 +30,7 @@ describe('MakeValorationComponent', () => {
 
   beforeEach(() => {
     dialog = TestBed.get(MatDialog);
-    dialogRef = dialog.open(MakeValorationComponent);
+    dialogRef = dialog.open(MakeValorationStudentComponent);
     component = dialogRef.componentInstance;
   });
 

@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
 
-import { MakeValorationComponent } from '../make-valoration/make-valoration.component';
+import { MakeValorationStudentComponent } from '../make-valoration-student/make-valoration-student.component';
+import { MakeValorationHomeComponent } from '../make-valoration-home/make-valoration-home.component';
 
 @Component({
   selector: 'alo-list-valorations',
@@ -15,7 +16,8 @@ import { MakeValorationComponent } from '../make-valoration/make-valoration.comp
 })
 export class ListValorationsComponent {
 
-  public popupValoration: MatDialogRef<MakeValorationComponent>;
+  public popupValorationStd: MatDialogRef<MakeValorationStudentComponent>;
+  public popupValorationHome: MatDialogRef<MakeValorationHomeComponent>;
 
   constructor(
     private __matDialog: MatDialog,
@@ -25,9 +27,21 @@ export class ListValorationsComponent {
   /**
    * Open a popup for make a valoration of item selected
    */
-  public createValoration(): void {
-    this.popupValoration = this.__matDialog.open(MakeValorationComponent);
-    this.popupValoration.afterClosed().subscribe(
+  public createValorationStd(): void {
+    this.popupValorationStd = this.__matDialog.open(MakeValorationStudentComponent);
+    this.popupValorationStd.afterClosed().subscribe(
+      response => {
+        console.log('valorado');
+      }
+    );
+  }
+
+  /**
+   * Open a popup for make a valoration of item selected
+   */
+  public createValorationHome(): void {
+    this.popupValorationHome = this.__matDialog.open(MakeValorationHomeComponent);
+    this.popupValorationHome.afterClosed().subscribe(
       response => {
         console.log('valorado');
       }

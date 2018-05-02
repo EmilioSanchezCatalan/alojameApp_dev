@@ -1,0 +1,46 @@
+<!-- Popup valoration -->
+<alo-popup>
+
+  <!-- Header -->
+  <alo-popup-header (close)="closePopup()">
+    Valoración
+  </alo-popup-header>
+
+  <!-- Conatiner -->
+  <alo-popup-container>
+
+    <article>
+      <div class="form-group">
+        <label for="">Convivencia</label>
+        <span class="star-rating-clear">
+          <input id="input-id" value="0" name="input-name" type="text" class="rating" data-min=0 data-max=5 data-step=0.5 data-size="sm">
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="">Ambiente de estudio</label>
+        <span class="star-rating-clear">
+          <input id="input-id" value="0" name="input-name" type="text" class="rating" data-min=0 data-max=5 data-step=0.5 data-size="sm">
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="">Limpieza</label>
+        <span class="star-rating-clear">
+          <input id="input-id" value="0" name="input-name" type="text" class="rating" data-min=0 data-max=5 data-step=0.5 data-size="sm">
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="">Tareas del piso</label>
+        <span class="star-rating-clear">
+          <input id="input-id" value="0" name="input-name" type="text" class="rating" data-min=0 data-max=5 data-step=0.5 data-size="sm">
+        </span>
+      </div>
+      <button class="btn btn-orange">Enviar</button>
+    </article>
+  </alo-popup-container>
+
+  <!-- Footer -->
+  <alo-popup-footer>
+    Muchas gracias por su valoración!!
+  </alo-popup-footer>
+
+</alo-popup>
