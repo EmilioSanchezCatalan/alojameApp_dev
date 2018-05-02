@@ -1,9 +1,27 @@
 <alo-navbar-simple [status]="userType"></alo-navbar-simple>
+
+<!-- Spinner  -->
 <div class="spinner-center" *ngIf="isloading">
   <div>Cargando...</div>
   <mat-spinner [diameter]="120" [color]="orange"></mat-spinner>
 </div>
 
+<!-- Select type of user -->
+<div class="type-user" (click)="activeChange()">
+  <i class="fa fa-cog" aria-hidden="true"></i>
+</div>
+
+<div class="box-user-type" *ngIf="changeUsertype">
+  <div>
+    <select class="selectpicker" [(ngModel)]="userType" (change)="setInStorage()">
+      <option value="public">Public</option>
+      <option value="student">Estudiante</option>
+      <option value="owner">Propietario</option>
+    </select>
+  </div>
+</div>
+
+<!-- content -->
 <div style="margin-top: 56px;">
   <router-outlet></router-outlet>
 </div>
