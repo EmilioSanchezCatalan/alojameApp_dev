@@ -4,6 +4,10 @@
   padding: 40px;
 }
   /****** Header ******/
+  #form-personal-info header {
+    display: flex;
+  }
+  #form-personal-info header > * { align-self: center; }
   #form-personal-info header h3 {
     font-size: 1.4em;
     font-weight: bold;
@@ -15,9 +19,13 @@
   #form-personal-info article {
     margin-bottom: 20px;
   }
-  #form-personal-info article h4 {
+  #form-personal-info article header > * {
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 20px;
+    margin-top: 10px;
   }
-  #change-pass { text-align: center; }
+  #change-pass { justify-content: center;}
+  .form-group { display: flex; }
+  mat-slide-toggle { align-self: center; margin: 0 20px 0 10px;}
+  input { max-width: 395px; }
