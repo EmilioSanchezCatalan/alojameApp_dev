@@ -54,7 +54,7 @@
           <input type="number" name="" value="" class="form-control">
           <span>mes/es</span>
         </div>
-        </div>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -69,7 +69,19 @@
           <input type="number" name="" value="" class="form-control">
           <span>€</span>
         </div>
-        </div>
+      </div>
     </div>
+
+    <!-- when is ready -->
+    <div class="col-sm-6 col-md-6">
+      <div class="form-group">
+        <label class="label-strong">
+          ¿Apartir de que fecha estara lista? (opcional)
+        </label>
+        <input [owlDateTimeTrigger]="dateInto" [owlDateTime]="dateInto" id="date-allow">
+        <owl-date-time [pickerType]="'calendar'" #dateInto></owl-date-time>
+      </div>
+    </div>
+
   </div>
 </section>

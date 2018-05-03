@@ -41,6 +41,10 @@
         font-weight: bold;
         margin-left: 10px;
       }
+
+    /****** Home ready ******/
+    #date-allow { max-width: 150px; }
+    
   .form-control-custom, mat-checkbox {
     margin: 0 15px;
   }
