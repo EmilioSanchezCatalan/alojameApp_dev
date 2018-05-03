@@ -70,13 +70,24 @@
     display: inline-block;
     border-radius: 4px;
     box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, .1);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;  
   }
+
     .message-dest {
       align-self: flex-start;
     }
+      .message-dest .message-user { color: #ff9000; }
+
     .message-send {
       align-self: flex-end;
     }
+      .message-user {
+        font-size: 0.95em;
+        font-weight: bold;
+        margin-bottom: 7.5px;
+      }
 
 /************** Chat inputs **********/
 #chat-input {
