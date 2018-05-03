@@ -32,8 +32,17 @@
     flex-basis: 100%;
     margin-right: 20px;
     border-right: 1px solid rgba(0, 0, 0, .1);
+    display: flex;
   }
-
+  #username > span:first-child { align-self: flex-start; }
+  #username > span:last-child {
+    align-self: center;
+    margin-left: auto;
+    font-size: .9em;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  #username > span i { margin-left: 10px; }
   /************ Botton de volver ************/
   #chat-message header > #back-button {
     font-size: 2.5em;
