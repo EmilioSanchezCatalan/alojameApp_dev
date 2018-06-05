@@ -50,7 +50,7 @@
           <li><a [routerLink]="['/private/owner', 'own-profile', 'configuration']">Mi perfil</a></li>
           <li><a [routerLink]="['private/owner']">Panel de control</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="#" style="color: #ec0006">Cerrar sessión</a></li>
+          <li><a [routerLink]="['/']" style="color: #ec0006" (click)="logoutOwner()">Cerrar sessión</a></li>
         </ul>
       </div>
     </div>

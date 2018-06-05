@@ -135,6 +135,15 @@ body{
   font-weight: 700;
 }
 
+.mat-snack-bar-container.validation-ok{
+  background-color: rgb(53, 217, 39);
+  font-weight: 400;
+}
+.validation-ok .mat-simple-snackbar-action{
+  color: white;
+  font-weight: 700;
+}
+
 /******** MatRadioButton *********/
 .mat-radio-label-content {
   font-weight: normal;

@@ -2,7 +2,7 @@
 <alo-popup class="popup-container">
 
   <!-- Header -->
-  <alo-popup-header (close)="closePopup()" [hasBack]="userType" (back)="restoreUserType()">
+  <alo-popup-header (close)="closePopup()">
       <ng-container *ngIf="userType == undefined">
         Regístrate
       </ng-container>
@@ -12,7 +12,7 @@
   </alo-popup-header>
 
   <!-- Select type of count -->
-  <alo-popup-container *ngIf="userType === undefined">
+  <!-- <alo-popup-container *ngIf="userType === undefined">
     <div class="user-count" (click)="setUserType('student')">
       <span><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
       <p><span>Registrate como estudiante para buscar los mejores pisos</span></p>
@@ -21,11 +21,24 @@
       <span><i class="fa fa-home" aria-hidden="true"></i></span>
       <p><span>Registrate como propietario para ofrecer tus pisos al resto de usuarios</span></p>
     </div>
-  </alo-popup-container>
+  </alo-popup-container> -->
 
   <!-- Register section -->
   <alo-popup-container class="register-inputs" *ngIf="userType">
     <form #formRegister="ngForm" (ngSubmit)="setRegister(formRegister)">
+
+      <!-- Username Input -->
+      <div class="form-group">
+        <div class="input-group input-group-lg">
+          <input type="text" name="username" placeholder="Nombre de usuario" class="form-control" #inputUserName ngModel required>
+          <div class="input-group-btn">
+            <button type="button" (click)="inputUserName.focus();" class="btn btn-default">
+              <i class="fa fa-user-o" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
 
       <!-- Email Input -->
       <div class="form-group">
@@ -67,7 +80,7 @@
       <!-- Password Input -->
       <div class="form-group">
         <div class="input-group input-group-lg">
-          <input type="password" name="password" placeholder="Contraseña" class="form-control" #inputPassword ngModel required>
+          <input type="password" name="password" pattern=".{8,}" placeholder="Contraseña" class="form-control" #inputPassword ngModel required>
           <div class="input-group-btn">
             <button type="button" (click)="inputPassword.focus()" class="btn btn-default">
               <i class="fa fa-lock" aria-hidden="true"></i>

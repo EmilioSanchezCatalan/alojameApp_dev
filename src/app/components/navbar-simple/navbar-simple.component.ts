@@ -13,11 +13,13 @@ import { Router,  Event as RouterEvent} from '@angular/router';
 
 import { RegisterComponent } from '../register/register.component';
 import { LoginComponent } from '../login/login.component';
+import { AuthOwnerService } from '../../services/auth-owner.service';
 
 @Component({
   selector: 'alo-navbar-simple',
   templateUrl: './navbar-simple.component.html',
-  styleUrls: ['./navbar-simple.component.css']
+  styleUrls: ['./navbar-simple.component.css'],
+  providers: [AuthOwnerService]
 })
 export class NavbarSimpleComponent implements OnInit {
 
@@ -29,7 +31,8 @@ export class NavbarSimpleComponent implements OnInit {
 
   constructor(
     private __dialog: MatDialog,
-    private __router: Router
+    private __router: Router,
+    private __authOwn: AuthOwnerService
   ) {
     this.isInHome = false;
     this.isInLHome = false;
@@ -77,5 +80,12 @@ export class NavbarSimpleComponent implements OnInit {
         }
       }
     );
+  }
+
+  /**
+   * Logout the user Owner
+   */
+  public logoutOwner(): void {
+    this.__authOwn.logout();
   }
 }

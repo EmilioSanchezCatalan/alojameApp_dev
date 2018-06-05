@@ -6,26 +6,38 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { ValidatorErrorService } from '../../services/validator-error.service';
 import { FormErrorInfo } from '../../interfaces/form-error-info';
+import { AuthOwnerService } from '../../services/auth-owner.service';
+import { NotificationHttpService } from '../../services/notification-http.service';
 
 @Component({
   selector: 'alo-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [ValidatorErrorService]
+  providers: [
+    ValidatorErrorService,
+    NotificationHttpService,
+    AuthOwnerService
+  ]
 })
 export class LoginComponent {
 
   public isEmailFocus: boolean;
   public isPassForgot: boolean;
+  public isOwner: boolean;
   private __loginFormNames: FormErrorInfo;
   private __recoverFormNames: FormErrorInfo;
   constructor(
     private __dialogRef: MatDialogRef<LoginComponent>,
-    private __valError: ValidatorErrorService
+    private __valError: ValidatorErrorService,
+    private __auth: AuthOwnerService,
+    private __notfHttp: NotificationHttpService,
+    private __router: Router
   ) {
+    this.isOwner = false;
     this.isPassForgot = false;
     this.__loginFormNames = {
       errorsInfo: [
@@ -86,7 +98,14 @@ export class LoginComponent {
    */
   public setLogin(formLogin: FormGroup): void {
     if (formLogin.valid === true ) {
-      // TODO connection with the API
+      this.__auth.login(formLogin.value).then( response => {
+        console.log('Entra');
+        this.__auth.setAuth(response.token);
+        this.__router.navigate(['private', 'owner', 'own-homes']);
+        this.__dialogRef.close();
+      }).catch( error => {
+        this.__notfHttp.show(error);
+      });
     } else {
       this.__valError.checkErrors(formLogin, this.__loginFormNames);
     }

@@ -2,11 +2,13 @@
  * @author Emilio Sánchez <esc00019@gmail.com>
  * Purpose: Select the type of user for register in the platform and make the register
  */
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { FormGroup } from '@angular/forms';
 
 import { ValidatorErrorService } from '../../services/validator-error.service';
+import { NotificationHttpService } from '../../services/notification-http.service';
+import { AuthOwnerService } from '../../services/auth-owner.service';
 import { FormErrorInfo } from '../../interfaces/form-error-info';
 
 declare var $: any;
@@ -15,9 +17,13 @@ declare var $: any;
   selector: 'alo-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  providers: [ValidatorErrorService]
+  providers: [
+      ValidatorErrorService,
+      NotificationHttpService,
+      AuthOwnerService
+  ]
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
 
   public isEmailFocus: boolean;
   public yearsList: Array<number>;
@@ -26,10 +32,13 @@ export class RegisterComponent {
 
   constructor(
     private __dialogRef: MatDialogRef<RegisterComponent>,
-    private __valError: ValidatorErrorService
+    private __valError: ValidatorErrorService,
+    private __notfHttp: NotificationHttpService,
+    private __authOwner: AuthOwnerService
   ) {
     this.yearsList = [];
     this.dateGenerate();
+    this.userType = 'owner';
     this.__registerFormNames = {
       errorsInfo: [
         {
@@ -67,6 +76,13 @@ export class RegisterComponent {
       ]
     };
   }
+
+  ngOnInit() {
+      setTimeout( () => {
+        // TODO ISSUE 0000001 effecto de expansión en el popup
+        $('.selectpicker').selectpicker();
+    }, 10);
+  }
   /**
    * Restore user type
    */
@@ -79,10 +95,6 @@ export class RegisterComponent {
    */
   public setUserType(userType: string): void {
     this.userType = userType;
-    setTimeout( () => {
-      // TODO ISSUE 0000001 effecto de expansión en el popup
-      $('.selectpicker').selectpicker();
-    }, 25);
   }
 
   /**
@@ -129,7 +141,12 @@ export class RegisterComponent {
    */
   public setRegister(formRegister: FormGroup): void {
     if (formRegister.valid === true) {
-      // TODO connection with the api register.
+        this.__authOwner.register(formRegister.value).then( response => {
+            this.__notfHttp.show(response);
+            this.__dialogRef.close();
+        }).catch( error => {
+            this.__notfHttp.show(error);
+        });
     } else {
       this.__valError.checkErrors( formRegister, this.__registerFormNames);
     }

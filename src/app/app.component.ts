@@ -21,9 +21,10 @@ export class AppComponent implements OnDestroy, OnInit {
     __router.events.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event);
     });
-    localStorage.setItem('userType', 'student');
     this.changeUsertype = false;
-    this.userType = localStorage.getItem('userType');
+    if (!localStorage.getItem('userType')) {
+      localStorage.setItem('userType', 'public');
+    }
   }
 
   ngOnInit() {
@@ -51,6 +52,14 @@ export class AppComponent implements OnDestroy, OnInit {
    */
   public setInStorage(): void {
     localStorage.setItem('userType', this.userType);
+  }
+
+  /**
+   * Get the userType saved on the localStorage
+   * @return {string} the usertype count
+   */
+  public getLocalStorageUserType(): string {
+    return localStorage.getItem('userType');
   }
 
   /**
