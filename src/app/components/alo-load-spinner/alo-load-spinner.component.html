@@ -1,0 +1,12 @@
+<!-- Spinner  -->
+<div class="spinner-center">
+  <div *ngIf="!error">Cargando...</div>
+  <div *ngIf="error">Error 404</div>
+  <mat-spinner *ngIf="!error" [diameter]="120" [color]="orange"></mat-spinner>
+  <div *ngIf="error" class="window">
+    <img src="assets/img/error_404.png">
+  </div>
+  <div class="tools" *ngIf="error">
+    <button class="btn btn-orange" (click)="refresh()">Recargar<i class="fa fa-refresh" aria-hidden="true"></i></button>
+  </div>
+</div>

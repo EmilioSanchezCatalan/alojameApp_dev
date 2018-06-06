@@ -1,0 +1,35 @@
+.spinner-center {
+  position: fixed;
+  top: calc(50% - 157px);
+  left: calc(50% - 170px);
+  z-index: 999999;
+  background-color: white;
+  padding: 25px 25px;
+  border: 1px solid;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  min-width: 340px;
+  height: 314px;
+}
+  .spinner-center > div {
+    font-size: 2em;
+  }
+  .window {
+    width: 300px;
+    margin: auto;
+  }
+  .spinner-center > mat-spinner {
+    margin: 50px 0;
+    align-self: center;
+  }
+  .tools {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    flex-direction: row;
+  }
+  .tools i {
+    color: white;
+    margin-left: 5px;
+  }

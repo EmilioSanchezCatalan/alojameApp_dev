@@ -1,16 +1,18 @@
-<section id="page-own-home-create" >
+<alo-load-spinner *ngIf="!dataPage" [error]="isErrorLoading"></alo-load-spinner>
+
+<section id="page-own-home-create" *ngIf="dataPage">
   <nav>
     <mat-progress-bar mode="determinate" [value]="( (actualStep + 1) * 100 )/8"></mat-progress-bar>
   </nav>
 
   <!-- Select type of home -->
   <article class="container" *ngIf="listSteps[actualStep] === 'type'">
-    <alo-form-home-type></alo-form-home-type>
+    <alo-form-home-type [inputData]="jsonCreateHome" (sendInfo)="getHomeType($event)"></alo-form-home-type>
   </article>
 
   <!-- Number of homes on the room -->
   <article class="container" *ngIf="listSteps[actualStep] === 'rooms'">
-    <alo-form-home-rooms></alo-form-home-rooms>
+    <alo-form-home-rooms [inputData]="jsonCreateHome" (sendInfo)="getHomeRooms($event)"></alo-form-home-rooms>
   </article>
 
   <!-- List of Services -->
