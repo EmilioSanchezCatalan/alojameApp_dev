@@ -2,7 +2,7 @@
  * @author Emilio Sánchez Catalán <esc00019@gmail.com>
  * Purpose: component in order to configure the list of rooms on the home
  */
-import { Component, OnInit, OnDestroy, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter} from '@angular/core';
 
 import { FormCreateHome } from '../../../interfaces/formCreateHome';
 
@@ -11,9 +11,10 @@ import { FormCreateHome } from '../../../interfaces/formCreateHome';
   templateUrl: './form-home-rooms.component.html',
   styleUrls: ['./form-home-rooms.component.css']
 })
-export class FormHomeRoomsComponent implements OnInit, OnDestroy {
+export class FormHomeRoomsComponent implements OnInit, OnChanges {
 
   @Input() inputData: FormCreateHome;
+  @Input() activeResult: boolean;
   @Output() sendInfo: EventEmitter<any>;
 
   public formData: any;
@@ -29,7 +30,6 @@ export class FormHomeRoomsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log(this.inputData);
     if (this.inputData) {
       this.formData.nBedRoom = this.inputData.nBedRoom;
       this.formData.nKitchen = this.inputData.nKitchen;
@@ -38,8 +38,12 @@ export class FormHomeRoomsComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy() {
-    this.sendInfo.emit(this.formData);
+  ngOnChanges() {
+    if (this.activeResult === true) {
+      setTimeout( () => {
+        this.sendInfo.emit(this.formData);
+      });
+    }
   }
 
 }

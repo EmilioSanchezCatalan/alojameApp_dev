@@ -2,7 +2,7 @@
  * @author Emilio Sánchez Catalán <esc00019@gmail.com>
  * Purpose: configure the type of home
  */
-import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
 import { FormCreateHome } from '../../../interfaces/formCreateHome';
 
@@ -11,14 +11,17 @@ import { FormCreateHome } from '../../../interfaces/formCreateHome';
   templateUrl: './form-home-type.component.html',
   styleUrls: ['./form-home-type.component.css']
 })
-export class FormHomeTypeComponent implements OnInit, OnDestroy {
+export class FormHomeTypeComponent implements OnInit, OnChanges {
 
   @Input() inputData: FormCreateHome;
+  @Input() homeTypes: any;
+  @Input() activeResult: boolean;
   @Output() sendInfo: EventEmitter<any>;
 
   public formData: any;
 
-  constructor() {
+  constructor(
+  ) {
     this.formData = {
       homeType: '',
       area: '',
@@ -37,7 +40,11 @@ export class FormHomeTypeComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy() {
-    this.sendInfo.emit(this.formData);
+  ngOnChanges() {
+    if (this.activeResult === true) {
+      setTimeout(() => {
+        this.sendInfo.emit(this.formData);
+      });
+    }
   }
 }

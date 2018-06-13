@@ -1,14 +1,12 @@
-<section id="form-home-type">
+<section id="form-home-type" *ngIf="homeTypes">
   <div class="row">
 
     <!-- Type of home -->
     <div class="col-sm-6 col-md-6">
       <div class="form-group">
         <label>¿Qué tipo de propiedad tiene?</label>
-        <mat-radio-group class="form-control-custom" name="homeType" [(ngModel)]="formData.homeType">
-          <mat-radio-button value="1">Piso</mat-radio-button>
-          <mat-radio-button value="2">Casa</mat-radio-button>
-          <mat-radio-button value="3">Residencia universitaria</mat-radio-button>
+        <mat-radio-group class="form-control-custom" name="homeType" [(ngModel)]="formData.homeType" *ngFor="let homeType of homeTypes">
+          <mat-radio-button [value]="homeType.id">{{homeType.name}}</mat-radio-button>
         </mat-radio-group>
       </div>
     </div>
@@ -17,7 +15,7 @@
     <div class="col-sm-6 col-md-6">
       <div class="form-group">
         <label>¿Cuál es el area total?</label>
-        <input class="form-control form-control-custom" style="max-width: 150px;" type="number" name="area" [(ngModel)]="formData.area" placeholder="p.ej, 100m2">
+        <input class="form-control form-control-custom" appOnlyPositive style="max-width: 150px;" min="0" type="number" name="area" [(ngModel)]="formData.area" placeholder="p.ej, 100m2">
       </div>
     </div>
   </div>
@@ -40,7 +38,7 @@
     <div class="col-sm-6 col-md-6">
       <div class="form-group">
         <label>¿Cuántos inquilinos puede alojar?</label>
-        <alo-counter (out)="formData.nRoomers = $event" [in]="formData.nRoomers" class="form-control-custom">Inquilinos</alo-counter>
+        <alo-counter (out)="formData.nRoomers = $event" [in]="formData.nRoomers" [min]="0" class="form-control-custom">Inquilinos</alo-counter>
       </div>
     </div>
   </div>

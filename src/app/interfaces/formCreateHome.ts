@@ -7,7 +7,10 @@ export interface FormCreateHome {
   nKitchen: number;
   nBathRoom: number;
   nLivingRoom: number;
-  services: Array<number>;
+  services: Array<{
+    id: number;
+    isChecked: boolean;
+  }>;
   address: string;
   city: string;
   nDoor: number;
@@ -15,13 +18,17 @@ export interface FormCreateHome {
   smokers: boolean;
   pets: boolean;
   listRules: Array<{
-    text: string;
+    rule: string;
     type: number;
   }>;
   title: string;
   price: number;
-  bill: Array<number>;
+  bill: Array<{
+    id: number;
+    isChecked: boolean;
+  }>;
   minStance: number;
-  finace: number;
+  fiance: number;
   avalibleDate: string;
+  description: string;
 }

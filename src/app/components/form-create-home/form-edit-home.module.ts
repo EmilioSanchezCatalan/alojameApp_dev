@@ -6,6 +6,7 @@ import { FormHomeServicesModule } from './form-home-services/form-home-services.
 import { FormHomeAddressModule } from './form-home-address/form-home-address.module';
 import { FormHomeRulesModule } from './form-home-rules/form-home-rules.module';
 import { FormHomeAdModule } from './form-home-ad/form-home-ad.module';
+import { FormHomeDescriptionModule } from './form-home-description/form-home-description.module';
 import { FormHomeImgsModule } from './form-home-imgs/form-home-imgs.module';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { FormHomeImgsModule } from './form-home-imgs/form-home-imgs.module';
     FormHomeAddressModule,
     FormHomeRulesModule,
     FormHomeAdModule,
+    FormHomeDescriptionModule,
     FormHomeImgsModule
   ],
   exports: [
@@ -25,6 +27,7 @@ import { FormHomeImgsModule } from './form-home-imgs/form-home-imgs.module';
     FormHomeAddressModule,
     FormHomeRulesModule,
     FormHomeAdModule,
+    FormHomeDescriptionModule,
     FormHomeImgsModule
   ]
 })

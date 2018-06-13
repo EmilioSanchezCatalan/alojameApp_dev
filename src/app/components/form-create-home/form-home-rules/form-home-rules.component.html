@@ -12,9 +12,9 @@
         <label>
           ¿Se permiten fumadores?
         </label>
-        <mat-radio-group class="form-control-custom">
-          <mat-radio-button value="1">Si</mat-radio-button>
-          <mat-radio-button value="2">No</mat-radio-button>
+        <mat-radio-group class="form-control-custom" [(ngModel)]="formData.smokers" required>
+          <mat-radio-button value="true">Si</mat-radio-button>
+          <mat-radio-button value="false">No</mat-radio-button>
         </mat-radio-group>
       </div>
     </div>
@@ -25,14 +25,14 @@
         <label>
           ¿Se permiten mascotas?
         </label>
-        <mat-radio-group class="form-control-custom">
-          <mat-radio-button value="1">Si</mat-radio-button>
-          <mat-radio-button value="2">No</mat-radio-button>
+        <mat-radio-group class="form-control-custom" [(ngModel)]="formData.pets" required>
+          <mat-radio-button value="true">Si</mat-radio-button>
+          <mat-radio-button value="false">No</mat-radio-button>
         </mat-radio-group>
       </div>
     </div>
   </div>
 
   <!-- Create a new rule -->
-  <alo-form-new-rule></alo-form-new-rule>
+  <alo-form-new-rule (out)="getHomeRules($event)" [in]="formData.listRules"></alo-form-new-rule>
 </section>

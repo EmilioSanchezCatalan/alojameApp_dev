@@ -1,4 +1,4 @@
-<section id="form-home-address">
+<section id="form-home-address" *ngIf="listCities">
   <header>
     <h2>¿Dónde se encuentra su propiedad?</h2>
   </header>
@@ -8,7 +8,7 @@
     <div class="col-sm-6 col-md-6">
       <div class="form-group">
         <label for="">Dirección 1</label>
-        <input type="text" name="" value="" class="form-control">
+        <input type="text" class="form-control" [(ngModel)]="formData.address" required>
       </div>
     </div>
 
@@ -16,10 +16,11 @@
     <div class="col-sm-6 col-md-6">
       <div class="form-group">
         <label for="">Ciudad</label>
-        <select name="gender" data-width="100%" class="selectpicker" ngModel required>
+        <select name="gender" data-width="100%" class="selectpicker" [(ngModel)]="formData.city" required>
           <option selected value="">Ciudad</option>
-          <option value="man">Jaén</option>
-          <option value="woman">Sevilla</option>
+          <ng-container *ngFor="let city of listCities">
+            <option [value]="city.id">{{city.name}}</option>
+          </ng-container>
         </select>
       </div>
     </div>
@@ -29,7 +30,7 @@
     <div class="col-sm-5 col-md-3">
       <div class="form-group">
         <label for="">Número de la puerta</label>
-        <input type="text" name="" value="" class="form-control">
+        <input type="number" min="0" class="form-control" appOnlyPositive [(ngModel)]="formData.nDoor" required>
       </div>
     </div>
   </div>
@@ -39,7 +40,7 @@
     <div class="col-sm-5 col-md-3">
       <div class="form-group">
         <label for="">Código postal</label>
-        <input type="text" name="" value="" class="form-control">
+        <input type="number" min="0" appOnlyPositive class="form-control" [(ngModel)]="formData.zip" required>
       </div>
     </div>
   </div>

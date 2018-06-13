@@ -2,9 +2,10 @@
  * @author Emilio Sánchez Catalán <esc00019@gmail.com>
  * Purpose: create a remove the customs rules
  */
-import { Component } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 
 import { FormCustomRules } from '../../interfaces/form-custom-rules';
+import { RULE } from '../../const/type-rule.const';
 
 declare var $: any;
 
@@ -13,14 +14,23 @@ declare var $: any;
   templateUrl: './form-new-rule.component.html',
   styleUrls: ['./form-new-rule.component.css']
 })
-export class FormNewRuleComponent {
+export class FormNewRuleComponent implements OnInit {
 
+  @Output() out: EventEmitter<any>;
+  @Input() in: Array<any>;
   public listRules: FormCustomRules;
 
   constructor() {
+    this.out = new EventEmitter();
     this.listRules = {
       items: []
     };
+  }
+
+  ngOnInit() {
+    if (this.in) {
+      this.listRules.items = this.in.slice();
+    }
   }
 
   /**
@@ -64,18 +74,20 @@ export class FormNewRuleComponent {
       this.listRules.items.push(
         {
           rule: '',
-          type: 'P'
+          type: RULE.OWNER
         }
       );
+      this.sendOutput();
     }
   }
 
   /**
    * Remove a rule in a position
-   * @param {number}          pos  postion in the array of the element that we are going to delete
+   * @param {number} pos  postion in the array of the element that we are going to delete
    */
   public removeRule( pos: number): void {
     this.listRules.items.splice(pos, 1);
+    this.sendOutput();
   }
 
   /**
@@ -84,6 +96,14 @@ export class FormNewRuleComponent {
    *                     the status
    */
   public changeTypeRule(pos: number): void {
-    this.listRules.items[pos].type = this.listRules.items[pos].type === 'P' ? 'C' : 'P';
+    this.listRules.items[pos].type = this.listRules.items[pos].type === RULE.OWNER ? RULE.COMMUNITY : RULE.OWNER;
+    this.sendOutput();
+  }
+
+  /**
+   * Send the output data to the parent component
+   */
+  public sendOutput(): void {
+    this.out.emit(this.listRules);
   }
 }

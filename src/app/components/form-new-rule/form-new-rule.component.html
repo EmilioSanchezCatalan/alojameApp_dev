@@ -1,6 +1,6 @@
 <section id="form-new-rule">
   <header>
-    <h3>Añadir nuevas normas</h3>
+    <h3>Añadir nuevas normas (opcional)</h3>
   </header>
 
   <!-- List of creted rules -->
@@ -11,7 +11,8 @@
 
       <!-- Rule desciption -->
       <ng-container *ngIf="indexRule !== listRules.items.length">
-        <input type="text" name="" value="" class="form-control" [disabled]="indexRule === listRules.items.length" [(ngModel)]="listRules.items[indexRule].rule">
+        <input type="text" name="" value="" class="form-control" [disabled]="indexRule === listRules.items.length" [(ngModel)]="listRules.items[indexRule].rule"
+          (keyup)="sendOutput()">
       </ng-container>
       <ng-container *ngIf="indexRule === listRules.items.length">
         <input type="text" name="" value="" class="form-control" [disabled]="indexRule === listRules.items.length">

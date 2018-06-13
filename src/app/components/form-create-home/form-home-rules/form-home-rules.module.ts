@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { MatRadioModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 import { FormHomeRulesComponent } from './form-home-rules.component';
 import { FormNewRuleModule } from '../../form-new-rule/form-new-rule.module';
@@ -8,7 +9,8 @@ import { FormNewRuleModule } from '../../form-new-rule/form-new-rule.module';
   declarations: [FormHomeRulesComponent],
   imports: [
     MatRadioModule,
-    FormNewRuleModule
+    FormNewRuleModule,
+    FormsModule
   ],
   exports: [FormHomeRulesComponent]
 })
