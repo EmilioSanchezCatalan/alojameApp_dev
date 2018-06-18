@@ -1,7 +1,10 @@
 alo-popup {
   max-width: 800px;
 }
-
+.spinner-loading-img {
+  max-width: 22px;
+  margin-left: 5px;
+}
  /******* Img Uploaded ******/
 .preview-img {
   align-self: center;

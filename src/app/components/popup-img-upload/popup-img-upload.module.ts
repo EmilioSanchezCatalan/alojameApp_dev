@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { MatDialogModule } from '@angular/material';
+import { CommonModule } from '@angular/common';
 
 import { PopupImgUploadComponent } from './popup-img-upload.component';
 import { AloPopupModule } from '../../components/alo-popup/alo-popup.module';
@@ -8,6 +9,7 @@ import { AloPopupModule } from '../../components/alo-popup/alo-popup.module';
   declarations: [PopupImgUploadComponent],
   imports: [
     MatDialogModule,
+    CommonModule,
     AloPopupModule
   ],
   exports: [PopupImgUploadComponent],

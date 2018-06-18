@@ -4,6 +4,7 @@
   <!-- Header -->
   <alo-popup-header (close)="closePopup()">
     Cargar imagen
+    <img class="spinner-loading-img" src="assets/img/loading.gif" *ngIf="!isLoadingImg">
   </alo-popup-header>
 
   <!-- Select type of count -->
@@ -11,9 +12,10 @@
 
     <!-- Imagen uploaded -->
     <div class="preview-img">
-      <img src="https://www.eu-rentals.com/sites/default/files/default_images/noImg_2.jpg" alt="">
+      <img src="assets/img/no_img_home.jpg" alt="" *ngIf="!imgUpload">
+      <img [src]="imgUpload.url"  alt="" *ngIf="imgUpload">
       <label for="sel-file" class="btn btn-primary">Selcciónar imagen</label>
-      <input id="sel-file" type="file"/>
+      <input id="sel-file" type="file" (change)="setPreviewImg($event)"/>
     </div>
 
   </alo-popup-container>
