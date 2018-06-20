@@ -37,7 +37,7 @@
           ¿Qué incluye la factura? (opcional)
         </label>
         <ng-container *ngFor="let homebill of homeBills; let i = index">
-          <mat-checkbox [value]="homebill.id" (click)="changeCheckBoxStatus(i)">{{homebill.name}}</mat-checkbox>
+          <mat-checkbox [checked]="formData.bill[i].isChecked" (change)="changeCheckBoxStatus(i)">{{homebill.name}}</mat-checkbox>
         </ng-container>
       </div>
     </div>

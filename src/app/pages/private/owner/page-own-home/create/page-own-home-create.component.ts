@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormCreateHome } from '../../../../../interfaces/formCreateHome';
 import { PublicDataService } from '../../../../../services/public-data.service';
+import { NotificationHttpService } from '../../../../../services/notification-http.service';
 import { ErrorSimpleNotificationService } from '../../../../../services/error-simple-notification.service';
+import { HomeCrudService } from '../../../../../services/home-crud.service';
 
 declare var $: any;
 
@@ -16,7 +18,9 @@ declare var $: any;
   styleUrls: ['./page-own-home-create.component.css'],
   providers: [
     PublicDataService,
-    ErrorSimpleNotificationService
+    ErrorSimpleNotificationService,
+    HomeCrudService,
+    NotificationHttpService
   ]
 })
 export class PageOwnHomeCreateComponent implements OnInit {
@@ -40,7 +44,9 @@ export class PageOwnHomeCreateComponent implements OnInit {
 
   constructor(
     private __publicData: PublicDataService,
-    private __errorNotif: ErrorSimpleNotificationService
+    private __errorNotif: ErrorSimpleNotificationService,
+    private __crudHome: HomeCrudService,
+    private __notfHttp: NotificationHttpService
   ) {
     this.actualStep = 0;
     this.listSteps = ['type', 'rooms', 'services', 'address', 'rules', 'ad', 'description', 'imgs', 'finish'];
@@ -67,7 +73,8 @@ export class PageOwnHomeCreateComponent implements OnInit {
       smokers: null,
       title: null,
       zip: null,
-      description: null
+      description: null,
+      imgs: []
     };
     this.isErrorLoading = false;
     this.displaySpinner = false;
@@ -130,6 +137,7 @@ export class PageOwnHomeCreateComponent implements OnInit {
         this.showResult.homeDescription = true;
         break;
       case 'imgs':
+        this.showResult.homeImgs = true;
         break;
     }
   }
@@ -271,6 +279,26 @@ export class PageOwnHomeCreateComponent implements OnInit {
       this.nextStep();
     } else {
       this.__errorNotif.show('Hay campos obligatorios sin rellenar, completelos correctamente');
+    }
+  }
+
+  /**
+   * Get the home Imgs information
+   * @param {string} event form data of the description information
+   */
+  public getHomeImgs( event: any): void {
+    console.log('Entra en Imgs');
+    this.showResult.homeImgs = false;
+    if ( event.length >= 3 ) {
+      this.jsonCreateHome.imgs = event.slice();
+      this.__crudHome.create(this.jsonCreateHome)
+        .then( (response) => {
+          this.nextStep();
+        }).catch( error => {
+          this.__notfHttp.show(error);
+        });
+    } else {
+      this.__errorNotif.show('Es necesario como mínimo tres fotografias');
     }
   }
 }

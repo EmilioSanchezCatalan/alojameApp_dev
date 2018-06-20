@@ -37,6 +37,13 @@ export class PopupImgUploadComponent {
   }
 
   /**
+   * Save image and send to the parent component
+   */
+  public savePopup(): void {
+    this.__dialogRef.close(this.imgUpload);
+  }
+
+  /**
    * send a preview Img to y the backend
    * @param event img to upload
    */

@@ -1,4 +1,4 @@
-<section id="form-home-imgs">
+<section id="form-home-imgs" *ngIf="listImgUpload">
 
   <!-- Header -->
   <header>
@@ -11,46 +11,22 @@
       <i class="fa fa-cloud-upload" aria-hidden="true"></i>
       Subir
     </button>
-    <button class="btn btn-danger">
+    <button class="btn btn-danger" (click)="deleteAllImg()">
       <i class="fa fa-trash-o" aria-hidden="true"></i>
       Borrar todo
     </button>
   </div>
 
   <!-- List of imgs -->
-  <div class="list-imgs">
+  <div class="list-imgs" *ngIf="listImgUpload">
 
     <!-- Item img -->
-    <div class="col-md-4">
+    <div class="col-md-4" *ngFor="let imgUpload of listImgUpload; let i = index">
       <div class="home-img">
-        <img src="https://a0.muscache.com/im/pictures/16186243/39e84761_original.jpg?aki_policy=x_large">
-        <button class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+        <img [src]="imgUpload.url">
+        <button class="btn btn-danger" (click)="deleteImg(i)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
       </div>
     </div>
-    
-    <div class="col-md-4">
-      <div class="home-img">
-        <img src="https://a0.muscache.com/im/pictures/16186243/39e84761_original.jpg?aki_policy=x_large">
-        <button class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="home-img">
-        <img src="https://a0.muscache.com/im/pictures/16186243/39e84761_original.jpg?aki_policy=x_large">
-        <button class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="home-img">
-        <img src="https://a0.muscache.com/im/pictures/16186243/39e84761_original.jpg?aki_policy=x_large">
-        <button class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="home-img">
-        <img src="https://a0.muscache.com/im/pictures/16186243/39e84761_original.jpg?aki_policy=x_large">
-        <button class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-      </div>
-    </div>
+
   </div>
 </section>

@@ -24,11 +24,14 @@
           (mouseout)="fontMinusHoverEffect(iminus)" (click)="removeRule(indexRule, iminus)" aria-hidden="true" #iminus></i>
         <i class="fa fa-plus-square-o" [class.plus-disabled]="indexRule !== listRules.items.length" (mouseover)="fontPlusHoverEffect(iplus)"
           (mouseout)="fontPlusHoverEffect(iplus)" (click)="addNewRule(iplus)" aria-hidden="true" #iplus></i>
-        <mat-slide-toggle [disabled]="indexRule === listRules.items.length" (change)="changeTypeRule(indexRule)">
-          <ng-container *ngIf="indexRule !== listRules.items.length">
-            {{ listRules.items[indexRule].type | typeRule }}
-          </ng-container>
-        </mat-slide-toggle>
+        <ng-container *ngIf="indexRule === listRules.items.length">
+          <mat-slide-toggle [disabled]="indexRule === listRules.items.length" (change)="changeTypeRule(indexRule)"></mat-slide-toggle>
+        </ng-container>
+        <ng-container *ngIf="indexRule !== listRules.items.length">
+          <mat-slide-toggle [checked]="listRules.items[indexRule].type === 1" [disabled]="indexRule === listRules.items.length" (change)="changeTypeRule(indexRule)">
+              {{ listRules.items[indexRule].type | typeRule }}
+          </mat-slide-toggle>
+        </ng-container>
       </div>
     </div>
   </div>

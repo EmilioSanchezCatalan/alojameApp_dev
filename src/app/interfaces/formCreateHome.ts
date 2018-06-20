@@ -1,3 +1,5 @@
+import { ImgLoaded } from './img-loaded';
+
 export interface FormCreateHome {
   homeType: number;
   rentType: number;
@@ -31,4 +33,5 @@ export interface FormCreateHome {
   fiance: number;
   avalibleDate: string;
   description: string;
+  imgs: Array<ImgLoaded>;
 }

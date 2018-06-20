@@ -6,47 +6,47 @@
   </nav>
 
   <!-- Select type of home -->
-  <article class="container" [style.display]="listSteps[actualStep] === 'type' ? 'block' : 'none'">
+  <article class="container" *ngIf="listSteps[actualStep] === 'type'">
     <alo-form-home-type [homeTypes]="dataPage.hometypes" [inputData]="jsonCreateHome" [activeResult]="showResult.homeType" (sendInfo)="getHomeType($event)"></alo-form-home-type>
   </article>
 
   <!-- Number of homes on the room -->
-  <article class="container" [style.display]="listSteps[actualStep] === 'rooms' ? 'block' : 'none'">
+  <article class="container" *ngIf="listSteps[actualStep] === 'rooms'">
     <alo-form-home-rooms [inputData]="jsonCreateHome" [activeResult]="showResult.homeRooms" (sendInfo)="getHomeRooms($event)"></alo-form-home-rooms>
   </article>
 
   <!-- List of Services -->
-  <article class="container" [style.display]="listSteps[actualStep] === 'services' ? 'block' : 'none'">
+  <article class="container" *ngIf="listSteps[actualStep] === 'services'">
     <alo-form-home-services [inputData]="jsonCreateHome" [homeServices]="dataPage.services" [activeResult]="showResult.homeServices" (sendInfo)="getHomeServices($event)"></alo-form-home-services>
   </article>
 
   <!-- Address' home -->
-  <article class="container" [style.display]="listSteps[actualStep] === 'address' ? 'block' : 'none'">
+  <article class="container" *ngIf="listSteps[actualStep] === 'address'">
     <alo-form-home-address [inputData]="jsonCreateHome" [listCities]="dataPage.cities" [activeResult]="showResult.homeAddress" (sendInfo)="getHomeAddress($event)"></alo-form-home-address>
   </article>
 
   <!-- List of Home's rules -->
-  <article class="container" [style.display]="listSteps[actualStep] === 'rules' ? 'block' : 'none'">
+  <article class="container" *ngIf="listSteps[actualStep] === 'rules'">
     <alo-form-home-rules [inputData]="jsonCreateHome" [activeResult]="showResult.homeRules" (sendInfo)="getHomeRules($event)"></alo-form-home-rules>
   </article>
 
   <!-- Home advise -->
-  <article class="container" [style.display]="listSteps[actualStep] === 'ad' ? 'block' : 'none'">
+  <article class="container" *ngIf="listSteps[actualStep] === 'ad'">
     <alo-form-home-ad [homeBills]="dataPage.bills" [inputData]="jsonCreateHome" [activeResult]="showResult.homeAd" (sendInfo)="getHomeAd($event)"></alo-form-home-ad>
   </article>
 
   <!-- Home description -->
-  <article class="container" [style.display]="listSteps[actualStep] === 'description' ? 'block' : 'none'">
+  <article class="container" *ngIf="listSteps[actualStep] === 'description'">
     <alo-form-home-description [inputData]="jsonCreateHome" [activeResult]="showResult.homeDescription" (sendInfo)="getHomeDescription($event)"></alo-form-home-description>
   </article>
 
   <!-- Home imgs -->
-  <article class="container" [style.display]="listSteps[actualStep] === 'imgs' ? 'block' : 'none'">
-    <alo-form-home-imgs></alo-form-home-imgs>
+  <article class="container" *ngIf="listSteps[actualStep] === 'imgs'">
+    <alo-form-home-imgs [inputData]="jsonCreateHome" [activeResult]="showResult.homeImgs" (sendInfo)="getHomeImgs($event)"></alo-form-home-imgs>
   </article>
 
   <!-- Finish creation -->
-  <article class="container" [style.display]="listSteps[actualStep] === 'finish' ? 'block' : 'none'">
+  <article class="container" *ngIf="listSteps[actualStep] === 'finish'">
     <alo-form-finish></alo-form-finish>
   </article>
 

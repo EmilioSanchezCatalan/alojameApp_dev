@@ -6,7 +6,7 @@
       <div class="form-group">
         <label>¿Qué servicios proporciona al inquilino?</label>
         <ng-container *ngFor="let homeService of homeServices; let i = index">
-          <mat-checkbox [value]="homeService.id" class="form-control-custom" (click)="changeCheckBoxStatus(i)">{{homeService.name}}</mat-checkbox>
+          <mat-checkbox [checked]="formData[i].isChecked" class="form-control-custom" (change)="changeCheckBoxStatus(i)">{{homeService.name}}</mat-checkbox>
         </ng-container>
       </div>
     </div>

@@ -6,9 +6,12 @@
  *              - none: no functionality
  *              - crud: functionality crud
  *              - subs: functionality subscribed homes
+ *    --> homes: list of homes thats are going to show
  */
 import { Component, OnInit, Input} from '@angular/core';
 import { Router } from '@angular/router';
+
+import { ItemHome } from '../../interfaces/homes';
 
 declare var $: any;
 
@@ -20,6 +23,8 @@ declare var $: any;
 export class GridHomesComponent implements  OnInit {
 
   @Input() function: string;
+  @Input() homes: Array<ItemHome>;
+
   constructor(
     private __router: Router
   ) {

@@ -5,13 +5,15 @@
 
 import { Pipe, PipeTransform } from '@angular/core';
 
+import { RULE } from '../../const/type-rule.const';
+
 @Pipe({
   name: 'typeRule'
 })
 export class TypeRulePipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
-    return value === 'P' ? 'Propietario' : 'Comunidad';
+    return value === RULE.OWNER ? 'Propietario' : 'Comunidad';
   }
 
 }

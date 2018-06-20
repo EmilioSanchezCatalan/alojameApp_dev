@@ -6,9 +6,12 @@
  *              - none: no functionality
  *              - crud: functionality crud
  *              - subs: functionality of subscription
+ *    --> home: home information for complete the card-home
  */
-import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { Component, AfterViewInit, Input, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { ItemHome } from '../../interfaces/homes';
 
 declare var $: any;
 
@@ -17,9 +20,10 @@ declare var $: any;
   templateUrl: './card-home.component.html',
   styleUrls: ['./card-home.component.css']
 })
-export class CardHomeComponent implements OnInit {
+export class CardHomeComponent implements AfterViewInit {
 
   @Input() function: string;
+  @Input() home: ItemHome;
 
   constructor(
     private __router: Router
@@ -27,7 +31,7 @@ export class CardHomeComponent implements OnInit {
     this.function = 'none';
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     $('.rating').rating('create');
   }
 

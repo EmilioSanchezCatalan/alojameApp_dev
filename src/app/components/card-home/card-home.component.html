@@ -1,54 +1,62 @@
-<mat-card class="home-card">
+<mat-card class="home-card" *ngIf="home">
 
   <!-- scroll -->
-  <div mat-card-image id="carousel-home-1" class="carousel slide" data-ride="carousel" data-interval="0">
+  <div mat-card-image id="carousel-home-{{home.id}}" class="carousel slide" data-ride="carousel" data-interval="0">
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox" (click)="gotoHome()">
 
       <!-- List of photos -->
-      <div class="item active">
-        <img src="https://a0.muscache.com/im/pictures/16186243/39e84761_original.jpg?aki_policy=x_large">
-      </div>
+      <ng-container *ngIf="home.HomePictures.length !==0">
+        <ng-container *ngFor="let picture of home.HomePictures; let i = index">
+          <div class="item" [class.active]="i === 0">
+            <img [src]="picture.url">
+          </div>
+        </ng-container>
+      </ng-container>
 
-      <div class="item">
-        <img src="https://a0.muscache.com/im/pictures/16186213/d2b65d11_original.jpg?aki_policy=x_large">
-      </div>
-
+      <ng-container *ngIf="home.HomePictures.length === 0">
+        <div class="item active">
+          <img src="assets/img/no_img_home.jpg">
+        </div>
+      </ng-container>
     </div>
 
     <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-home-1" role="button" data-slide="prev">
-      <div class="control-scll">
-        <i class="fa fa-angle-left" aria-hidden="true"></i>
-      </div>
-    </a>
-    <a class="right carousel-control" href="#carousel-home-1" role="button" data-slide="next">
-      <div class="control-scll">
-        <i class="fa fa-angle-right" aria-hidden="true"></i>
-      </div>
-    </a>
+    <ng-container *ngIf="home.HomePictures.length > 1">
+      <a class="left carousel-control" href="#carousel-home-{{home.id}}" role="button" data-slide="prev">
+        <div class="control-scll">
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+        </div>
+      </a>
+      <a class="right carousel-control" href="#carousel-home-{{home.id}}" role="button" data-slide="next">
+        <div class="control-scll">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </div>
+      </a>
+    </ng-container>
   </div>
+
   <div id="card-description" [class.hasfunctionality]="function !== 'none'" (click)="gotoHome()" [style.cursor]="'pointer'">
     <!-- Content -->
     <mat-card-content>
       <section class="home-info">
         <header>
-          <h3>Titulo de la casa</h3>
-          <span>600€</span>
+          <h3>{{home.title}}</h3>
+          <span>{{home.price}}€</span>
         </header>
         <article class="list-services">
           <div class="home-service">
             <i class="fa fa-address-book" aria-hidden="true"></i>
-            <span>Limpiar</span>
+            <span>{{home.HomeType.name}}</span>
           </div>
           <div class="home-service">
             <i class="fa fa-address-book" aria-hidden="true"></i>
-            <span>Limpiar</span>
+            <span>{{home.num_roomers_total}} inquilinos</span>
           </div>
           <div class="home-service">
             <i class="fa fa-address-book" aria-hidden="true"></i>
-            <span>Limpiar</span>
+            <span>{{home.typerent | typeRent}}</span>
           </div>
         </article>
       </section>

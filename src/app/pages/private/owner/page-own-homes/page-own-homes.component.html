@@ -1,4 +1,5 @@
 <div class="container">
   <alo-toolbar-owner [where]="'homes'"></alo-toolbar-owner>
-  <alo-grid-homes  [function]="'crud'"></alo-grid-homes>
+  <alo-load-spinner *ngIf="displaySpinner" [error]="isErrorLoading"></alo-load-spinner>
+  <alo-grid-homes  [function]="'crud'" [homes]="listHomes"></alo-grid-homes>
 </div>
