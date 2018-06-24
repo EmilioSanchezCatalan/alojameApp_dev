@@ -14,8 +14,8 @@ export interface FormCreateHome {
     isChecked: boolean;
   }>;
   address: string;
-  city: string;
-  nDoor: number;
+  city: number;
+  nDoor: string;
   zip: number;
   smokers: boolean;
   pets: boolean;
@@ -34,4 +34,6 @@ export interface FormCreateHome {
   avalibleDate: string;
   description: string;
   imgs: Array<ImgLoaded>;
+  nHome: number;
+  nFloor: number;
 }

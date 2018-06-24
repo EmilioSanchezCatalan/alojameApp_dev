@@ -25,19 +25,39 @@
       </div>
     </div>
   </div>
-  <!-- Door number -->
+
+
   <div class="row">
-    <div class="col-sm-5 col-md-3">
+    <!-- Home number -->
+    <div class="col-sm-6 col-md-6">
       <div class="form-group">
-        <label for="">Número de la puerta</label>
-        <input type="number" min="0" class="form-control" appOnlyPositive [(ngModel)]="formData.nDoor" required>
+        <label for="">Número del alojamiento</label>
+        <input type="number" min="0" class="form-control" appOnlyPositive [(ngModel)]="formData.nHome" required>
+      </div>
+    </div>
+
+    <!-- Floor number -->
+    <div class="col-sm-6 col-md-6">
+      <div class="form-group">
+        <label for="">Planta</label>
+        <input type="number" min="0" class="form-control" appOnlyPositive [(ngModel)]="formData.nFloor" required>
       </div>
     </div>
   </div>
 
-  <!-- Zip code -->
+
   <div class="row">
-    <div class="col-sm-5 col-md-3">
+
+    <!-- Door -->
+    <div class="col-sm-6 col-md-6">
+      <div class="form-group">
+        <label for="">Puerta</label>
+        <input type="string" class="form-control" [(ngModel)]="formData.nDoor" required>
+      </div>
+    </div>
+
+    <!-- Zip code -->
+    <div class="col-sm-6 col-md-6">
       <div class="form-group">
         <label for="">Código postal</label>
         <input type="number" min="0" appOnlyPositive class="form-control" [(ngModel)]="formData.zip" required>

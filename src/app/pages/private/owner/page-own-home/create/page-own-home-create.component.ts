@@ -74,7 +74,9 @@ export class PageOwnHomeCreateComponent implements OnInit {
       title: null,
       zip: null,
       description: null,
-      imgs: []
+      imgs: [],
+      nHome: null,
+      nFloor: null
     };
     this.isErrorLoading = false;
     this.displaySpinner = false;
@@ -219,11 +221,13 @@ export class PageOwnHomeCreateComponent implements OnInit {
   public getHomeAddress( event: any): void {
     console.log('Entra en Address');
     this.showResult.homeAddress = false;
-    if ( event.address && event.city && event.nDoor && event.zip) {
+    if ( event.address && event.city && event.nDoor && event.zip && event.nFloor && event.nHome) {
       this.jsonCreateHome.address = event.address;
       this.jsonCreateHome.city = event.city;
       this.jsonCreateHome.nDoor = event.nDoor;
       this.jsonCreateHome.zip = event.zip;
+      this.jsonCreateHome.nFloor = event.nFloor;
+      this.jsonCreateHome.nHome = event.nHome;
       this.nextStep();
     } else {
       this.__errorNotif.show('Hay campos obligatorios sin rellenar, completelos correctamente');

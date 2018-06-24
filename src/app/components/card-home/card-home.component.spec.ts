@@ -32,11 +32,11 @@ describe('CardHomeComponent', () => {
 
   describe('test gotoShowHome()', () => {
     it('should be navegate to the home for the student', () => {
-      component.gotoShowHome();
+      component.gotoShowHome(1);
     });
     it('should be navegate to the home for the owner', () => {
       component.function = 'crud';
-      component.gotoShowHome();
+      component.gotoShowHome(1);
     });
   });
 
@@ -48,7 +48,7 @@ describe('CardHomeComponent', () => {
 
   describe('test gotoEditHome()', () => {
     it('should be navegate to the home\'s edit', () => {
-      component.gotoEditHome();
+      component.gotoEditHome(1);
     });
   });
 });

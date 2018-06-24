@@ -1,8 +1,10 @@
 /**
  * @author Emilio Sánchez Catalán <esc00019@gmail.com>
  * Purpose: Show all the photos of the home with a lightbox
+ * Inputs:
+ *      --> listImgs: list with the images of the home
  */
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Lightbox } from 'angular2-lightbox';
 
 @Component({
@@ -10,7 +12,9 @@ import { Lightbox } from 'angular2-lightbox';
   templateUrl: './gallery-show.component.html',
   styleUrls: ['./gallery-show.component.css']
 })
-export class GalleryShowComponent {
+export class GalleryShowComponent implements OnInit {
+
+  @Input() listImgs: Array<{ id: number, url: string; }>;
   public album: Array<{
     src: string;
     caption: string;
@@ -20,22 +24,16 @@ export class GalleryShowComponent {
   constructor(
     private __lightbox: Lightbox
   ) {
-    // Mock album of photos
     this.album = [];
-    this.album.push({
-      src: 'https://a0.muscache.com/im/pictures/16186182/893329a8_original.jpg?aki_policy=x_large',
-      caption: 'dat',
-      thumb: 'https://a0.muscache.com/im/pictures/16186182/893329a8_original.jpg?aki_policy=x_large',
-    });
-    this.album.push({
-      src: 'https://a0.muscache.com/im/pictures/16186213/d2b65d11_original.jpg?aki_policy=x_large',
-      caption: 'dat',
-      thumb: 'https://a0.muscache.com/im/pictures/16186213/d2b65d11_original.jpg?aki_policy=x_large',
-    });
-    this.album.push({
-      src: 'https://a0.muscache.com/im/pictures/16186243/39e84761_original.jpg?aki_policy=x_large',
-      caption: 'dat',
-      thumb: 'https://a0.muscache.com/im/pictures/16186243/39e84761_original.jpg?aki_policy=x_large',
+  }
+
+  ngOnInit() {
+    this.listImgs.forEach( element => {
+      this.album.push({
+        src: element.url,
+        caption: '',
+        thumb: element.url
+      });
     });
   }
 

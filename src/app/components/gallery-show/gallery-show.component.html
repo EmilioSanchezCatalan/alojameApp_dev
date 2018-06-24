@@ -1,5 +1,7 @@
 <!-- thats have to be dynamic -->
-<img src="https://a0.muscache.com/im/pictures/16186243/39e84761_original.jpg?aki_policy=x_large" />
-<img src="https://a0.muscache.com/im/pictures/16186213/d2b65d11_original.jpg?aki_policy=x_large" />
-<img src="https://a0.muscache.com/im/pictures/16186182/893329a8_original.jpg?aki_policy=x_large" />
-<button class="btn btn-blue" (click)="openGallery()"><i class="fa fa-plus" aria-hidden="true"></i>GALERÍA</button>
+<ng-container *ngIf="listImgs">
+  <ng-container *ngFor="let img of listImgs">
+    <img [src]="img.url" />
+  </ng-container>
+  <button class="btn btn-blue" (click)="openGallery()"><i class="fa fa-plus" aria-hidden="true"></i>GALERÍA</button>
+</ng-container>

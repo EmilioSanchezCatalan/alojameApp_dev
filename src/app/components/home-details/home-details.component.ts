@@ -1,8 +1,12 @@
 /**
  * @author Emilio Sánchez Catalán
  * Purpose: show the properties of a home
+ * Inputs:
+ *    --> homeInfo: the information about the home
  */
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { HomesFull } from '../../interfaces/homes';
 
 @Component({
   selector: 'alo-home-details',
@@ -10,6 +14,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-details.component.css']
 })
 export class HomeDetailsComponent {
+
+  @Input() homeInfo: HomesFull;
 
   constructor() { }
 }

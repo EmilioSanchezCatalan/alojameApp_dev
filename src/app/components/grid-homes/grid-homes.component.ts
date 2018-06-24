@@ -41,4 +41,12 @@ export class GridHomesComponent implements  OnInit {
   public gotoCreateHome(): void {
     this.__router.navigate(['/private', 'owner', 'own-home', 'create']);
   }
+
+  /**
+   * Remove from the list the home selected
+   * @param {number} homes_pos position of the home in the array
+   */
+  public removeHome(homes_pos: number): void {
+    this.homes.splice(homes_pos, 1);
+  }
 }

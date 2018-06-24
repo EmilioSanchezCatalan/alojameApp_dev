@@ -20,10 +20,10 @@ const routes: Routes = [
   { path: '', redirectTo: 'own-homes', pathMatch: 'full'},
   { path: 'own-homes', component: PageOwnHomesComponent },
   { path: 'own-home', children: [
-    { path: 'show', component: PageOwnHomeComponent },
+    { path: 'show/:homeId', component: PageOwnHomeComponent },
     { path: 'students', component: PageOwnHomeStudentsComponent },
     { path: 'create', component: PageOwnHomeCreateComponent },
-    { path: 'edit', component: PageOwnHomeEditComponent }
+    { path: 'edit/:homeId', component: PageOwnHomeEditComponent }
   ]},
   { path: 'own-messages', component: PageOwnMessagesComponent },
   { path: 'own-message', component: PageOwnMessageComponent },

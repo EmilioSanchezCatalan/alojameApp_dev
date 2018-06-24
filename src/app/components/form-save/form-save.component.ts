@@ -1,8 +1,10 @@
 /**
  * @author Emilio Sánchez Catalán <esc00019@gmail.com>
  * Purpose: view with a button for save or cancel a form
+ * Outputs:
+ *      --> save: emmit a event when the button save is clicked
  */
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,9 +14,13 @@ import { Router } from '@angular/router';
 })
 export class FormSaveComponent {
 
+  @Output() save: EventEmitter<any>;
+
   constructor(
     private __router: Router
-  ) { }
+  ) {
+    this.save = new EventEmitter();
+  }
 
   /**
    * Cancel the saving an return to the previus state
@@ -28,5 +34,13 @@ export class FormSaveComponent {
         this.__router.navigate(['private', 'owner', 'own-homes']);
         break;
     }
+
+  }
+
+  /**
+  * Emmit the event save
+  */
+  public emmitSave(): void {
+    this.save.emit();
   }
 }

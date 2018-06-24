@@ -3,32 +3,33 @@
   <!-- Home's header -->
   <header>
     <div class="hgroup">
-      <h1>Casita independiente en el campo</h1>
-      <h2>Avenida Andalucia nº15, 8ºH</h2>
+      <h1>{{homeInfo.title}}</h1>
+      <h2>{{homeInfo.address}}, {{homeInfo.num_home}}, {{homeInfo.num_floor}}º {{homeInfo.num_door}}</h2>
     </div>
     <figure>
-      <img src="http://www.carmovasconcelos-fenix.org/Escritores/EMILIO-SANCHEZ-FERNANDES/EmilioSanchezFdez1985.jpg"/>
-      <caption>Nombre</caption>
+      <img *ngIf="homeInfo.User.Userinfo.UserPicture" [src]="homeInfo.User.Userinfo.UserPicture.url"/>
+      <img *ngIf="!homeInfo.User.Userinfo.UserPicture" src="assets/img/no_img_user.jpg"/>
+      <caption>{{homeInfo.User.username}}</caption>
     </figure>
   </header>
 
   <!-- List of details -->
   <article id="list-details">
-    <div class="item-detail">
+    <div class="item-detail" *ngIf="homeInfo.available_date">
       <i class="fa fa-calendar" aria-hidden="true"></i>
-      <span>00/00/0000</span>
+      <span>{{homeInfo.available_date}}</span>
     </div>
     <div class="item-detail">
       <i class="fa fa-bed" aria-hidden="true"></i>
-      <span>Cama</span>
+      <span>{{homeInfo.typerent | typeRent}}</span>
     </div>
     <div class="item-detail">
       <i class="fa fa-users" aria-hidden="true"></i>
-      <span>3 personas</span>
+      <span>{{homeInfo.num_roomers_total}} personas</span>
     </div>
     <div class="item-detail">
       <i class="fa fa-map-o" aria-hidden="true"></i>
-      <span>30 m<sup>2</sup></span>
+      <span>{{homeInfo.metres}} m<sup>2</sup></span>
     </div>
   </article>
 
@@ -47,7 +48,7 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+          {{homeInfo.description}}
         </p>
       </mat-expansion-panel>
     </article>
@@ -66,25 +67,26 @@
 
           <!-- Number of bethrooms -->
           <div class="item-room">
-            <span>2</span>
+            <span>{{homeInfo.num_bedroom}}</span>
             <i class="fa fa-bath" aria-hidden="true"></i>
           </div>
 
           <!-- Number of kitchens -->
           <div class="item-room">
-            <span>2</span>
+            <span>{{homeInfo.num_kitchen}}</span>
             <i class="fa fa-bath" aria-hidden="true"></i>
           </div>
 
           <!-- Number of bathrooms -->
           <div class="item-room">
-            <span>2</span>
+            <span>{{homeInfo.num_bathroom}}</span>
             <i class="fa fa-bath" aria-hidden="true"></i>
           </div>
 
           <!-- Number of sitting rooms -->
           <div class="item-room">
-            <span>2</span>
+            <span *ngIf="homeInfo.num_livingroom">{{homeInfo.num_livingroom}}</span>
+            <span *ngIf="!homeInfo.num_livingroom">0</span>
             <i class="fa fa-bath" aria-hidden="true"></i>
           </div>
         </div>
@@ -100,58 +102,12 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <div class="content-panel">
-          <div class="item-service">
-            <i class="fa fa-wifi" aria-hidden="true"></i>
-            <span>Wifi</span>
-          </div>
-          <div class="item-service">
-            <i class="fa fa-wifi" aria-hidden="true"></i>
-            <span>Tv por cable</span>
-          </div>
-          <div class="item-service">
-            <i class="fa fa-wifi" aria-hidden="true"></i>
-            <span>Calefacción central</span>
-          </div>
-          <div class="item-service">
-            <i class="fa fa-wifi" aria-hidden="true"></i>
-            <span>Aire acondicionado</span>
-          </div>
-          <div class="item-service">
-            <i class="fa fa-wifi" aria-hidden="true"></i>
-            <span>Piscina</span>
-          </div>
-          <div class="item-service">
-            <i class="fa fa-wifi" aria-hidden="true"></i>
-            <span>Zona exterior</span>
-          </div>
-          <div class="item-service">
-            <i class="fa fa-wifi" aria-hidden="true"></i>
-            <span>Lavadora</span>
-          </div>
-          <div class="item-service">
-            <i class="fa fa-wifi" aria-hidden="true"></i>
-            <span>Secadora</span>
-          </div>
-          <div class="item-service">
-            <i class="fa fa-wifi" aria-hidden="true"></i>
-            <span>Lavavajillas</span>
-          </div>
-          <div class="item-service">
-            <i class="fa fa-wifi" aria-hidden="true"></i>
-            <span>Accesibilidad</span>
-          </div>
-          <div class="item-service">
-            <i class="fa fa-wifi" aria-hidden="true"></i>
-            <span>Ascensor</span>
-          </div>
-          <div class="item-service">
-            <i class="fa fa-wifi" aria-hidden="true"></i>
-            <span>Sabanas y toallas</span>
-          </div>
-          <div class="item-service">
-            <i class="fa fa-wifi" aria-hidden="true"></i>
-            <span>Baño privado</span>
-          </div>
+          <ng-container *ngFor="let service of homeInfo.HomeServices">
+            <div class="item-service">
+              <i class="fa fa-wifi" aria-hidden="true"></i>
+              <span>{{service.name}}</span>
+            </div>
+          </ng-container>
         </div>
       </mat-expansion-panel>
     </article>
@@ -168,23 +124,30 @@
           <div class="basic-rules">
             <h4>Basicas</h4>
             <div class="rules-content">
-              <span>Permitido fumar</span>
-              <span>Permitidas mascotas</span>
+              <span *ngIf="homeInfo.smokers">Permitido fumar</span>
+              <span *ngIf="!homeInfo.smokers">Prohibido fumar</span>
+              <span *ngIf="homeInfo.pets">Permitidas mascotas</span>
+              <span *ngIf="!homeInfo.pets">Prohibidas mascotas</span>
             </div>
           </div>
           <hr />
           <div class="property-rules">
             <h4>Propietario</h4>
-            <div class="rules-content">
-              <span>No se puede retrasar en el pago</span>
-              <span>El piso limpio todas las semanas</span>
+            <div class="rules-content" *ngFor="let rule of homeInfo.HomeRules">
+              <span *ngIf="rule.type === 0">{{rule.text}}</span>
+            </div>
+            <div class="rules-content" *ngIf="homeInfo.HomeRules.length === 0">
+              <span>Ninguna</span>
             </div>
           </div>
           <hr />
           <div class="comunity-rules">
             <h4>Comunidad</h4>
-            <div class="rules-content">
-              <span>No se puede hacer ruido a partir de las 12:00</span>
+            <div class="rules-content" *ngFor="let rule of homeInfo.HomeRules">
+              <span *ngIf="rule.type === 1">{{rule.text}}</span>
+            </div>
+            <div class="rules-content" *ngIf="homeInfo.HomeRules.length === 0">
+              <span>Ninguna</span>
             </div>
           </div>
         </div>
@@ -201,11 +164,10 @@
         </mat-expansion-panel-header>
         <div class="content-panel">
           <ul>
-            <li>Facturas incluidas: agua, luz, internet</li>
-            <li>Antelación 1 mes para la cancelacicón</li>
-            <li>Estancia mínima de 5 meses</li>
-            <li>Deposito inicial de 300€</li>
-            <li>Limpieza no incluida</li>
+            <li *ngIf="homeInfo.HomeBills.length !== 0">Facturas incluidas:<ng-container *ngFor="let bill of homeInfo.HomeBills"> {{bill.name}},</ng-container></li>
+            <li *ngIf="homeInfo.min_stance">Estancia mínima de {{homeInfo.min_stance}} meses</li>
+            <li *ngIf="homeInfo.fiance">Deposito inicial de {{homeInfo.fiance}}€</li>
+            <li *ngIf="homeInfo.HomeBills.length === 0 && homeInfo.min_stance && homeInfo.fiance">Ninguna</li>
           </ul>
         </div>
       </mat-expansion-panel>

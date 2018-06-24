@@ -5,10 +5,10 @@
     <div class="col-sm-6 col-md-6">
       <div class="form-group">
         <label>¿Cuántas habitaciones hay?</label>
-        <alo-counter (out)="formData.nBedRoom = $event" [in]="formData.nBedRoom" class="form-control-custom">Dormitorios</alo-counter>
-        <alo-counter (out)="formData.nKitchen = $event" [in]="formData.nKitchen" class="form-control-custom">Cocinas</alo-counter>
-        <alo-counter (out)="formData.nBathRoom = $event" [in]="formData.nBathRoom" class="form-control-custom">Cuartos de baño</alo-counter>
-        <alo-counter (out)="formData.nLivingRoom = $event" [in]="formData.nLivingRoom" class="form-control-custom">Salones (opcional)</alo-counter>
+        <alo-counter (out)="formData.nBedRoom = $event" [min]="0" [in]="formData.nBedRoom" class="form-control-custom">Dormitorios</alo-counter>
+        <alo-counter (out)="formData.nKitchen = $event" [min]="0" [in]="formData.nKitchen" class="form-control-custom">Cocinas</alo-counter>
+        <alo-counter (out)="formData.nBathRoom = $event" [min]="0" [in]="formData.nBathRoom" class="form-control-custom">Cuartos de baño</alo-counter>
+        <alo-counter (out)="formData.nLivingRoom = $event" [min]="0" [in]="formData.nLivingRoom" class="form-control-custom">Salones (opcional)</alo-counter>
       </div>
     </div>
   </div>

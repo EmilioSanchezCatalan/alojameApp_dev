@@ -1,39 +1,46 @@
-<section id="page-own-home-edit" >
+<alo-load-spinner *ngIf="displaySpinner" [error]="isErrorLoading"></alo-load-spinner>
+
+<section id="page-own-home-edit" *ngIf="dataPage">
 
   <!-- Select type of home -->
   <article class="container">
-    <alo-form-home-type></alo-form-home-type>
+    <alo-form-home-type [homeTypes]="dataPage.hometypes" [inputData]="homeEdit" [activeResult]="showResult" (sendInfo)="getHomeType($event)"></alo-form-home-type>
   </article>
 
   <!-- Number of homes on the room -->
   <article class="container">
-    <alo-form-home-rooms></alo-form-home-rooms>
+    <alo-form-home-rooms [inputData]="homeEdit" [activeResult]="showResult" (sendInfo)="getHomeRooms($event)"></alo-form-home-rooms>
   </article>
 
   <!-- List of Services -->
   <article class="container">
-    <alo-form-home-services></alo-form-home-services>
+    <alo-form-home-services [inputData]="homeEdit" [homeServices]="dataPage.services" [activeResult]="showResult" (sendInfo)="getHomeServices($event)"></alo-form-home-services>
   </article>
 
   <!-- Address' home -->
   <article class="container">
-    <alo-form-home-address></alo-form-home-address>
+    <alo-form-home-address [inputData]="homeEdit" [listCities]="dataPage.cities" [activeResult]="showResult" (sendInfo)="getHomeAddress($event)"></alo-form-home-address>
   </article>
 
   <!-- List of Home's rules -->
   <article class="container">
-    <alo-form-home-rules></alo-form-home-rules>
+    <alo-form-home-rules [inputData]="homeEdit" [activeResult]="showResult" (sendInfo)="getHomeRules($event)"></alo-form-home-rules>
   </article>
 
   <!-- Home advise -->
   <article class="container">
-    <alo-form-home-ad></alo-form-home-ad>
+    <alo-form-home-ad [homeBills]="dataPage.bills" [inputData]="homeEdit" [activeResult]="showResult" (sendInfo)="getHomeAd($event)"></alo-form-home-ad>
+  </article>
+
+  <!-- Home description -->
+  <article class="container">
+    <alo-form-home-description [inputData]="homeEdit" [activeResult]="showResult" (sendInfo)="getHomeDescription($event)"></alo-form-home-description>
   </article>
 
   <!-- Home imgs -->
   <article class="container">
-    <alo-form-home-imgs></alo-form-home-imgs>
+    <alo-form-home-imgs [inputData]="homeEdit" [activeResult]="showResult" (sendInfo)="getHomeImgs($event)"></alo-form-home-imgs>
   </article>
 
-  <alo-form-save></alo-form-save>
+  <alo-form-save (save)="triggerComponents()"></alo-form-save>
 </section>

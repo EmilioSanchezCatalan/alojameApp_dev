@@ -2,7 +2,7 @@
  * @author Emilio Sánchez Catalán <esc00019@gmail.com>
  * Purpose: Componets that configure the home address
  */
-import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnChanges, AfterViewInit } from '@angular/core';
 
 import { FormCreateHome } from '../../../interfaces/formCreateHome';
 import { BasicTable } from '../../../interfaces/basic-table';
@@ -14,7 +14,7 @@ declare var $: any;
   templateUrl: './form-home-address.component.html',
   styleUrls: ['./form-home-address.component.css']
 })
-export class FormHomeAddressComponent implements OnInit, OnChanges {
+export class FormHomeAddressComponent implements OnInit, OnChanges, AfterViewInit {
 
   @Input() listCities: Array<BasicTable>;
   @Input() inputData: FormCreateHome;
@@ -22,31 +22,34 @@ export class FormHomeAddressComponent implements OnInit, OnChanges {
   @Output() sendInfo: EventEmitter<any>;
 
   public formData: {
-    city: string;
+    city: number;
     address: string;
     zip: number;
-    nDoor: number;
+    nDoor: string;
+    nHome: number;
+    nFloor: number;
   };
 
   constructor() {
     this.sendInfo = new EventEmitter();
     this.formData = {
-      city: '',
+      city: null,
       address: '',
       zip: null,
-      nDoor: null
+      nDoor: '',
+      nHome: null,
+      nFloor: null
     };
   }
 
   ngOnInit() {
-    setTimeout( () => {
-      $('.selectpicker').selectpicker();
-    }, 10);
     if (this.inputData) {
       this.formData.city = this.inputData.city;
       this.formData.address = this.inputData.address;
       this.formData.nDoor = this.inputData.nDoor;
       this.formData.zip = this.inputData.zip;
+      this.formData.nHome = this.inputData.nHome,
+      this.formData.nFloor = this.inputData.nFloor;
     }
   }
 
@@ -56,5 +59,9 @@ export class FormHomeAddressComponent implements OnInit, OnChanges {
         this.sendInfo.emit(this.formData);
       });
     }
+  }
+
+  ngAfterViewInit() {
+    $('.selectpicker').selectpicker();
   }
 }
