@@ -2,10 +2,11 @@
  * @author Emilio Sánchez Catalán <esc00019@gmail.com>
  * Purpose: send file to the server.
  */
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { HomeCrudService } from '../../services/home-crud.service';
+import { UserCrudService } from '../../services/user-crud.service';
 import { ImgLoaded } from '../../interfaces/img-loaded';
 import { ErrorSimpleNotificationService } from '../../services/error-simple-notification.service';
 
@@ -15,7 +16,8 @@ import { ErrorSimpleNotificationService } from '../../services/error-simple-noti
   styleUrls: ['./popup-img-upload.component.css'],
   providers: [
     HomeCrudService,
-    ErrorSimpleNotificationService
+    ErrorSimpleNotificationService,
+    UserCrudService
   ]
 })
 export class PopupImgUploadComponent {
@@ -26,7 +28,9 @@ export class PopupImgUploadComponent {
   constructor(
     private __dialogRef: MatDialogRef<PopupImgUploadComponent>,
     private __homeCrud: HomeCrudService,
-    private __errorNotif: ErrorSimpleNotificationService
+    private __errorNotif: ErrorSimpleNotificationService,
+    private __userCrud: UserCrudService,
+    @Inject(MAT_DIALOG_DATA) public data: string
   ) { }
 
   /**
@@ -59,17 +63,28 @@ export class PopupImgUploadComponent {
           value: reader.result
         };
         this.isLoadingImg = true;
-        this.__homeCrud.sendImgHome(img)
-          .then( (result) => {
-            this.isLoadingImg = false;
-            this.imgUpload = result;
-          }).catch( (error) => {
-            this.isLoadingImg = false;
-            this.__errorNotif.show('Lo sentimos ha ocurrido un error en la carga de la imagen, vuelva a intentarlo');
-            this.closePopup();
-          });
+        if (this.data === 'home') {
+          this.__homeCrud.sendImgHome(img)
+            .then( (result) => {
+              this.isLoadingImg = false;
+              this.imgUpload = result;
+            }).catch( (error) => {
+              this.isLoadingImg = false;
+              this.__errorNotif.show('Lo sentimos ha ocurrido un error en la carga de la imagen, vuelva a intentarlo');
+              this.closePopup();
+            });
+        } else {
+          this.__userCrud.sendImgProfile(img)
+            .then( (result) => {
+              this.isLoadingImg = false;
+              this.imgUpload = result;
+            }).catch( (error) => {
+              this.isLoadingImg = false;
+              this.__errorNotif.show('Lo sentimos ha ocurrido un error en la carga de la imagen, vuelva a intentarlo');
+              this.closePopup();
+            });
+        }
       };
     }
-    console.log(event);
   }
 }

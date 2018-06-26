@@ -1,36 +1,37 @@
-<section id="form-owner-info">
+<section id="form-owner-info" *ngIf="cities">
   <header>
     <h3>Información de arrendador</h3>
   </header>
   <article class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="NIF/DNI"/>
+        <input type="text" [(ngModel)]="inputData.Userinfo.dni" class="form-control" placeholder="NIF/DNI"/>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Numero de telefono"/>
-        <mat-slide-toggle>público</mat-slide-toggle>
+        <input type="text" [(ngModel)]="inputData.Userinfo.phone" class="form-control" placeholder="Numero de telefono"/>
+        <mat-slide-toggle [(ngModel)]="inputData.Userinfo.phone_private">público</mat-slide-toggle>
       </div>
     </div>
   </article>
   <article class="row">
     <header class="col-md-12">
       <h4>Domicilio</h4>
-      <mat-slide-toggle>público</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="inputData.Userinfo.homeaddress_private">público</mat-slide-toggle>
     </header>
     <div class="col-sm-6 col-md-6">
       <div class="form-group">
-        <input class="form-control" type="text" placeholder="Dirección 1" />
+        <input class="form-control" [(ngModel)]="inputData.Userinfo.homeaddress" type="text" placeholder="Dirección completa" />
       </div>
     </div>
     <div class="col-sm-6 col-md-6">
       <div class="form-group">
-        <select name="gender" data-width="395px" class="selectpicker" ngModel required>
+        <select name="gender" data-width="395px" [(ngModel)]="inputData.Userinfo.cities_id" class="selectpicker" required>
           <option selected value="">Ciudad</option>
-          <option value="man">Jaén</option>
-          <option value="woman">Linares</option>
+          <ng-container *ngFor="let city of cities">
+            <option [value]="city.id">{{city.name}}</option>
+          </ng-container>
         </select>
       </div>
     </div>

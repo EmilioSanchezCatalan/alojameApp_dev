@@ -4,7 +4,7 @@
  */
 
 import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
-import { MatDialogRef, MatDialog } from '@angular/material';
+import { MatDialogRef, MatDialog, MatDialogConfig } from '@angular/material';
 
 import { PopupImgUploadComponent } from '../../popup-img-upload/popup-img-upload.component';
 import { ImgLoaded } from '../../../interfaces/img-loaded';
@@ -47,7 +47,9 @@ export class FormHomeImgsComponent implements OnInit, OnChanges {
    * Open a popup for upload the img
    */
   public openImgUploader(): void {
-    this.popupImgUpload = this.__dialog.open(PopupImgUploadComponent);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = 'home';
+    this.popupImgUpload = this.__dialog.open(PopupImgUploadComponent, dialogConfig);
     this.popupImgUpload.afterClosed().subscribe(
       response => {
         if (response) {

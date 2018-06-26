@@ -1,28 +1,35 @@
-<section id="form-personal-info">
+<section id="form-personal-info" *ngIf="countries">
   <header>
     <h3>Información personal</h3>
   </header>
   <article class="row">
+
+    <!-- Name -->
     <div class="col-sm-6 col-md-6">
       <div class="form-group">
-        <input class="form-control"  type="text" placeholder="Nombre" />
-        <mat-slide-toggle>público</mat-slide-toggle>
+        <input class="form-control" [(ngModel)]="inputData.Userinfo.name"  type="text" placeholder="Nombre" />
+        <mat-slide-toggle [(ngModel)]="inputData.Userinfo.name_private">público</mat-slide-toggle>
       </div>
     </div>
+
+    <!-- Surname -->
     <div class="col-sm-6 col-md-6">
       <div class="form-group">
-        <input class="form-control" type="text" placeholder="Apellidos" />
-        <mat-slide-toggle>público</mat-slide-toggle>
+        <input class="form-control" [(ngModel)]="inputData.Userinfo.surname" type="text" placeholder="Apellidos" />
+        <mat-slide-toggle [(ngModel)]="inputData.Userinfo.surname_private">público</mat-slide-toggle>
       </div>
     </div>
+
+    <!-- Nacionality -->
     <div class="col-sm-6 col-md-6">
       <div class="form-group">
-        <select name="gender" data-width="100%" class="selectpicker" ngModel required>
+        <select name="gender" data-width="100%" class="selectpicker" [(ngModel)]="inputData.Userinfo.countries_id" required>
           <option selected value="">Nacionalidad</option>
-          <option value="man">España</option>
-          <option value="woman">Argentina</option>
+          <ng-container *ngFor="let country of countries">
+            <option [value]="country.id">{{country.name}}</option>
+          </ng-container>
         </select>
-        <mat-slide-toggle>público</mat-slide-toggle>
+        <mat-slide-toggle [(ngModel)]="inputData.Userinfo.country_private">público</mat-slide-toggle>
       </div>
     </div>
   </article>
@@ -30,88 +37,87 @@
     <header class="col-md-12">
       <h4>Configuración de acceso</h4>
     </header>
+
+    <!-- Email -->
     <div class="col-sm-6 col-md-6">
       <div class="form-group">
-        <input class="form-control" type="text" placeholder="Email" />
-        <mat-slide-toggle>público</mat-slide-toggle>
+        <input class="form-control" type="text" placeholder="Email"  [(ngModel)]="inputData.email" disabled/>
+        <mat-slide-toggle [(ngModel)]="inputData.Userinfo.email_private">público</mat-slide-toggle>
       </div>
     </div>
+
+    <!-- Password -->
     <div class="col-sm-6 col-md-6">
       <div class="form-group" id="change-pass">
         <button class="form-control" type="button" class="btn btn-default">Cambiar contraseña</button>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-6">
-      <div class="form-group">
-        <input class="form-control" type="text" placeholder="Nombre de ususario" />
       </div>
     </div>
   </article>
   <article class="row">
     <header class="col-md-12">
       <h4>Fecha de nacimiento</h4>
-      <mat-slide-toggle>público</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="inputData.Userinfo.birthdate_private">público</mat-slide-toggle>
     </header>
     <div class="col-xs-5 col-sm-6 col-md-6">
       <div class="form-group">
-        <select name="birthMonth" class="selectpicker" data-width="100%" ngModel required>
+        <select name="birthMonth" [(ngModel)]="birthDay.month" class="selectpicker" data-width="100%" ngModel required>
           <option selected value="">Mes</option>
-          <option value="01">Enero</option>
-          <option value="02">Febrero</option>
-          <option value="03">Marzo</option>
-          <option value="04">Abril</option>
-          <option value="05">Mayo</option>
-          <option value="06">Junio</option>
-          <option value="07">Julio</option>
-          <option value="08">Agosto</option>
-          <option value="09">Septiembre</option>
-          <option value="10">Octubre</option>
-          <option value="11">Noviembre</option>
-          <option value="12">Diciembre</option>
+          <option value="0">Enero</option>
+          <option value="1">Febrero</option>
+          <option value="2">Marzo</option>
+          <option value="3">Abril</option>
+          <option value="4">Mayo</option>
+          <option value="5">Junio</option>
+          <option value="6">Julio</option>
+          <option value="7">Agosto</option>
+          <option value="8">Septiembre</option>
+          <option value="9">Octubre</option>
+          <option value="10">Noviembre</option>
+          <option value="11">Diciembre</option>
         </select >
       </div>
     </div>
     <div class="col-xs-3 col-sm-2 col-md-2">
       <div class="form-group">
-        <select name="birthDay" class="selectpicker" data-width="100%" ngModel required>
+        <select name="birthDay" [(ngModel)]="birthDay.day" class="selectpicker" data-width="100%" required>
           <option selected value="">Día</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12">12</option>
-          <option value="13">13</option>
-          <option value="14">14</option>
-          <option value="15">15</option>
-          <option value="16">16</option>
-          <option value="17">17</option>
-          <option value="18">18</option>
-          <option value="19">19</option>
-          <option value="20">20</option>
-          <option value="21">21</option>
-          <option value="22">22</option>
-          <option value="23">23</option>
-          <option value="24">24</option>
-          <option value="25">25</option>
-          <option value="26">26</option>
-          <option value="27">27</option>
-          <option value="28">28</option>
-          <option value="29">29</option>
-          <option value="30">30</option>
-          <option value="31">31</option>
+          <option value="2">1</option>
+          <option value="3">2</option>
+          <option value="4">3</option>
+          <option value="5">4</option>
+          <option value="6">5</option>
+          <option value="7">6</option>
+          <option value="8">7</option>
+          <option value="9">8</option>
+          <option value="10">9</option>
+          <option value="11">10</option>
+          <option value="12">11</option>
+          <option value="13">12</option>
+          <option value="14">13</option>
+          <option value="15">14</option>
+          <option value="16">15</option>
+          <option value="17">16</option>
+          <option value="18">17</option>
+          <option value="19">18</option>
+          <option value="20">19</option>
+          <option value="21">20</option>
+          <option value="22">21</option>
+          <option value="23">22</option>
+          <option value="24">23</option>
+          <option value="25">24</option>
+          <option value="26">25</option>
+          <option value="27">26</option>
+          <option value="28">27</option>
+          <option value="29">28</option>
+          <option value="30">29</option>
+          <option value="31">30</option>
+          <option value="32">31</option>
         </select>
       </div>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4">
       <div class="form-group">
-        <select name="birthYear" class="selectpicker" data-width="100%" ngModel required>
+        <select name="birthYear" [(ngModel)]="birthDay.year" class="selectpicker" data-width="100%" required>
           <option selected value="">Año</option>
           <ng-container *ngFor="let year of yearsList">
             <option value="{{year}}">{{year}}</option>
@@ -126,7 +132,7 @@
     </header>
     <div class="col-sm-8 col-md-9">
       <div class="form-group">
-        <select name="gender" class="selectpicker" ngModel required>
+        <select [(ngModel)]="inputData.Userinfo.gender" class="selectpicker" required>
           <option selected value="">Selección</option>
           <option value="man">Hombre</option>
           <option value="woman">Mujer</option>

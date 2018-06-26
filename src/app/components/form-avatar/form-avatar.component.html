@@ -1,4 +1,6 @@
-<section id="form-avatar">
+<alo-load-spinner *ngIf="displaySpinner" [error]="isErrorLoading"></alo-load-spinner>
+
+<section id="form-avatar" *ngIf="inputData">
 
   <!-- Header -->
   <header>
@@ -10,7 +12,8 @@
 
     <!-- User IMG -->
     <div class="user-avatar">
-      <img src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.x9YBvldf46FiSk9PRLqJrQHaHa%26pid%3D15.1&f=1">
+      <img *ngIf="!inputData.Userinfo.UserPicture" src="assets/img/no_img_user.jpg">
+      <img *ngIf="inputData.Userinfo.UserPicture" [src]="inputData.Userinfo.UserPicture.url">
     </div>
 
     <!-- Upload button -->
