@@ -12,6 +12,7 @@ import { ValidatorErrorService } from '../../services/validator-error.service';
 import { FormErrorInfo } from '../../interfaces/form-error-info';
 import { AuthOwnerService } from '../../services/auth-owner.service';
 import { NotificationHttpService } from '../../services/notification-http.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'alo-login',
@@ -122,4 +123,11 @@ export class LoginComponent {
       this.__valError.checkErrors(formRecover, this.__recoverFormNames);
     }
   }
+
+  /**
+   * Redirect to the idp for make the login
+   */
+   public loginIdp(): void {
+     window.location.href = environment.API_URL + 'public/saml-auth/login';
+   }
 }

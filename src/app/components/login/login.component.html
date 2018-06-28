@@ -7,7 +7,7 @@
     </alo-popup-header>
 
     <alo-popup-container *ngIf="!isOwner">
-      <div class="user-count">
+      <div class="user-count" (click)="loginIdp()">
         <span><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
         <p><span>Iniciar sessión como estudiante de la universidad</span></p>
       </div>

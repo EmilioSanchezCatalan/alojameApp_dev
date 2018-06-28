@@ -57,4 +57,12 @@ export class PublicDataService {
   public getListCities(): Promise<any> {
     return this.__http.get( environment.API_URL + 'public/data/cities').toPromise();
   }
+
+  /**
+   * List address suggested by the DDBB
+   * @return {Promise} result of the http request with the list of cities.
+   */
+  public getAddressSuggestion(): Promise<any> {
+    return this.__http.get( environment.API_URL + 'public/data/address-suggestion').toPromise();
+  }
 }

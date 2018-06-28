@@ -22,7 +22,7 @@
 
   <!-- Address' home -->
   <article class="container" *ngIf="listSteps[actualStep] === 'address'">
-    <alo-form-home-address [inputData]="jsonCreateHome" [listCities]="dataPage.cities" [activeResult]="showResult.homeAddress" (sendInfo)="getHomeAddress($event)"></alo-form-home-address>
+    <alo-form-home-address [inputData]="jsonCreateHome" [addressSuggest]="dataPage.address" [listCities]="dataPage.cities" [activeResult]="showResult.homeAddress" (sendInfo)="getHomeAddress($event)"></alo-form-home-address>
   </article>
 
   <!-- List of Home's rules -->

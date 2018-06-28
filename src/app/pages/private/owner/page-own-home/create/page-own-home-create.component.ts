@@ -20,7 +20,7 @@ declare var $: any;
     PublicDataService,
     ErrorSimpleNotificationService,
     HomeCrudService,
-    NotificationHttpService
+    NotificationHttpService,
   ]
 })
 export class PageOwnHomeCreateComponent implements OnInit {
@@ -99,12 +99,14 @@ export class PageOwnHomeCreateComponent implements OnInit {
       this.__publicData.getListHomeBills(),
       this.__publicData.getListHomeTypes(),
       this.__publicData.getListCities(),
+      this.__publicData.getAddressSuggestion()
     ]).then( responses => {
       this.dataPage = {
         services: responses[0],
         bills: responses[1],
         hometypes: responses[2],
-        cities: responses[3]
+        cities: responses[3],
+        address: responses[4]
       };
       this.displaySpinner = false;
     }).catch( error => {

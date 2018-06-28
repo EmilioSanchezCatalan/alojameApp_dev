@@ -8,7 +8,12 @@
     <div class="col-sm-6 col-md-6">
       <div class="form-group">
         <label for="">Dirección 1</label>
-        <input type="text" class="form-control" [(ngModel)]="formData.address" required>
+        <input type="text" class="form-control" [matAutocomplete]="auto" [formControl]="myControl" [(ngModel)]="formData.address">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
       </div>
     </div>
 

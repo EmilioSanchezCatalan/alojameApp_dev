@@ -77,15 +77,17 @@ export class PageOwnHomeEditComponent implements OnInit {
       this.__publicData.getListHomeBills(),
       this.__publicData.getListHomeTypes(),
       this.__publicData.getListCities(),
+      this.__publicData.getAddressSuggestion(),
       this.__crudHome.getHomeFull(this.homes_id)
     ]).then( responses => {
       this.dataPage = {
         services: responses[0],
         bills: responses[1],
         hometypes: responses[2],
-        cities: responses[3]
+        cities: responses[3],
+        address: responses[4]
       };
-      this.homeEdit = this.__parserApi.parserHomeToEdit(responses[4], this.dataPage.bills, this.dataPage.services);
+      this.homeEdit = this.__parserApi.parserHomeToEdit(responses[5], this.dataPage.bills, this.dataPage.services);
       console.log(this.homeEdit);
       this.displaySpinner = false;
     }).catch( error => {

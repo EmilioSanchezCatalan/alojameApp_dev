@@ -19,7 +19,7 @@
 
   <!-- Address' home -->
   <article class="container">
-    <alo-form-home-address [inputData]="homeEdit" [listCities]="dataPage.cities" [activeResult]="showResult" (sendInfo)="getHomeAddress($event)"></alo-form-home-address>
+    <alo-form-home-address [inputData]="homeEdit" [addressSuggest]="dataPage.address" [listCities]="dataPage.cities" [activeResult]="showResult" (sendInfo)="getHomeAddress($event)"></alo-form-home-address>
   </article>
 
   <!-- List of Home's rules -->
