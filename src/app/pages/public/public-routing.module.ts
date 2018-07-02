@@ -14,7 +14,7 @@ const routes: Routes =  [
   { path: '', redirectTo: 'index', pathMatch: 'full'},
   { path: 'index', component: PageIndexComponent},
   { path: 'homes', component: PageLhomesComponent},
-  { path: 'home', component: PageHomeComponent}
+  { path: 'home/:homeId', component: PageHomeComponent}
 ];
 
 @NgModule({

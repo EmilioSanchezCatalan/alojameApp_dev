@@ -47,19 +47,22 @@ export class CardHomeComponent implements AfterViewInit {
     $('.rating').rating('create');
   }
 
-  public gotoHome(): void {
+  /**
+   * Navigate to the page detail of the home indicated
+   * @param {number} homes_id id of the home selected
+   */
+  public gotoHome(homes_id: number): void {
     if (this.function === 'none') {
 
       switch (localStorage.getItem('userType')) {
-
         case 'student':
-          this.__router.navigate(['private/student', 'home']);
+          this.__router.navigate(['private/student', 'home', homes_id]);
           break;
         case 'public':
-          this.__router.navigate(['public', 'home']);
+          this.__router.navigate(['public', 'home', homes_id]);
           break;
         case 'owner':
-          this.__router.navigate(['public', 'home']);
+          this.__router.navigate(['public', 'home', homes_id]);
           break;
       }
     }

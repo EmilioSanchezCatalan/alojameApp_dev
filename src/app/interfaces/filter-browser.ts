@@ -12,6 +12,8 @@ export interface FilterBrowser {
   number_bedthrooms: number;
   number_bathrooms: number;
   number_kitchen: number;
+  number_livingrooms: number;
   services: Array<string>;
-  rules: Array<string>;
+  smoke: boolean;
+  pets: boolean;
 }

@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthOwnerService {
 
   constructor(
-      private __http: HttpClient
+      private __http: HttpClient,
+      private __router: Router
   ) { }
 
   /**
@@ -42,5 +45,6 @@ export class AuthOwnerService {
   public logout(): void {
     localStorage.clear();
     localStorage.setItem('userType', 'public');
+    this.__router.navigate(['/']);
   }
 }

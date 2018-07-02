@@ -8,6 +8,7 @@ import { HttpInterceptorService } from './services/http-interceptor.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarSimpleModule } from './components/navbar-simple/navbar-simple.module';
+import { AloLoadSpinnerModule } from './components/alo-load-spinner/alo-load-spinner.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { NavbarSimpleModule } from './components/navbar-simple/navbar-simple.mod
     MatSnackBarModule,
     MatProgressSpinnerModule,
     FormsModule,
+    AloLoadSpinnerModule,
     HttpClientModule
   ],
   providers: [

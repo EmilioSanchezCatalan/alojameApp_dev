@@ -13,7 +13,12 @@
     <!-- Init of container navbar -->
     <div class="cnt-start">
       <div class="effect-browser" *ngIf="!isInHome">
-        <input type="text" id="main-browser" name="browserAddress">
+        <input type="text" id="main-browser" name="browserAddress" [matAutocomplete]="auto" [formControl]="myControl">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)="navigateToSearch(option)">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
       </div>
     </div>
 
@@ -72,7 +77,12 @@
     <!-- Init of container navbar -->
     <div class="cnt-start">
       <div class="effect-browser" *ngIf="!isInHome">
-        <input type="text" id="main-browser" name="browserAddress">
+        <input type="text" id="main-browser" name="browserAddress" [matAutocomplete]="auto" [formControl]="myControl">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)="navigateToSearch(option)">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
       </div>
     </div>
 

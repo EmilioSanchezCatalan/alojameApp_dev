@@ -4,7 +4,7 @@
   <div mat-card-image id="carousel-home-{{home.id}}" class="carousel slide" data-ride="carousel" data-interval="0">
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox" (click)="gotoHome()">
+    <div class="carousel-inner" role="listbox" (click)="gotoHome(home.id)">
 
       <!-- List of photos -->
       <ng-container *ngIf="home.HomePictures.length !==0">
@@ -37,7 +37,7 @@
     </ng-container>
   </div>
 
-  <div id="card-description" [class.hasfunctionality]="function !== 'none'" (click)="gotoHome()" [style.cursor]="'pointer'">
+  <div id="card-description" [class.hasfunctionality]="function !== 'none'" (click)="gotoHome(home.id)" [style.cursor]="'pointer'">
     <!-- Content -->
     <mat-card-content>
       <section class="home-info">

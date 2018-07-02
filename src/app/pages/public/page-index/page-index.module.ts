@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 import { PageIndexComponent } from './page-index.component';
 import { BrowserFilterModule } from '../../../components/browser-filter/browser.filter.module';
-import { BrowserFilterMovileModule } from '../../../components/browser-filter-movile/browser-filter-movile.module';
+import { AloLoadSpinnerModule } from '../../../components/alo-load-spinner/alo-load-spinner.module';
 
 @NgModule({
   declarations: [ PageIndexComponent ],
   imports: [
     BrowserFilterModule,
-    BrowserFilterMovileModule
+    AloLoadSpinnerModule,
+    CommonModule
   ],
   exports: [ PageIndexComponent ]
 })

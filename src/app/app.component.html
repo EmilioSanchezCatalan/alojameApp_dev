@@ -1,4 +1,5 @@
-<alo-navbar-simple [status]="getLocalStorageUserType()"></alo-navbar-simple>
+<alo-load-spinner *ngIf="displaySpinner" [error]="isErrorLoading"></alo-load-spinner>
+
 
 <!-- Spinner  -->
 <div class="spinner-center" *ngIf="isloading">
@@ -6,22 +7,11 @@
   <mat-spinner [diameter]="120" [color]="orange"></mat-spinner>
 </div>
 
-<!-- Select type of user -->
-<div class="type-user" (click)="activeChange()">
-  <i class="fa fa-cog" aria-hidden="true"></i>
-</div>
+<ng-container *ngIf="listAddressAvaliable">
+  <alo-navbar-simple [listAddress]="listAddressAvaliable" [status]="getLocalStorageUserType()"></alo-navbar-simple>
 
-<div class="box-user-type" *ngIf="changeUsertype">
-  <div>
-    <select class="selectpicker" [(ngModel)]="userType" (change)="setInStorage()">
-      <option value="public">Public</option>
-      <option value="student">Estudiante</option>
-      <option value="owner">Propietario</option>
-    </select>
+  <!-- content -->
+  <div style="margin-top: 56px;">
+    <router-outlet></router-outlet>
   </div>
-</div>
-
-<!-- content -->
-<div style="margin-top: 56px;">
-  <router-outlet></router-outlet>
-</div>
+</ng-container>

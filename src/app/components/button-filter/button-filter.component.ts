@@ -19,8 +19,10 @@ export class ButtonFilterComponent {
   @Input() title: string;
   @Output() filtered: EventEmitter<any>;
   @Output() restart: EventEmitter<any>;
-  public isFiltering: boolean;
+  @Output() none: EventEmitter<any>;
+  @Input() empty: boolean;
   public isContentDisplay: boolean;
+  public isFiltering: boolean;
 
   constructor() {
     this.title = 'None Title';
@@ -28,6 +30,7 @@ export class ButtonFilterComponent {
     this.isFiltering = false;
     this.filtered = new EventEmitter();
     this.restart = new EventEmitter();
+    this.none = new EventEmitter();
   }
 
   /**
@@ -50,5 +53,13 @@ export class ButtonFilterComponent {
    */
   public setRestartEvent(): void {
     this.restart.emit();
+  }
+
+  /**
+   * Emmit event when the user dont click any action only the
+   * background
+   */
+  public setNoneEvent(): void {
+    this.none.emit();
   }
 }

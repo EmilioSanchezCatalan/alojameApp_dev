@@ -19,6 +19,7 @@ export class SubscribeBarComponent {
 
   @Input() subscribe: boolean;
   @Input() disabled: boolean;
+  @Input() price: number;
   @Output() action: EventEmitter<any>;
 
   constructor() {

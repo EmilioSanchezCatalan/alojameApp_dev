@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserFilterComponent } from './browser-filter.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule, MatAutocompleteModule } from '@angular/material';
 
 @NgModule({
   declarations: [ BrowserFilterComponent ],
   imports: [
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    CommonModule
   ],
   exports: [ BrowserFilterComponent ]
 })

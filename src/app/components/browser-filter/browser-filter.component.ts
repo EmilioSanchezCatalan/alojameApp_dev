@@ -3,73 +3,103 @@
  * Purpose: Browser for shearch accommodation with some basics filters
  */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup } from '@angular/forms';
+import {Observable} from 'rxjs/Observable';
+import {startWith} from 'rxjs/operators/startWith';
+import {map} from 'rxjs/operators/map';
+import { FormControl } from '@angular/forms';
 
-import { FormErrorInfo } from '../../interfaces/form-error-info';
-import { ValidatorErrorService } from '../../services/validator-error.service';
-declare var $: any;
+import { BrowserAddress } from '../../interfaces/browser-address';
 
 @Component({
   selector: 'alo-browser-filter',
   templateUrl: './browser-filter.component.html',
-  styleUrls: ['./browser-filter.component.css'],
-  providers: [ ValidatorErrorService ]
+  styleUrls: ['./browser-filter.component.css']
 })
 export class BrowserFilterComponent implements OnInit {
 
-  public isFilterBrowserVisible: boolean;
-  private formErrorInfo: FormErrorInfo;
+  @Input() listAddress: BrowserAddress;
+  public filteredOptions: Observable<string[]>;
+  public myControl: FormControl;
+  public listAddresParsed: Array<string>;
+
   constructor(
     private __router: Router,
-    private __valError: ValidatorErrorService
   ) {
-    this.isFilterBrowserVisible = false;
-    this.formErrorInfo = {
-      errorsInfo: [
-        {
-          fieldName: 'address',
-          nameShow: 'Dirección'
-        },
-        {
-          fieldName: 'city',
-          nameShow: 'Ciudad'
-        },
-        {
-          fieldName: 'typeHome',
-          nameShow: 'Tipo de alojamiento'
-        },
-        {
-          fieldName: 'nGuest',
-          nameShow: 'Numero de huespedes'
-        }
-      ]
-    };
+    this.myControl = new FormControl();
+    this.listAddresParsed = [];
   }
 
   ngOnInit() {
-    $('.selectpicker').selectpicker();
-  }
-
-  /**
-   * Set the visisble status to the browser
-   * @param {boolean} status state of the visibility of the browser's filters
-   */
-  public setFilterBrowserStatus(status: boolean): void {
-    this.isFilterBrowserVisible = status;
-  }
-
-  /**
-   * Evalue the shearch form and navegate to the page lhome using the preferences fixed
-   * @param { FormGroup } formShearch form for shearch homes
-   */
-  public shearchHome( formShearch: FormGroup ): void {
-    if (formShearch.valid === true) {
-      // TODO navigation
-      this.__router.navigate(['/public/homes']);
-    } else {
-      this.__valError.checkErrors(formShearch, this.formErrorInfo);
+    if (this.listAddress) {
+      this.parseFilterToArray();
+      this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(val => this.filter(val))
+      );
     }
+  }
+
+  /**
+   * Parse the list of address for make an Array
+   */
+  public parseFilterToArray(): void {
+    this.listAddress.list_address.forEach(element => {
+      this.listAddresParsed.push(element.address + ', ' + element.City.name);
+    });
+    this.listAddress.list_cities.forEach(element => {
+      this.listAddresParsed.push(element.City.name);
+    });
+  }
+
+  /**
+   * Filter the address with the val included
+   * @param  {string} val val to compare with the list of addressSuggest
+   * @return {Array<string>} an array of string with the list avalible
+   */
+  public filter(val: string): string[] {
+    return this.listAddresParsed.filter(option =>
+      option.toLowerCase().includes(val.toLowerCase()));
+  }
+
+
+  /**
+   * Navigate to the list of homes with the filters of address and city
+   * @param {string} value   value of the option select to navigate
+   */
+  public navigateToSearch(value: string): void {
+    let queryParams = this.parseAddressToQuery(value);
+    this.__router.navigate(['/public', 'homes'], {queryParams: queryParams});
+  }
+
+  /**
+   * Parse the selection value to queryParams format
+   * @param  {string} value selection of the search filter
+   * @return {Object}       the queryParams with the correct format
+   */
+  public parseAddressToQuery(value: string): {city: number, address: string; } {
+    if (value.includes(',')) {
+      let address_full = value.split(', ');
+      return  { city: this.searchCityCode(address_full[1]), address: address_full[0] };
+    } else {
+      return { city: this.searchCityCode(value), address: null };
+    }
+  }
+
+  /**
+   * Searh into the list of cities the name of the city selected
+   * @param  {string} nameCity name of the city witch we are goint to search
+   * @return {number}          id of the city selected
+   */
+  public searchCityCode(nameCity: string): number {
+    let cities_id;
+    this.listAddress.list_cities.forEach(element => {
+      if (element.City.name === nameCity) {
+        cities_id = element.cities_id;
+      }
+    });
+    return cities_id;
   }
 }

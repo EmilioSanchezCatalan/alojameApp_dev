@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
-import {MatSliderModule, MatCheckboxModule, MatDatepickerModule} from '@angular/material';
+import { CommonModule } from '@angular/common';
+import { MatSliderModule, MatCheckboxModule, MatDatepickerModule} from '@angular/material';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { FormsModule } from '@angular/forms';
 
 import { FiltersComponent } from './filters.component';
 import { ButtonFilterModule } from '../button-filter/button-filter.module';
@@ -13,7 +15,9 @@ import { ButtonFilterModule } from '../button-filter/button-filter.module';
     MatCheckboxModule,
     MatDatepickerModule,
     OwlDateTimeModule,
-    OwlNativeDateTimeModule
+    OwlNativeDateTimeModule,
+    FormsModule,
+    CommonModule
   ],
   exports: [FiltersComponent]
 })

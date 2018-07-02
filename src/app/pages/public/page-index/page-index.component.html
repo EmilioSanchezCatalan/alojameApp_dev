@@ -1,7 +1,8 @@
-<div class="page-container">
+<alo-load-spinner *ngIf="displaySpinner" [error]="isErrorLoading"></alo-load-spinner>
+
+<div class="page-container" *ngIf="listAddressAvaliable">
   <div class="banner">
     <img  src="assets/img/home_banner.png" alt="banner home">
-    <alo-browser-filter id="shearch-desktop"></alo-browser-filter>
+    <alo-browser-filter [listAddress]="listAddressAvaliable" id="shearch-desktop"></alo-browser-filter>
   </div>
-    <alo-browser-filter-movile  id="shearch-movile"></alo-browser-filter-movile>
 </div>

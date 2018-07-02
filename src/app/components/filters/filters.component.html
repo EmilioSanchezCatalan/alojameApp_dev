@@ -1,47 +1,47 @@
 <!-- Filter Date enter -->
-<alo-button-filter [title]="'Fecha de Entrada'">
+<alo-button-filter [title]="'Fecha de Entrada'" [empty]="filterCopy.data_in === ''" (restart)="restartDate()" (none)="noneChange()" (filtered)="applyChages()">
   <div class="date-into">
     <header>
       <h5>Entrada</h5>
     </header>
     <section>
-      <input [owlDateTimeTrigger]="dateInto" [owlDateTime]="dateInto">
+      <input [owlDateTimeTrigger]="dateInto" [owlDateTime]="dateInto" [(ngModel)]="filterCopy.data_in">
       <owl-date-time [pickerType]="'calendar'" #dateInto></owl-date-time>
     </section>
   </div>
 </alo-button-filter>
 
 <!-- Filter of type rent -->
-<alo-button-filter id="type-rent" [title]="'Tipo de Alquiler'">
+<alo-button-filter id="type-rent" [title]="'Tipo de Alquiler'" [empty]="filterCopy.type_rent.length === 0" (none)="noneChange()" (restart)="restartTypeRent()" (filtered)="applyChages()">
   <div class="type-rent">
-    <mat-checkbox value="1">Propiedad completa</mat-checkbox>
-    <mat-checkbox value="2">Por habitación</mat-checkbox>
-    <mat-checkbox value="2">Por cama</mat-checkbox>
+    <mat-checkbox (change)="getHomeRent($event)" [checked]="filterCopy.type_rent.includes('0')" value="0">Propiedad completa</mat-checkbox>
+    <mat-checkbox (change)="getHomeRent($event)" [checked]="filterCopy.type_rent.includes('1')" value="1">Por habitación</mat-checkbox>
+    <mat-checkbox (change)="getHomeRent($event)" [checked]="filterCopy.type_rent.includes('2')" value="2">Por cama</mat-checkbox>
   </div>
 
 </alo-button-filter>
 
 <!-- Filter of price -->
-<alo-button-filter id="type-price" [title]="'Precio €'">
+<alo-button-filter id="type-price" [title]="'Precio €'" [empty]="!filterCopy.price_min && !filterCopy.price_max" (none)="noneChange()" (restart)="restartPrice()" (filtered)="applyChages()">
   <div class="cnt-price">
     <div class="m-price">
       <header>
         <h5>Min</h5>
-        <input type="number" />
+        <input type="number" [(ngModel)]="filterCopy.price_min"/>
         <span>&nbsp;€</span>
       </header>
       <section>
-        <mat-slider></mat-slider>
+        <mat-slider [min]="0" [max]="1000" [(ngModel)]="filterCopy.price_min"></mat-slider>
       </section>
     </div>
     <div class="m-price">
       <header>
         <h5>Max</h5>
-        <input type="number" />
+        <input type="number" [(ngModel)]="filterCopy.price_max" />
         <span>&nbsp;€</span>
       </header>
       <section>
-        <mat-slider></mat-slider>
+        <mat-slider  [min]="0" [max]="1000" [(ngModel)]="filterCopy.price_max"></mat-slider>
       </section>
     </div>
   </div>
@@ -49,13 +49,13 @@
 </alo-button-filter>
 
 <!-- Filter of type of accomodation -->
-<alo-button-filter id="filter-typeAccom" [title]="'Tipo de Alojamiento'">
-  <div class="type-accomodation">
-    <mat-checkbox value="1">Casa</mat-checkbox>
-    <mat-checkbox value="2">Piso</mat-checkbox>
-    <mat-checkbox value="2">Residencia</mat-checkbox>
+<alo-button-filter id="filter-typeAccom" [title]="'Tipo de Alojamiento'" [empty]="filterCopy.type_accomodation.length === 0" (none)="noneChange()" (restart)="restartTypeHome()" (filtered)="applyChages()">
+  <div class="type-accomodation" *ngIf="listHomesTypes">
+    <ng-container *ngFor="let hometype of listHomesTypes">
+      <mat-checkbox [checked]="filterCopy.type_accomodation.includes(hometype.id)" (change)="getHomeTypes($event)" [value]="hometype.id">{{hometype.name}}</mat-checkbox>
+    </ng-container>
   </div>
 </alo-button-filter>
 
 <!-- More filters -->
-<button class="btn btn-default" [class.button-active]="hasMoreFilters" (click)="setEventMoreFilters();">Mas Filtros</button>
+<button class="btn btn-default" [class.button-active]="applyMoreFilters" (click)="setEventMoreFilters();">Mas Filtros</button>

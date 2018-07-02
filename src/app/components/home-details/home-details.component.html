@@ -108,6 +108,9 @@
               <span>{{service.name}}</span>
             </div>
           </ng-container>
+          <ng-container *ngIf="homeInfo.HomeServices.length === 0">
+            Ninguna
+          </ng-container>
         </div>
       </mat-expansion-panel>
     </article>
@@ -167,8 +170,8 @@
             <li *ngIf="homeInfo.HomeBills.length !== 0">Facturas incluidas:<ng-container *ngFor="let bill of homeInfo.HomeBills"> {{bill.name}},</ng-container></li>
             <li *ngIf="homeInfo.min_stance">Estancia mínima de {{homeInfo.min_stance}} meses</li>
             <li *ngIf="homeInfo.fiance">Deposito inicial de {{homeInfo.fiance}}€</li>
-            <li *ngIf="homeInfo.HomeBills.length === 0 && homeInfo.min_stance && homeInfo.fiance">Ninguna</li>
           </ul>
+          <span *ngIf="homeInfo.HomeBills.length === 0 && homeInfo.min_stance === null && homeInfo.fiance === null">Ninguna</span>
         </div>
       </mat-expansion-panel>
     </article>

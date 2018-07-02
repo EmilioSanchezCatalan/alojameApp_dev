@@ -9,12 +9,14 @@ import { FilterBrowser } from '../interfaces/filter-browser';
 export const ZERO_FILTER: FilterBrowser = {
   date_in: '',
   type_rent: [],
-  price_max: 0,
-  price_min: 0,
+  price_max: null,
+  price_min: null,
   type_accomodation: [],
-  number_bedthrooms: 0,
-  number_bathrooms: 0,
-  number_kitchen: 0,
+  number_bedthrooms: null,
+  number_bathrooms: null,
+  number_kitchen: null,
+  number_livingrooms: null,
   services: [],
-  rules: []
+  pets: false,
+  smoke: false
 };

@@ -1,13 +1,15 @@
-<section id="page-home">
+<alo-load-spinner *ngIf="displaySpinner" [error]="isErrorLoading"></alo-load-spinner>
+
+<section id="page-home" *ngIf="homeInfo">
 
   <!-- Gallery of photografies -->
   <header>
-    <gallery-show></gallery-show>
+    <gallery-show [listImgs]="homeInfo.HomePictures"></gallery-show>
   </header>
 
   <!-- Home description -->
   <article class="container">
-    <alo-home-details></alo-home-details>
+    <alo-home-details [homeInfo]="homeInfo"></alo-home-details>
   </article>
 
   <!-- Home valoration -->
@@ -16,9 +18,5 @@
   </article>
 
   <!-- Subscribe bar -->
-  <alo-subscribe-bar (action)="sendRequestHome()"></alo-subscribe-bar>
+  <alo-subscribe-bar (action)="sendRequestHome()" [price]="homeInfo.price"></alo-subscribe-bar>
 </section>
-
-<footer style="background-color: rgba(0, 0, 0, 0.63); height: 30px; width: 100%;">
-
-</footer>

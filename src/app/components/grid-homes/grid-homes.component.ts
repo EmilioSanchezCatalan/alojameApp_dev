@@ -24,11 +24,13 @@ export class GridHomesComponent implements  OnInit {
 
   @Input() function: string;
   @Input() homes: Array<ItemHome>;
+  @Input() nItems: number;
 
   constructor(
     private __router: Router
   ) {
     this.function = 'none';
+    this.nItems = 3;
   }
 
   ngOnInit() {
