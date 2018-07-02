@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'std-message', component: PageStdMessageComponent },
   { path: 'std-valorations', component: PageStdValorationsComponent },
   { path: 'search-homes', component: PageSearchHomesComponent },
-  { path: 'home', component: PageHomeComponent },
+  { path: 'home/:homeId', component: PageHomeComponent },
   { path: 'my-home', component: PageMyHomeComponent },
   { path: 'profile', component: PageStdProfileComponent },
   { path: 'std-profile', children: [

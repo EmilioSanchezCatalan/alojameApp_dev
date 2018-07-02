@@ -139,7 +139,11 @@ export class NavbarSimpleComponent implements OnInit {
    */
   public navigateToSearch(value: string): void {
     let queryParams = this.parseAddressToQuery(value);
-    this.__router.navigate(['/public', 'homes'], {queryParams: queryParams});
+    if (localStorage.getItem('userType') === 'public') {
+      this.__router.navigate(['/public', 'homes'], {queryParams: queryParams});
+    } else {
+      this.__router.navigate(['/private', 'student', 'search-homes'], {queryParams: queryParams});
+    }
   }
 
   /**

@@ -2,14 +2,65 @@
  * @author Emilio Sánchez Catalán <esc00019@gmail.com>
  * Purpose: show the view detail of a home in order to make a subscription
  */
-import { Component } from '@angular/core';
+ import { Component, OnInit } from '@angular/core';
+ import { ActivatedRoute } from '@angular/router';
+
+ import { HomesFull } from '../../../../interfaces/homes';
+ import { HomePublicService } from '../../../../services/home-public.service';
+ import { HomeCrudService } from '../../../../services/home-crud.service';
+ import { NotificationHttpService } from '../../../../services/notification-http.service';
 
 @Component({
   selector: 'page-home',
   templateUrl: './page-home.component.html',
-  styleUrls: ['./page-home.component.css']
+  styleUrls: ['./page-home.component.css'],
+  providers: [
+    HomePublicService,
+    HomeCrudService,
+    NotificationHttpService
+  ]
 })
-export class PageHomeComponent {
+export class PageHomeComponent implements OnInit {
 
-  constructor() { }
+  public homes_id: number;
+  public homeInfo: HomesFull;
+  public displaySpinner: boolean;
+  public isErrorLoading: boolean;
+
+  constructor(
+    private __activeRoute: ActivatedRoute,
+    private __homePublic: HomePublicService,
+    private __homeCrud: HomeCrudService,
+    private __notfHttp: NotificationHttpService
+  ) {
+    this.displaySpinner = true;
+    this.__activeRoute.params.subscribe( params => this.homes_id = params.homeId );
+
+  }
+
+  ngOnInit() {
+    this.__homePublic.getHomeFull(this.homes_id)
+      .then( response => {
+        this.displaySpinner = false;
+        this.homeInfo = response;
+      }).catch( error => {
+        this.isErrorLoading = true;
+      });
+  }
+
+  /**
+   * Send a reques of roomer to the home
+   */
+  public sendRequestHome(): void {
+    this.displaySpinner = true;
+    this.__homeCrud.subscribe(this.homes_id)
+      .then(response => {
+        this.displaySpinner = false;
+        this.__notfHttp.show(response);
+      }).catch(error => {
+        this.displaySpinner = false;
+        this.__notfHttp.show(error);
+      });
+  }
+
 }

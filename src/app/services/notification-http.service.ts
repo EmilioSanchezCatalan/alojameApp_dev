@@ -33,13 +33,21 @@ export class NotificationHttpService {
             });
             break;
         case 400:
-            Array.from(response.error.errors).forEach( (element: any) => {
-               this.__snackBar.open(element.message, 'Aceptar', {
-                   duration: 2500,
-                   verticalPosition: 'top',
-                   panelClass: 'error-validation'
-               });
-           });
+            if (response.error.errors) {
+              Array.from(response.error.errors).forEach( (element: any) => {
+                this.__snackBar.open(element.message, 'Aceptar', {
+                  duration: 2500,
+                  verticalPosition: 'top',
+                  panelClass: 'error-validation'
+                });
+              });
+            } else {
+              this.__snackBar.open(response.error.messageText, 'Aceptar', {
+                duration: 2500,
+                verticalPosition: 'top',
+                panelClass: 'error-validation'
+              });
+            }
             break;
         case 401:
           this.__snackBar.open('El nombre de usuario o contraseña son incorrectos', 'Aceptar', {

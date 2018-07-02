@@ -65,4 +65,13 @@ export class HomeCrudService {
   public delete(homes_id: number): Promise<any> {
     return this.__http.get(environment.API_URL + 'private/owner/home/delete/' + homes_id).toPromise();
   }
+
+  /**
+   * Subscribe the user at the home for be a roomer
+   * @param  {number}  homes_id id of the home to remove
+   * @return {Promise}         promise with the response of the api
+   */
+  public subscribe(homes_id: number): Promise<any> {
+    return this.__http.get(environment.API_URL + 'private/student/home/subscribe/' + homes_id).toPromise();
+  }
 }

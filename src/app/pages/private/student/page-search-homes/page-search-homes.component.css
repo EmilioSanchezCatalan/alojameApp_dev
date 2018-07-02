@@ -1,7 +1,8 @@
 .grid-homes {
   display: inline-block;
   margin-left: auto;
-  width: 65vw;
+  /* width: 65vw; with googleMaps */
+  width: 100vw;
   float: right;
   margin-top: 64px;
 }

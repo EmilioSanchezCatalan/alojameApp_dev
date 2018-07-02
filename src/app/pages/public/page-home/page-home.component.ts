@@ -3,18 +3,21 @@
  * Purpose: page detail of one home
  */
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MatDialogRef, MatDialog, MatSnackBar} from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 
 import { LoginComponent } from '../../../components/login/login.component';
 import { RegisterComponent } from '../../../components/register/register.component';
 import { HomesFull } from '../../../interfaces/homes';
+import { ErrorSimpleNotificationService } from '../../../services/error-simple-notification.service';
 import { HomePublicService } from '../../../services/home-public.service';
 
 @Component({
   selector: 'page-home',
   templateUrl: './page-home.component.html',
-  styleUrls: ['./page-home.component.css']
+  styleUrls: ['./page-home.component.css'],
+  providers: [ErrorSimpleNotificationService]
 })
 export class PageHomeComponent implements OnInit {
 
@@ -29,7 +32,9 @@ export class PageHomeComponent implements OnInit {
     private __dialog: MatDialog,
     private __snackBar: MatSnackBar,
     private __activeRoute: ActivatedRoute,
-    private __homePublic: HomePublicService
+    private __homePublic: HomePublicService,
+    private __router: Router,
+    private __errNotf: ErrorSimpleNotificationService
   ) {
     this.displaySpinner = true;
     this.__activeRoute.params.subscribe( params => this.homes_id = params.homeId );
@@ -50,13 +55,12 @@ export class PageHomeComponent implements OnInit {
   public sendRequestHome(): void {
     switch (localStorage.getItem('userType')) {
       case 'student':
+        this.__errNotf.show('No se encontraba en la sección destinada a los estudiantes, ha sido redirigido'
+          + 'y ya puede proceder a enviar la solicitud');
+        this.__router.navigate(['/private', 'student', 'home', this.homes_id]);
         break;
       case 'owner':
-        this.__snackBar.open('Los propietarios no pueden realizar una solicitud de piso', 'Aceptar', {
-          duration: 2500,
-          verticalPosition: 'top',
-          panelClass: 'error-validation'
-        });
+        this.__errNotf.show('Los propietarios no pueden realizar una solicitud de piso');
         break;
       case 'public':
         this.openLogin();
