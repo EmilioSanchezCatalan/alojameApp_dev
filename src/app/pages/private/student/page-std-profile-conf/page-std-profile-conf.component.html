@@ -1,15 +1,17 @@
-<section id="page-std-profile-conf">
+<alo-load-spinner *ngIf="displaySpinner" [error]="isErrorLoading"></alo-load-spinner>
+
+<section id="page-std-profile-conf" *ngIf="userInfo && cities && countries">
   <div class="container">
-    <alo-form-avatar></alo-form-avatar>
+    <alo-form-avatar [inputData]="userInfo"></alo-form-avatar>
   </div>
   <div class="container">
-    <alo-form-personal-info></alo-form-personal-info>
+    <alo-form-personal-info [activeResult]="showResult" (sendInfo)="getPersonalInfo($event)" [inputData]="userInfo" [countries]="countries"></alo-form-personal-info>
   </div>
   <div class="container">
-    <alo-form-std-info></alo-form-std-info>
+    <alo-form-std-info [activeResult]="showResult" (sendInfo)="getStdInfo($event)" [inputData]="userInfo" [cities]="cities"></alo-form-std-info>
   </div>
   <div class="container">
-    <alo-form-feature></alo-form-feature>
+    <alo-form-feature  [activeResult]="showResult" (sendInfo)="getStdFeatures($event)" [inputData]="userInfo" ></alo-form-feature>
   </div>
-  <alo-form-save></alo-form-save>
+  <alo-form-save (save)="triggersResult()"></alo-form-save>
 </section>

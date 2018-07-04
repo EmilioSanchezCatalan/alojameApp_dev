@@ -13,7 +13,7 @@
           <span>Fiester@</span>
         </label>
         <div class="feature-slider">
-          <mat-slider [thumbLabel]="true"></mat-slider>
+          <mat-slider [thumbLabel]="true" [(ngModel)]="inputData.Userinfo.feature_partying"></mat-slider>
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@
           <span>Ordenad@</span>
         </label>
         <div class="feature-slider">
-          <mat-slider [thumbLabel]="true"></mat-slider>
+          <mat-slider [thumbLabel]="true" [(ngModel)]="inputData.Userinfo.feature_organized"></mat-slider>
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@
           <span>Deportista</span>
         </label>
         <div class="feature-slider">
-          <mat-slider [thumbLabel]="true"></mat-slider>
+          <mat-slider [thumbLabel]="true" [(ngModel)]="inputData.Userinfo.feature_athlete"></mat-slider>
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@
           <span>Friki</span>
         </label>
         <div class="feature-slider">
-          <mat-slider [thumbLabel]="true"></mat-slider>
+          <mat-slider [thumbLabel]="true" [(ngModel)]="inputData.Userinfo.feature_geek"></mat-slider>
         </div>
       </div>
     </div>
@@ -57,7 +57,7 @@
           <span>Sociable</span>
         </label>
         <div class="feature-slider">
-          <mat-slider [thumbLabel]="true"></mat-slider>
+          <mat-slider [thumbLabel]="true" [(ngModel)]="inputData.Userinfo.feature_sociable"></mat-slider>
         </div>
       </div>
     </div>
@@ -68,7 +68,7 @@
           <span>Activ@</span>
         </label>
         <div class="feature-slider">
-          <mat-slider [thumbLabel]="true"></mat-slider>
+          <mat-slider [thumbLabel]="true" [(ngModel)]="inputData.Userinfo.feature_active"></mat-slider>
         </div>
       </div>
     </div>
@@ -78,7 +78,7 @@
       <h4>Un poco acerca de mí</h4>
     </header>
     <div class="col-md-12">
-      <textarea></textarea>
+      <textarea [(ngModel)]="inputData.Userinfo.description"></textarea>
     </div>
   </article>
 </section>

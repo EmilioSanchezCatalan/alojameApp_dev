@@ -3,8 +3,9 @@
  * Purpose: view the profile of a student
  */
 import { Component, Input } from '@angular/core';
-
 import { Router } from '@angular/router';
+
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'alo-user-basic-info',
@@ -14,6 +15,8 @@ import { Router } from '@angular/router';
 export class UserBasicInfoComponent {
 
   @Input() function: string;
+  @Input() user: User;
+
   constructor(
     private __router: Router
   ) {

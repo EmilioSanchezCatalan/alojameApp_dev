@@ -47,7 +47,7 @@ export class PageOwnProfileConfComponent {
       ownerInfo: false
     };
     Promise.all([
-      this.__userCrud.getCurrentUser(),
+      this.__userCrud.getCurrentUserOwner(),
       this.__publicData.getListCountries(),
       this.__publicData.getListCities()
     ]).then(response => {
@@ -62,6 +62,7 @@ export class PageOwnProfileConfComponent {
 
   /**
    * Get the personal info emmit by the component
+   * @param {User} event the user information updated
    */
   public getPersonalInfo(event: User): void {
     if (event.email && event.Userinfo.name && event.Userinfo.surname && event.Userinfo.birthdate) {
@@ -75,6 +76,7 @@ export class PageOwnProfileConfComponent {
 
   /**
    * Get the personal info emmit by the component
+   * @param {User} event the user information updated
    */
   public getOwnerInfo(event: User): void {
     this.userInfo = event;
@@ -95,7 +97,7 @@ export class PageOwnProfileConfComponent {
   public saveProfileInfo(): void {
     this.showResult = false;
     if (this.ready.ownerInfo === true && this.ready.personalInfo === true) {
-      this.__userCrud.sendProfileInf(this.userInfo)
+      this.__userCrud.sendProfileInfOwner(this.userInfo)
         .then(response => {
           this.showResult = false;
           this.ready = {

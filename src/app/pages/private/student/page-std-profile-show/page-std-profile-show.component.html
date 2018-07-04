@@ -1,6 +1,8 @@
-<section id="page-std-profile-show">
+<alo-load-spinner *ngIf="displaySpinner" [error]="isErrorLoading"></alo-load-spinner>
+
+<section id="page-std-profile-show" *ngIf="userInfo">
   <article class="container">
-    <alo-user-basic-info [function]="'edit'"></alo-user-basic-info>
+    <alo-user-basic-info [function]="'edit'" [user]="userInfo"></alo-user-basic-info>
   </article>
   <article class="container">
     <alo-user-valorations></alo-user-valorations>

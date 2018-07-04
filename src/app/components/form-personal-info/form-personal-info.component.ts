@@ -20,6 +20,7 @@ export class FormPersonalInfoComponent implements AfterContentInit, OnChanges {
   @Input() countries: Array<BasicTable>;
   @Input() activeResult: boolean;
   @Output() sendInfo: EventEmitter<any>;
+  @Input() noPassChange: boolean;
 
   public yearsList: Array<number>;
   public birthDay: { year: number; month: number; day: number; };
@@ -33,6 +34,7 @@ export class FormPersonalInfoComponent implements AfterContentInit, OnChanges {
     };
     this.dateGenerate();
     this.sendInfo = new EventEmitter();
+    this.noPassChange = localStorage.getItem('userType') === 'student' ? true : false;
   }
 
   ngOnChanges() {
@@ -55,10 +57,16 @@ export class FormPersonalInfoComponent implements AfterContentInit, OnChanges {
    * Parse the birthDay date to select format
    */
   public parseBirthdateToSelect(): void {
-    let date = new Date(this.inputData.Userinfo.birthdate);
-    this.birthDay.month = date.getMonth();
-    this.birthDay.day = date.getDate();
-    this.birthDay.year = date.getFullYear();
+    if (this.inputData.Userinfo.birthdate) {
+      let date = new Date(this.inputData.Userinfo.birthdate);
+      this.birthDay.month = date.getMonth();
+      this.birthDay.day = date.getDate();
+      this.birthDay.year = date.getFullYear();
+    } else {
+      this.birthDay.month = null;
+      this.birthDay.day = null;
+      this.birthDay.year = null;
+    }
   }
 
   /**

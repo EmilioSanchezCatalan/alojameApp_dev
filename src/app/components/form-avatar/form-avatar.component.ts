@@ -3,7 +3,7 @@
  * Purpose: form with an avatar img
  */
 import { Component, Input } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
 
 import { PopupImgUploadComponent } from '../popup-img-upload/popup-img-upload.component';
 import { UserCrudService } from '../../services/user-crud.service';
@@ -35,17 +35,29 @@ export class FormAvatarComponent {
      * Open a popup for upload the img
      */
     public openImgUploader(): void {
-      this.popupImgUpload = this.__dialog.open(PopupImgUploadComponent);
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = localStorage.getItem('userType') === 'owner' ? 'owner' : 'student';
+      this.popupImgUpload = this.__dialog.open(PopupImgUploadComponent, dialogConfig);
       this.popupImgUpload.afterClosed().subscribe(
         response => {
           if (response) {
             this.inputData.Userinfo.UserPicture = response;
-            this.__userCrud.addImgToProfile(response.id)
-              .then(response2 => {
-                this.__notfHttp.show(response2);
-              }).catch(error => {
-                this.__notfHttp.show(error);
-              });
+            if (localStorage.getItem('userType') === 'owner') {
+              this.__userCrud.addImgToProfileOwner(response.id)
+                .then(response2 => {
+                  this.__notfHttp.show(response2);
+                }).catch(error => {
+                  this.__notfHttp.show(error);
+                });
+            }
+            if (localStorage.getItem('userType') === 'student') {
+              this.__userCrud.addImgToProfileStd(response.id)
+                .then(response2 => {
+                  this.__notfHttp.show(response2);
+                }).catch(error => {
+                  this.__notfHttp.show(error);
+                });
+            }
           }
         }
       );

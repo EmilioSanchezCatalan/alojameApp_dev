@@ -73,8 +73,20 @@ export class PopupImgUploadComponent {
               this.__errorNotif.show('Lo sentimos ha ocurrido un error en la carga de la imagen, vuelva a intentarlo');
               this.closePopup();
             });
-        } else {
-          this.__userCrud.sendImgProfile(img)
+        }
+        if (this.data === 'owner') {
+          this.__userCrud.sendImgProfileOwner(img)
+            .then( (result) => {
+              this.isLoadingImg = false;
+              this.imgUpload = result;
+            }).catch( (error) => {
+              this.isLoadingImg = false;
+              this.__errorNotif.show('Lo sentimos ha ocurrido un error en la carga de la imagen, vuelva a intentarlo');
+              this.closePopup();
+            });
+        }
+        if (this.data === 'student') {
+          this.__userCrud.sendImgProfileStd(img)
             .then( (result) => {
               this.isLoadingImg = false;
               this.imgUpload = result;
