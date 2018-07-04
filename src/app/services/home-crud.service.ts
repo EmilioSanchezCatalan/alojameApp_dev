@@ -74,4 +74,21 @@ export class HomeCrudService {
   public subscribe(homes_id: number): Promise<any> {
     return this.__http.get(environment.API_URL + 'private/student/home/subscribe/' + homes_id).toPromise();
   }
+
+  /**
+   * Get all the homes witch the user is subscribed
+   * @return {Promise}      promise with the response of the api
+   */
+  public getHomeSubscribed(): Promise<any> {
+    return this.__http.get(environment.API_URL + 'private/student/home/homes-subscribed').toPromise();
+  }
+
+  /**
+   * Desubcribed the user at the home selected
+   * @param  {number}  homes_id id of the home to remove
+   * @return {Promise}      promise with the response of the api
+   */
+  public desubscribed(homes_id: number): Promise<any> {
+    return this.__http.get(environment.API_URL + 'private/student/home/homes-desubscribed/' + homes_id).toPromise();
+  }
 }

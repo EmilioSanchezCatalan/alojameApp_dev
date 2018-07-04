@@ -90,7 +90,7 @@
     <div id="f-crud" *ngIf="function === 'subs'">
       <div class="btn-group" role="group">
         <button type="button" class="btn btn-default" (click)="gotoShowHome(home.id)"><i class="fa fa-eye" aria-hidden="true"></i></button>
-        <button type="button" class="btn btn-default"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        <button type="button" class="btn btn-default" (click)="desubscibeHome(home.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
       </div>
     </div>
   </div>

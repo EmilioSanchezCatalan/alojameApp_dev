@@ -76,7 +76,7 @@ export class CardHomeComponent implements AfterViewInit {
     if (this.function === 'crud') {
       this.__router.navigate(['private/owner', 'own-home', 'show', homes_id]);
     } else {
-      this.__router.navigate(['private/student', 'std-home']);
+      this.__router.navigate(['private/student', 'std-home', homes_id]);
     }
   }
 
@@ -97,7 +97,7 @@ export class CardHomeComponent implements AfterViewInit {
 
   /**
    * Remove the home.
-   * @param homes_id [description]
+   * @param {number} homes_id id of the home selected
    */
   public deleteHome(homes_id: number): void {
     let confirmation = confirm('¿Esta usted seguro que desea borrar este piso?');
@@ -107,6 +107,23 @@ export class CardHomeComponent implements AfterViewInit {
           this.__notfHttp.show(response);
           this.removed.emit();
         }).catch ( error => {
+          this.__notfHttp.show(error);
+        });
+    }
+  }
+
+  /**
+   * Desubscribe the home a delte from the list
+   * @param {number} homes_id id of the home selected
+   */
+  public desubscibeHome(homes_id: number): void {
+    let confirmation = confirm('¿Esta usted seguro que desea borrar este piso?');
+    if (confirmation) {
+      this.__homeCrud.desubscribed(homes_id)
+        .then(response => {
+          this.__notfHttp.show(response);
+          this.removed.emit();
+        }).catch(error => {
           this.__notfHttp.show(error);
         });
     }

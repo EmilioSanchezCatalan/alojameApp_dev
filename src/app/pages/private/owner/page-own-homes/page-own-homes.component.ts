@@ -2,7 +2,7 @@
  * @author Emilio Sánchez Catalán <esc00019@gmail.com>
  * Purpose: show all the home of the owner and allow him to create, edit, delete, etc.
  */
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { HomeCrudService } from '../../../../services/home-crud.service';
 import { NotificationHttpService } from '../../../../services/notification-http.service';
@@ -43,7 +43,6 @@ export class PageOwnHomesComponent {
         this.displaySpinner = false;
         this.listHomes = response;
       }).catch( () => {
-        this.displaySpinner = false;
         this.isErrorLoading = true;
       });
   }

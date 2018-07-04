@@ -21,7 +21,7 @@ import { PageLoginSuccessComponent } from './page-login-success/page-login-succe
 const routes: Routes = [
   { path: '', redirectTo: 'subs-homes', pathMatch: 'full'},
   { path: 'subs-homes', component: PageSubsHomesComponent },
-  { path: 'std-home', component: PageStdHomeComponent },
+  { path: 'std-home/:homeId', component: PageStdHomeComponent },
   { path: 'std-messages', component: PageStdMessagesComponent },
   { path: 'std-message', component: PageStdMessageComponent },
   { path: 'std-valorations', component: PageStdValorationsComponent },
