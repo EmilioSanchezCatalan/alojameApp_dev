@@ -15,23 +15,25 @@ import { PageOwnMessageComponent } from './page-own-message/page-own-message.com
 import { PageOwnValorationsComponent } from './page-own-valorations/page-own-valorations.component';
 import { PageOwnProfileConfComponent } from './page-own-profile-conf/page-own-profile-conf.component';
 import { PageOwnProfileShowComponent } from './page-own-profile-show/page-own-profile-show.component';
+import { PageProfileShowComponent } from './page-profile-show/page-profile-show.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'own-homes', pathMatch: 'full'},
   { path: 'own-homes', component: PageOwnHomesComponent },
   { path: 'own-home', children: [
     { path: 'show/:homeId', component: PageOwnHomeComponent },
-    { path: 'students', component: PageOwnHomeStudentsComponent },
+    { path: 'students/:homeId', component: PageOwnHomeStudentsComponent },
     { path: 'create', component: PageOwnHomeCreateComponent },
     { path: 'edit/:homeId', component: PageOwnHomeEditComponent }
   ]},
   { path: 'own-messages', component: PageOwnMessagesComponent },
-  { path: 'own-message', component: PageOwnMessageComponent },
+  { path: 'own-message/:userId', component: PageOwnMessageComponent },
   { path: 'own-valorations', component: PageOwnValorationsComponent },
   { path: 'own-profile', children: [
-    { path: 'configuration', component: PageOwnProfileConfComponent },
+    { path: 'show', component: PageOwnProfileShowComponent},
+    { path: 'configuration', component: PageOwnProfileConfComponent }
   ]},
-  { path: 'std-profile', component: PageOwnProfileShowComponent }
+  { path: 'std-profile/show/:userId', component: PageProfileShowComponent }
 ];
 
 @NgModule({

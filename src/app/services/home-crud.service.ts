@@ -91,4 +91,65 @@ export class HomeCrudService {
   public desubscribed(homes_id: number): Promise<any> {
     return this.__http.get(environment.API_URL + 'private/student/home/homes-desubscribed/' + homes_id).toPromise();
   }
+
+  /**
+   * get the list of users that was been subscribe to the home selected
+   * @param {number}   homes_id id of the home selected
+   * @return {Promise}          Promise with the response of the api
+   */
+  public getSubscribedUsers(homes_id: number): Promise<any> {
+    return this.__http.get(environment.API_URL + 'private/owner/home/subscribed-users/' + homes_id).toPromise();
+  }
+
+  /**
+   * get the list of user that are roomers of the home selected
+   * @param {number}   homes_id id of the home selected
+   * @return {Promise}          Promise with the response of the api
+   */
+  public getRoomerUsers(homes_id: number): Promise<any> {
+    if (localStorage.getItem('userType') === 'owner') {
+      return this.__http.get(environment.API_URL + 'private/owner/home/roomers-users/' + homes_id).toPromise();
+    } else {
+      return this.__http.get(environment.API_URL + 'private/student/home/roomers-users/' + homes_id).toPromise();
+    }
+  }
+
+  /**
+   * Add a roomer from the subscribe user list
+   * @param {number}   homes_id id of the home selected
+   * @param {number}   users_id id of the user selected
+   * @return {Promise}          Promise with the response of the api
+   */
+  public addRoomer(homes_id: number, users_id: number): Promise<any> {
+    return this.__http.get(environment.API_URL + 'private/owner/home/add-roomer/' + homes_id + ',' + users_id).toPromise();
+  }
+
+  /**
+   * Remove a user from the roomer user list
+   * @param {number}   homes_id id of the home selected
+   * @param {number}   users_id id of the user selected
+   * @return {Promise}          Promise with the response of the api
+   */
+  public rmRoomer(homes_id: number, users_id: number): Promise<any> {
+    return this.__http.get(environment.API_URL + 'private/owner/home/rm-roomer/' + homes_id + ',' + users_id).toPromise();
+  }
+
+  /**
+   * Remove a user from the subscribe user list
+   * @param {number}   homes_id id of the home selected
+   * @param {number}   users_id id of the user selected
+   * @return {Promise}          Promise with the response of the api
+   */
+  public rmSubscription(homes_id: number, users_id: number): Promise<any> {
+    return this.__http.get(environment.API_URL + 'private/owner/home/rm-subscription/' + homes_id + ',' + users_id).toPromise();
+  }
+
+  /**
+   * Get the home of the current user
+   * @return {Promise}          Promise with the response of the api
+   */
+  public getCurrentHome(): Promise<any> {
+    return this.__http.get(environment.API_URL + 'private/student/home/my-home').toPromise();
+  }
+
 }

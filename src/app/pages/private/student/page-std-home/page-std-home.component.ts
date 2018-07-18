@@ -2,13 +2,14 @@
  * @author Emilio Sánchez Catalán <esc00019@gmail.com>
  * Purpose: show the view detail of a home
  */
- import { Component, OnInit } from '@angular/core';
- import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
- import { HomesFull } from '../../../../interfaces/homes';
- import { HomePublicService } from '../../../../services/home-public.service';
- import { HomeCrudService } from '../../../../services/home-crud.service';
- import { NotificationHttpService } from '../../../../services/notification-http.service';
+import { HomesFull } from '../../../../interfaces/homes';
+import { HomePublicService } from '../../../../services/home-public.service';
+import { HomeCrudService } from '../../../../services/home-crud.service';
+import { NotificationHttpService } from '../../../../services/notification-http.service';
+import { User } from '../../../../interfaces/user';
 
 @Component({
   selector: 'page-home',
@@ -26,6 +27,7 @@ export class PageStdHomeComponent implements OnInit {
   public homeInfo: HomesFull;
   public displaySpinner: boolean;
   public isErrorLoading: boolean;
+  public listRoomers: Array<User>;
 
   constructor(
     private __activeRoute: ActivatedRoute,
@@ -39,10 +41,14 @@ export class PageStdHomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.__homePublic.getHomeFull(this.homes_id)
+    Promise.all([
+      this.__homeCrud.getRoomerUsers(this.homes_id),
+      this.__homePublic.getHomeFull(this.homes_id)
+    ])
       .then( response => {
         this.displaySpinner = false;
-        this.homeInfo = response;
+        this.listRoomers = response[0];
+        this.homeInfo = response[1];
       }).catch( error => {
         this.isErrorLoading = true;
       });

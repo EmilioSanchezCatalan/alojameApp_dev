@@ -27,13 +27,22 @@ export class UserBasicInfoComponent {
    * Go to the page edit profile
    */
   public gotoEditProfile(): void {
-    this.__router.navigate(['private', 'student', 'std-profile', 'configuration']);
+    if (localStorage.getItem('userType') === 'student') {
+      this.__router.navigate(['private', 'student', 'std-profile', 'configuration']);
+    } else if (localStorage.getItem('userType') === 'owner') {
+      this.__router.navigate(['private', 'owner', 'own-profile', 'configuration']);
+    }
   }
 
   /**
    * Open a chat with the user
+   * @param {number} users_id id of the user selected
    */
-  public gotoChatUser(): void {
-    this.__router.navigate(['private', 'student', 'std-message']);
+  public gotoChatUser(users_id: number): void {
+    if (localStorage.getItem('userType') === 'student') {
+      this.__router.navigate(['private', 'student', 'std-message', users_id]);
+    } else if (localStorage.getItem('userType') === 'owner') {
+      this.__router.navigate(['private', 'owner', 'own-message', users_id]);
+    }
   }
 }

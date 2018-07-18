@@ -23,12 +23,12 @@ const routes: Routes = [
   { path: 'subs-homes', component: PageSubsHomesComponent },
   { path: 'std-home/:homeId', component: PageStdHomeComponent },
   { path: 'std-messages', component: PageStdMessagesComponent },
-  { path: 'std-message', component: PageStdMessageComponent },
+  { path: 'std-message/:userId', component: PageStdMessageComponent },
   { path: 'std-valorations', component: PageStdValorationsComponent },
   { path: 'search-homes', component: PageSearchHomesComponent },
   { path: 'home/:homeId', component: PageHomeComponent },
   { path: 'my-home', component: PageMyHomeComponent },
-  { path: 'profile', component: PageStdProfileComponent },
+  { path: 'profile/show/:userId', component: PageStdProfileComponent },
   { path: 'std-profile', children: [
     { path: 'show', component: PageStdProfileShowComponent },
     { path: 'configuration', component: PageStdProfileConfComponent }

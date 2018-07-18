@@ -1,5 +1,7 @@
+<alo-load-spinner *ngIf="displaySpinner" [error]="isErrorLoading"></alo-load-spinner>
+
 <section id="page-own-message">
-  <div class="container">
-    <alo-chat-message></alo-chat-message>
+  <div class="container" *ngIf="userInfo && listMessages">
+    <alo-chat-message [listMessages]="listMessages" [user]="userInfo" (change)="getUserMessages()"></alo-chat-message>
   </div>
 </section>

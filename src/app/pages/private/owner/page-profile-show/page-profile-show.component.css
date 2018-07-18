@@ -1,0 +1,5 @@
+#page-profile-show { margin-top: 100px; }
+
+#page-profile-show > * {
+  margin-bottom: 20px;
+}

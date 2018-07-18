@@ -9,90 +9,51 @@
         <th></th>
         <th>Nombre</th>
         <th>E-mail</th>
-        <th></th>
+        <th>Telefono</th>
+        <th>Genero</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>
-          <div class="user-avatar">
-            <img src="http://www.mycustomer.com/sites/all/themes/pp/img/default-user.png"/>
-          </div>
-        </td>
-        <td>
-          <div>
-            Emilio Sánchez Catalan
-          </div>
-        </td>
-        <td>esc00019@gmail.com</td>
-        <td>
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><i class="fa fa-eye" aria-hidden="true"></i></button>
-            <button type="button" class="btn btn-default"><i class="fa fa-comment-o" aria-hidden="true"></i></button>
-            <button type="button" class="btn btn-default"><i class="fa fa-minus" aria-hidden="true"></i></button>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="user-avatar">
-            <img src="http://www.mycustomer.com/sites/all/themes/pp/img/default-user.png"/>
-          </div>
-        </td>
-        <td>
-          <div>
-            Emilio Sánchez Catalan
-          </div>
-        </td>
-        <td>esc00019@gmail.com</td>
-        <td>
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><i class="fa fa-eye" aria-hidden="true"></i></button>
-            <button type="button" class="btn btn-default"><i class="fa fa-comment-o" aria-hidden="true"></i></button>
-            <button type="button" class="btn btn-default"><i class="fa fa-minus" aria-hidden="true"></i></button>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="user-avatar">
-            <img src="http://www.mycustomer.com/sites/all/themes/pp/img/default-user.png"/>
-          </div>
-        </td>
-        <td>
-          <div>
-            Emilio Sánchez Catalan
-          </div>
-        </td>
-        <td>esc00019@gmail.com</td>
-        <td>
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><i class="fa fa-eye" aria-hidden="true"></i></button>
-            <button type="button" class="btn btn-default"><i class="fa fa-comment-o" aria-hidden="true"></i></button>
-            <button type="button" class="btn btn-default"><i class="fa fa-minus" aria-hidden="true"></i></button>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="user-avatar">
-            <img src="http://www.mycustomer.com/sites/all/themes/pp/img/default-user.png"/>
-          </div>
-        </td>
-        <td>
-          <div>
-            Emilio Sánchez Catalan
-          </div>
-        </td>
-        <td>esc00019@gmail.com</td>
-        <td>
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><i class="fa fa-eye" aria-hidden="true"></i></button>
-            <button type="button" class="btn btn-default"><i class="fa fa-comment-o" aria-hidden="true"></i></button>
-            <button type="button" class="btn btn-default"><i class="fa fa-minus" aria-hidden="true"></i></button>
-          </div>
-        </td>
-      </tr>
+    <tbody *ngIf="listUsers">
+      <ng-container *ngFor="let user of listUsers">
+        <tr>
+          <td>
+            <div class="user-avatar">
+              <img *ngIf="!user.Userinfo.UserPicture" src="assets/img/no_img_user.jpg"/>
+              <img *ngIf="user.Userinfo.UserPicture" [src]="user.Userinfo.UserPicture.url"/>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="user.Userinfo.name">
+              {{user.Userinfo.name}} {{user.Userinfo.surname}}
+            </div>
+            <div *ngIf="!user.Userinfo.name">
+              {{user.username}}
+            </div>
+          </td>
+          <td>
+            <div *ngIf="user.email">
+              {{user.email}}
+            </div>
+          </td>
+          <td>
+            <div *ngIf="user.Userinfo.phone">
+              {{user.Userinfo.phone}}
+            </div>
+          </td>
+          <td>
+            <div *ngIf="user.Userinfo.gender">
+              {{user.Userinfo.gender}}
+            </div>
+          </td>
+          <td>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default" (click)="gotoUserProfile(user.id)"><i class="fa fa-eye" aria-hidden="true"></i></button>
+              <button type="button" class="btn btn-default" (click)="gotoSendMessage(user.id)"><i class="fa fa-comment-o" aria-hidden="true"></i></button>
+              <button type="button" class="btn btn-default" (click)="rmUserLikeRoomer(user.id)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
     </tbody>
   </table>
 

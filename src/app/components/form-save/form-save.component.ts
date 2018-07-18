@@ -31,7 +31,7 @@ export class FormSaveComponent {
         this.__router.navigate(['private', 'student', 'std-profile', 'show']);
         break;
       case 'owner':
-        this.__router.navigate(['private', 'owner', 'own-homes']);
+        this.__router.navigate(['private', 'owner', 'own-profile', 'show']);
         break;
     }
 

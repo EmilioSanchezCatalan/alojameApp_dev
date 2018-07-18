@@ -1,16 +1,18 @@
-<section id="page-my-home">
+<alo-load-spinner *ngIf="displaySpinner" [error]="isErrorLoading"></alo-load-spinner>
+
+<section id="page-my-home" *ngIf="homeInfo && listRoomers">
   <header>
-    <gallery-show></gallery-show>
+    <gallery-show [listImgs]="homeInfo.HomePictures"></gallery-show>
   </header>
 
   <!-- Home description -->
   <article class="container">
-    <alo-home-details></alo-home-details>
+    <alo-home-details [homeInfo]="homeInfo"></alo-home-details>
   </article>
 
   <!-- List of Roomers -->
   <article class="container">
-    <alo-roomer-details></alo-roomer-details>
+    <alo-roomer-details [listRoomers]="listRoomers"></alo-roomer-details>
   </article>
 
   <!-- Home valoration -->
@@ -18,8 +20,5 @@
     <alo-home-valorations></alo-home-valorations>
   </article>
 
-  <alo-subscribe-bar [subscribe]="false"></alo-subscribe-bar>
+  <alo-subscribe-bar (action)="leaveHome(homeInfo.id)" [subscribe]="false" [price]="homeInfo.price"></alo-subscribe-bar>
 </section>
-<footer style="background-color: rgba(0, 0, 0, 0.63); height: 30px; width: 100%;">
-
-</footer>

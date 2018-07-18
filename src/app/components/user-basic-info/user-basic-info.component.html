@@ -11,11 +11,12 @@
         {{user.email}}
       </span>
       <button (click)="gotoEditProfile()" *ngIf="function === 'edit'" class="btn btn-orange"><i class="fa fa-pencil" aria-hidden="true"></i>Editar</button>
-      <button (click)="gotoChatUser()" *ngIf="function === 'chat'" class="btn btn-default"><i class="fa fa-comment-o" aria-hidden="true"></i>Mensaje</button>
+      <button (click)="gotoChatUser(user.id)" *ngIf="function === 'chat'" class="btn btn-default"><i class="fa fa-comment-o" aria-hidden="true"></i>Mensaje</button>
     </div>
   </header>
-  <hr>
-  <article class="row">
+  <hr *ngIf="user.usergroups_id === 3">
+  <!-- User group student is the three -->
+  <article class="row" *ngIf="user.usergroups_id === 3">
     <div id="user-description" class="col-md-6">
       <header>
         Descripción

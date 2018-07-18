@@ -62,6 +62,7 @@
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  overflow-y: scroll;
 }
   .message-unit {
     background-color: white;
@@ -72,7 +73,8 @@
     box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, .1);
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;  
+    flex-wrap: nowrap;
+    margin-bottom: 5px;
   }
 
     .message-dest {

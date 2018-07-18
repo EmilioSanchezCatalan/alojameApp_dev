@@ -80,4 +80,43 @@ export class UserCrudService {
   public addImgToProfileStd(pictures_id: number) {
     return this.__http.post(environment.API_URL + 'private/student/user/addImg', { pictures_id: pictures_id }).toPromise();
   }
+
+  /**
+   * get user public information
+   * @param {number}   users_id id of the user selected
+   * @return {Promise}          Promise with the response of the api
+   */
+  public getUserInfo(users_id: number): Promise<any> {
+    if (localStorage.getItem('userType') === 'owner') {
+      return this.__http.get(environment.API_URL + 'private/owner/user/profile-user/' + users_id).toPromise();
+    } else {
+      return this.__http.get(environment.API_URL + 'private/student/user/user-profile/' + users_id).toPromise();
+    }
+  }
+
+  /**
+   * the conversation between the current user and the user selected
+   * @param {number}   users_id id of the user selected
+   * @return {Promise}          Promise with the response of the api
+   */
+  public getUserConversation(users_id: number): Promise<any> {
+    if (localStorage.getItem('userType') === 'owner') {
+      return this.__http.get(environment.API_URL + 'private/owner/user/conversation-user/' + users_id).toPromise();
+    } else {
+      return this.__http.get(environment.API_URL + 'private/student/user/conversation-user/' + users_id).toPromise();
+    }
+  }
+
+  /**
+   * Send a message to the user selected
+   * @param {number}   users_id id of the user selected
+   * @return {Promise}          Promise with the response of the api
+   */
+  public sendMessage(message: string, users_id: number): Promise<any> {
+    if (localStorage.getItem('userType') === 'owner') {
+      return this.__http.post(environment.API_URL + 'private/owner/user/send-message/' + users_id, {message: message}).toPromise();
+    } else {
+      return this.__http.post(environment.API_URL + 'private/student/user/send-message/' + users_id, {message: message}).toPromise();
+    }
+  }
 }

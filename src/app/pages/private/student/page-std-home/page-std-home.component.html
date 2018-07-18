@@ -1,6 +1,6 @@
 <alo-load-spinner *ngIf="displaySpinner" [error]="isErrorLoading"></alo-load-spinner>
 
-<section id="page-std-home" *ngIf="homeInfo">
+<section id="page-std-home" *ngIf="homeInfo && listRoomers">
   <header>
     <gallery-show [listImgs]="homeInfo.HomePictures"></gallery-show>
   </header>
@@ -12,7 +12,7 @@
 
   <!-- List of Roomers -->
   <article class="container">
-    <alo-roomer-details></alo-roomer-details>
+    <alo-roomer-details [listRoomers]="listRoomers"></alo-roomer-details>
   </article>
 
   <!-- Home valoration -->

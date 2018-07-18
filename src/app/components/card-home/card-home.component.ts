@@ -82,9 +82,10 @@ export class CardHomeComponent implements AfterViewInit {
 
   /**
    * Navigate to the view students for make the control of the roomers
+   * @param {number} homes_id id of the home to edit
    */
-  public gotoStudentsHome(): void {
-    this.__router.navigate(['private/owner', 'own-home', 'students']);
+  public gotoStudentsHome(homes_id: number): void {
+    this.__router.navigate(['private/owner', 'own-home', 'students', homes_id]);
   }
 
   /**

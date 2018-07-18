@@ -1,20 +1,26 @@
+<alo-load-spinner *ngIf="displaySpinner" [error]="isErrorLoading"></alo-load-spinner>
+
 <!-- Section Chat message -->
-<section id="chat-message">
+<section id="chat-message" *ngIf="listMessages && user">
 
   <!-- Header of the chat -->
   <header>
 
     <!-- Avatar image user -->
     <div class="user-avatar">
-      <img src="http://www.carmovasconcelos-fenix.org/Escritores/EMILIO-SANCHEZ-FERNANDES/EmilioSanchezFdez1985.jpg">
+      <img *ngIf="!user.Userinfo.UserPicture" src="assets/img/no_img_user.jpg">
+      <img *ngIf="user.Userinfo.UserPicture" [src]="user.Userinfo.UserPicture.url">
     </div>
 
     <!-- Name of the user -->
     <div id="username">
-      <span>
-        Emilio Sánchez Catalan
+      <span *ngIf="!user.Userinfo.name_private">
+        {{user.Userinfo.name}} {{user.Userinfo.surname}}
       </span>
-      <span>
+      <span *ngIf="user.Userinfo.name_private">
+        {{user.username}}
+      </span>
+      <span (click)="refresh()">
         Actualizar mensajes
         <i class="fa fa-refresh" aria-hidden="true"></i>
       </span>
@@ -34,21 +40,25 @@
 
     <!-- All the messages of the users -->
     <div id="chat-container">
-      <span class="message-unit message-dest">
-        <span class="message-user">Emilio</span>
-        <span class="message-text">Esto es un menssage del destinatario</span>
-      </span>
-      <span class="message-unit message-send">
-        <span class="message-user">Yo</span>
-        <span class="message-text">Esto es un menssage del receptor</span>
-      </span>
+      <ng-container *ngFor="let message of listMessages">
+        <span class="message-unit message-dest" [class.message-dest]="user.id === message.users_send" [class.message-send]="user.id === message.users_recv">
+          <span class="message-user" *ngIf="message.users_send === user.id">
+            <ng-container *ngIf="user.Userinfo.name_private">{{user.username}}</ng-container>
+            <ng-container *ngIf="!user.Userinfo.name_private">{{user.Userinfo.name}} {{user.Userinfo.surname}}</ng-container>
+          </span>
+          <span class="message-user" *ngIf="message.users_recv === user.id">
+            Yo
+          </span>
+          <span class="message-text">{{message.message}}</span>
+        </span>
+      </ng-container>
     </div>
 
     <!-- Tools for send messages -->
     <footer id="chat-input">
       <div>
-        <input type="text" />
-        <button class="btn btn-orange">Enviar</button>
+        <input type="text" [(ngModel)]="message"/>
+        <button class="btn btn-orange" (click)="sendMessage()">Enviar</button>
       </div>
     </footer>
   </article>

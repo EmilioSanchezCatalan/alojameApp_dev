@@ -1,32 +1,32 @@
-/**
- * @author Emilio Sánchez Catalán <esc00019@gmail.com>
- * Purpose: view the list of profile of stdents
- */
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { UserCrudService } from '../../../../services/user-crud.service';
 import { User } from '../../../../interfaces/user';
 
 @Component({
-  selector: 'page-own-profile-show',
-  templateUrl: './page-own-profile-show.component.html',
-  styleUrls: ['./page-own-profile-show.component.css'],
+  selector: 'page-profile-show',
+  templateUrl: './page-profile-show.component.html',
+  styleUrls: ['./page-profile-show.component.css'],
   providers: [
     UserCrudService
   ]
 })
-export class PageOwnProfileShowComponent {
+export class PageProfileShowComponent {
 
   public userInfo: User;
   public isErrorLoading: boolean;
   public displaySpinner: boolean;
+  public users_id: number;
 
   constructor(
-    private __userCrud: UserCrudService
+    private __userCrud: UserCrudService,
+    private __activeRoute: ActivatedRoute
   ) {
     this.isErrorLoading = false;
     this.displaySpinner = true;
-    this.__userCrud.getCurrentUserOwner()
+    this.__activeRoute.params.subscribe( params => this.users_id = params['userId']);
+    this.__userCrud.getUserInfo(this.users_id)
       .then(response => {
         this.userInfo = response;
         this.displaySpinner = false;
@@ -34,4 +34,5 @@ export class PageOwnProfileShowComponent {
         this.isErrorLoading = true;
       });
   }
+
 }

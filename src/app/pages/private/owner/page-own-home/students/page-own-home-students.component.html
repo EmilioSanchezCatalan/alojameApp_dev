@@ -1,8 +1,10 @@
-<section id="page-students">
+<alo-load-spinner *ngIf="displaySpinner" [error]="isErrorLoading"></alo-load-spinner>
+
+<section id="page-students" *ngIf="listRoomers && listSubscribers">
   <article class="container">
-    <alo-roomers-control></alo-roomers-control>
+    <alo-roomers-control [listUsers]="listRoomers" (change)="getUsersLists()"></alo-roomers-control>
   </article>
   <article class="container">
-    <alo-roomers-request></alo-roomers-request>
+    <alo-roomers-request [listUsers]="listSubscribers" (change)="getUsersLists()"></alo-roomers-request>
   </article>
 </section>

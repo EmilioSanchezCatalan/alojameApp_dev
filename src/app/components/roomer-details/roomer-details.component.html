@@ -3,62 +3,34 @@
     <h2>Inquilinos</h2>
   </header>
 
-  <article id="table-roomers">
-    <div class="row-user">
-      <div class="user-avatar">
-        <img src="http://www.mycustomer.com/sites/all/themes/pp/img/default-user.png" />
+  <article id="table-roomers" *ngIf="listRoomers">
+    <ng-container *ngFor="let roomer of listRoomers">
+      <div class="row-user">
+        <div class="user-avatar">
+          <img *ngIf="!roomer.Userinfo.UserPicture" src="assets/img/no_img_user.jpg" />
+          <img *ngIf="roomer.Userinfo.UserPicture" [src]="roomer.Userinfo.UserPicture.url" />
+        </div>
+        <div class="user-name">
+          <ng-container *ngIf="!roomer.Userinfo.name_private">
+            <span class="label-mail">nombre:</span> {{roomer.Userinfo.name}} {{roomer.Userinfo.surname}}
+          </ng-container>
+          <ng-container *ngIf="roomer.Userinfo.name_private">
+            <span class="label-mail">nombre:</span> {{roomer.username}}
+          </ng-container>
+        </div>
+        <div class="user-mail" *ngIf="roomer.email">
+          <span class="label-mail">e-mail:</span> {{roomer.email}}
+        </div>
+        <div class="user-mail" *ngIf="roomer.Userinfo.phone">
+          <span class="label-mail">tlf:</span> {{roomer.phone}}
+        </div>
+        <div class="user-mail" *ngIf="roomer.Userinfo.gender">
+          {{roomer.gender}}
+        </div>
+        <div class="user-tool">
+          <span (click)="gotoProfile(roomer.id)">ACCEDER</span>
+        </div>
       </div>
-      <div class="user-name">
-        Emilio Sánchez Catalán
-      </div>
-      <div class="user-mail">
-        <span class="label-mail">e-mail:</span>esc00019@gmail.com
-      </div>
-      <div class="user-tool">
-        <span (click)="gotoProfile()">ACCEDER</span>
-      </div>
-    </div>
-    <div class="row-user">
-      <div class="user-avatar">
-        <img src="http://www.mycustomer.com/sites/all/themes/pp/img/default-user.png" />
-      </div>
-      <div class="user-name">
-        Emilio Sánchez Catalán
-      </div>
-      <div class="user-mail">
-        <span class="label-mail">e-mail:</span>esc00019@gmail.com
-      </div>
-      <div class="user-tool">
-        <span (click)="gotoProfile()">ACCEDER</span>
-      </div>
-    </div>
-    <div class="row-user">
-      <div class="user-avatar">
-        <img src="http://www.mycustomer.com/sites/all/themes/pp/img/default-user.png" />
-      </div>
-      <div class="user-name">
-        Emilio Sánchez Catalán
-      </div>
-      <div class="user-mail">
-        <span class="label-mail">e-mail:</span>esc00019@gmail.com
-      </div>
-      <div class="user-tool">
-        <span (click)="gotoProfile()">ACCEDER</span>
-      </div>
-    </div>
-    <div class="row-user">
-      <div class="user-avatar">
-        <img src="http://www.mycustomer.com/sites/all/themes/pp/img/default-user.png" />
-      </div>
-      <div class="user-name">
-        Emilio Sánchez Catalán
-      </div>
-      <div class="user-mail">
-        <span class="label-mail">e-mail:</span>esc00019@gmail.com
-      </div>
-      <div class="user-tool">
-        <span (click)="gotoProfile()">ACCEDER</span>
-      </div>
-    </div>
+    </ng-container>
   </article>
 </section>
